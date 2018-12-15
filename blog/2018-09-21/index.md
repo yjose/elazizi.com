@@ -1,6 +1,6 @@
 ---
 date: "2018-09-21"
-title: "React Native,The missing piece in the beginners guides"
+title: "React Native The missing piece "
 category: "react"
 ---
 
