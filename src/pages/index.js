@@ -47,9 +47,25 @@ const IndexPage = ({
       <Hero>
         <h1>Hi.</h1>
         <p>
-          I&apos;m John Doe, a Senior UX Developer with five years of industry experience, specializing in developing
-          React apps with the best UX users can get.
+          I&apos;m Youssouf, Human first 🙌 | Full stack web developer | Reactjs
         </p>
+        <div class="icons-social">
+            <a target="_blank" href="https://medium.com/@yjose">
+              <i class="fab fa-medium"></i>
+            </a>
+            <a target="_blank" href="https://github.com/yjose">
+              <i class="fab fa-github"></i>
+            </a>
+            <a target="_blank" href="https://twitter.com/ElaziziYoussouf">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a target="_blank" href="https://stackoverflow.com/users/5927325/el-azizi-youssouf">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/in/youssouf-elazizi/">
+              <i class="fab fa-linkedin"></i>
+        </a>
+		  </div>
         <Link to="/contact">
           <Button big>
             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
