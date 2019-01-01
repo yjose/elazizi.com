@@ -1,6 +1,6 @@
 ---
 date: "2018-09-21"
-title: "React Native The missing piece "
+title: "The missing piece in the beginner’s guides : React Native"
 category: "react"
 ---
 
@@ -22,7 +22,7 @@ That doesn’t mean that Reactjs mobile part is not ready yet, but I think this 
 
 ![](https://cdn-images-1.medium.com/max/1600/0*T48w-NkE2rLKV4m5)
 
-React Native HMR demo
+
 
 As mentioned in React Native official documentation, React Native uses Hot Reloading to build apps faster. Instead of recompiling, you can reload your app instantly. I am sure you’re already familiar with it if you come from the React web development world and it worked well with you. However, in the mobile app building, you are likely to lose the Hot Reloading functionality if you are not careful enough! Especially when your mobile app is growing a little bit because the HMR does not support functional components on React Native.
 
@@ -40,7 +40,7 @@ The graph below explains exactly my React Native experience. When I start a new 
 
 ![](https://cdn-images-1.medium.com/max/1600/1*W7U6g5wrfqlNIp2i0jlHeA.png)
 
-React Native Difficulty Curve
+
 
 ### React Native init vs expo
 
