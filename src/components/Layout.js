@@ -85,7 +85,6 @@ const Layout = ({ children }) => (
           {children}
           <Footer>
             &copy; 2018 by Youssouf EL Azizi <br />
-            <span>Last build: {data.site.buildTime}</span>
           </Footer>
         </React.Fragment>
       </ThemeProvider>
