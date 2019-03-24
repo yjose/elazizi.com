@@ -84,7 +84,7 @@ const Layout = ({ children }) => (
           <GlobalStyle />
           {children}
           <Footer>
-            &copy; 2018 by Youssouf EL Azizi <br />
+            &copy; 2019 by Youssouf EL Azizi <br />
           </Footer>
         </React.Fragment>
       </ThemeProvider>
