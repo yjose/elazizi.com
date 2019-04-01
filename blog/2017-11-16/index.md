@@ -1,7 +1,8 @@
 ---
-date: "2017-11-16"
+date: 2017-11-16
 title: "Laravel & Docker, Zero config with Vessel"
 category: "dev,laravel,php"
+published: true
 ---
 
 ![](https://cdn-images-1.medium.com/max/2000/1*TktA6G_ZvLrmvF0ATXOBRQ.png)
@@ -10,11 +11,11 @@ Laravel & docker
 
 > This article is a step-by-step to get started with Vessel ( the new way to setup the Laravel setup config with docker).
 
-> If your are not familiar with docker you can check my last article “  [A step by step guide to setup PHP (Laravel) environment (Linux)](https://hackernoon.com/a-step-by-step-guide-to-setup-php-laravel-environment-linux-50b55a4fd15e)”.
+> If your are not familiar with docker you can check my last article “ [A step by step guide to setup PHP (Laravel) environment (Linux)](https://hackernoon.com/a-step-by-step-guide-to-setup-php-laravel-environment-linux-50b55a4fd15e)”.
 
-Itis a long time that I am a big fan of chris fideo the author of  [servers for hackers](https://serversforhackers.com/) ,one of the most rich source of content to learn server’s configurations , security ,database,docker and much more DevOps topics.
+Itis a long time that I am a big fan of chris fideo the author of [servers for hackers](https://serversforhackers.com/) ,one of the most rich source of content to learn server’s configurations , security ,database,docker and much more DevOps topics.
 
-[**Dockerizing your Application**](https://serversforhackers.com/dockerized-app)  is one of the amazing free course, it’s a step-by-step docker workflow to develop a breeze for your application. According to Chris,Vessel is the result of this docker workflow more is an official that everyone could easily use.
+[**Dockerizing your Application**](https://serversforhackers.com/dockerized-app) is one of the amazing free course, it’s a step-by-step docker workflow to develop a breeze for your application. According to Chris,Vessel is the result of this docker workflow more is an official that everyone could easily use.
 
 > **Let’s give it a try**
 
@@ -22,7 +23,7 @@ Vessel is a lightweight docker environment for Laravel, that means it is just a 
 
 ### Install Docker and Docker-compose
 
-Docker is an open source project based on Linux container, if you are not familiar yet with docker, this article “  [**A Beginner-Friendly Introduction to Containers, VMs and Docker**](https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b)  ” by  [Preethi Kasireddy](https://medium.com/@preethikasireddy)  is the ideal place to take your first step.
+Docker is an open source project based on Linux container, if you are not familiar yet with docker, this article “ [**A Beginner-Friendly Introduction to Containers, VMs and Docker**](https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b) ” by [Preethi Kasireddy](https://medium.com/@preethikasireddy) is the ideal place to take your first step.
 
 At this moment Vessel only works on Mac and Linux because it uses a bash script to run Docker commands.
 
@@ -39,7 +40,7 @@ Next,Apply executable permissions to the binary.
 
 sudo chmod +x /usr/local/bin/docker-compose
 
-Learn more about docker installation :  [docker](https://docs.docker.com/engine/installation/) ,  [docker-compose](https://docs.docker.com/compose/install/)
+Learn more about docker installation : [docker](https://docs.docker.com/engine/installation/) , [docker-compose](https://docs.docker.com/compose/install/)
 
 ### Get Started with Vessel
 
@@ -61,26 +62,26 @@ bash vessel init
 
 The first time you start up an application with Vessel using the init command, vessel will download the following official Docker images:
 
--   PHP 7.1
--   MySQL 5.7
--   Redis
--   NodeJS with NPM, Yarn, and Gulp
+- PHP 7.1
+- MySQL 5.7
+- Redis
+- NodeJS with NPM, Yarn, and Gulp
 
 Start vessel by running :
 
 cd vessel_test
 ./vessel start
 
-Head to  [http://localhost](http://localhost/)  in your browser and see your Laravel site!
+Head to [http://localhost](http://localhost/) in your browser and see your Laravel site!
 
-And at last, also Vessel has good documentation that covers everything you need to know to get started :  [official documentation](https://vessel.shippingdocker.com/)
+And at last, also Vessel has good documentation that covers everything you need to know to get started : [official documentation](https://vessel.shippingdocker.com/)
 
 ### Bonus : Vessel Cheat Sheet
 
 ![](https://cdn-images-1.medium.com/max/1000/1*3qhl54NFza8nK70yl6KPaQ.png)
 
-----------
+---
 
 Thanks for reading! If you think other people should read this, clap for me, tweet and share the post. Remember to follow me on Medium so you can get notified about my future posts.
 
-----------
+---

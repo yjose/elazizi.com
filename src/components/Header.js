@@ -1,42 +1,88 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { darken, lighten } from 'polished';
+import React from 'react'
+import { Link } from 'gatsby'
+import { css } from '@emotion/core'
+import theme from '../../config/theme'
 
-const Wrapper = styled.header`
-  background: linear-gradient(
-    45deg,
-    ${props => darken(0.1, props.theme.colors.primary)},
-    ${props => lighten(0.1, props.theme.colors.primary)}
-  );
-  grid-column: 1 / -1;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding: 2rem 2rem 5rem 2rem;
-  box-shadow: inset 0px -10px 30px 0px rgba(0, 0, 0, 0.1);
-`;
+import Container from './Container'
 
-const Content = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
+const Header = ({
+  dark,
+  bgColor = 'none',
+  siteTitle,
+  headerColor = 'black',
+}) => (
+  <header
+    css={css`
+      width: 100%;
+      flex-shrink: 0;
+      background: none;
+      padding: 30px 0 0 0;
+      background: ${dark ? '#090909' : `${bgColor}` || 'none'};
+    `}
+  >
+    <Container noVerticalPadding>
+      <nav
+        css={css`
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: ${headerColor};
+          a {
+            color: ${headerColor ? headerColor : theme.colors.body_color};
+          }
+          a:hover {
+            color: ${headerColor === theme.colors.white
+              ? 'white'
+              : theme.colors.link_color_hover};
+          }
+        `}
+      >
+        <Link to="/" aria-label="go to homepage" activeClassName="active">
+          {siteTitle}
+        </Link>
+        <div
+          css={css`
+            font-size: 16px;
+            line-height: 1.25;
+            display: flex;
+            align-items: center;
+            a {
+              color: ${dark ? '#fbfbfb' : 'rgba(0,0,0,0.85)'};
+              text-decoration: none;
+              & + a {
+                margin-left: 32px;
+              }
+            }
+            .active {
+              display: none;
+              visibility: hidden;
+            }
+          `}
+        >
+          {/*
+          <Link
+            to="/blog"
+            activeClassName="active"
+            aria-label="View blog page"
+          >
+            Blog
+          </Link>
+          */}
+        </div>
+      </nav>
+    </Container>
+  </header>
+)
 
-  a {
-    color: white;
-    &:hover {
-      opacity: 0.85;
-      color: white;
+export default Header
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
     }
   }
-`;
-
-const Header = ({ children }) => (
-  <Wrapper>
-    <Content>{children}</Content>
-  </Wrapper>
-);
-
-export default Header;
-
-Header.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-};
+`

@@ -1,14 +1,15 @@
 ---
-date: "2017-11-05"
+date: 2017-11-05
 title: "A step by step guide to setup PHP (Laravel) environment (Linux)."
 category: "dev,laravel,php,linux"
+published: true
 ---
 
 ![](https://cdn-images-1.medium.com/max/2000/1*UWkL4QRmHnvLiIoXPoU2qA.jpeg)
 
 This article is a step by step tutorial to get started with PHP and laravel in Linux environment ( Ubuntu ). By installing Apache2, Mysql and PHP, your LAMP server is ready to host your PHP application.
 
-At the end of this post, you’ll know how to add your  custom domain for your local environment.
+At the end of this post, you’ll know how to add your custom domain for your local environment.
 
 If you are familiar with Docker check My post :[Laravel & Docker, Zero config with Vessel](https://hackernoon.com/laravel-docker-zero-config-with-vessel-60e1aa173ea8).
 
@@ -37,18 +38,18 @@ sudo systemctl status apache2
 
 sudo systemctl status apache2
 
-As you see above, the service appears to have started successfully, you can also access to your server through the [http://localhost](http://localhost/)  address and you will see Apache2 default home page.
+As you see above, the service appears to have started successfully, you can also access to your server through the [http://localhost](http://localhost/) address and you will see Apache2 default home page.
 
 It is important to know that all your web content must be under the /var/www/html directory. you can check the Bonus section to make any folder as your root web content to know how to config.
 
 To master Appche2 config you need to master this 6 commands line:
 
--   **a2enmod**  (**a**pache**2**  **en**able  **mod**e) : To enable an Apache2 mod like rewrite mode.
--   **a2dismod**  (**a**pache**2**  **dis**able  **mod**e) : To disable an Apache2 mod.
--   **a2enconf**  (**a**pache**2**  **en**able  **Config**) : To enable a specific config.
--   **a2disconf**  (**a**pache**2**  **dis**able  **config**) : To disable a specific config.
--   **a2ensite**(**a**pache**2**  **en**able  **Site**) : To enable a specific app.
--   **a2dissite**  (**a**pache**2**  **dis**able  **Site**) : To disable a specific app.
+- **a2enmod** (**a**pache**2** **en**able **mod**e) : To enable an Apache2 mod like rewrite mode.
+- **a2dismod** (**a**pache**2** **dis**able **mod**e) : To disable an Apache2 mod.
+- **a2enconf** (**a**pache**2** **en**able **Config**) : To enable a specific config.
+- **a2disconf** (**a**pache**2** **dis**able **config**) : To disable a specific config.
+- **a2ensite**(**a**pache**2** **en**able **Site**) : To enable a specific app.
+- **a2dissite** (**a**pache**2** **dis**able **Site**) : To disable a specific app.
 
 Enable rewrite mode
 
@@ -59,7 +60,7 @@ This Gif take you around the most important Apache directories.
 
 ![](https://cdn-images-1.medium.com/max/800/1*Ewi-JLOM5ikd4xJydP5Avw.gif)
 
-You can learn more about Apache config and Linux in this  [article](https://www.linode.com/docs/web-servers/apache/apache-web-server-debian-8)
+You can learn more about Apache config and Linux in this [article](https://www.linode.com/docs/web-servers/apache/apache-web-server-debian-8)
 
 #### Install MySQL
 
@@ -69,9 +70,9 @@ Click Enter to validate the first popup, then create a password for your Mysql r
 
 mysql_secure_installation
 
-You can read more about improving  [MySQL installation security](https://dev.mysql.com/doc/refman/5.7/en/mysql-secure-installation.html)
+You can read more about improving [MySQL installation security](https://dev.mysql.com/doc/refman/5.7/en/mysql-secure-installation.html)
 
-To mange database, there is a lot of SQL clients to use with MySQL like  [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html),  [SQuirreL](http://squirrel-sql.sourceforge.net/),  [SQLECTRON](https://sqlectron.github.io/)  or the great Google Extension  [**Chrome MySQL Admin**](https://chrome.google.com/webstore/detail/chrome-mysql-admin/ndgnpnpakfcdjmpgmcaknimfgcldechn?hl=en) .
+To mange database, there is a lot of SQL clients to use with MySQL like [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html), [SQuirreL](http://squirrel-sql.sourceforge.net/), [SQLECTRON](https://sqlectron.github.io/) or the great Google Extension [**Chrome MySQL Admin**](https://chrome.google.com/webstore/detail/chrome-mysql-admin/ndgnpnpakfcdjmpgmcaknimfgcldechn?hl=en) .
 
 #### Install PHP :
 
@@ -79,14 +80,14 @@ sudo add-apt-repository -y ppa:ondrej/php
 sudo apt-get update
 
 sudo apt-get install -y php7.1 php7.1-fpm libapache2-mod-php7.0 php7.1-cli php7.1-curl php7.1-mysql php7.1-sqlite3 \
-    php7.1-gd php7.1-xml php7.1-mcrypt php7.1-mbstring php7.1-iconv
+ php7.1-gd php7.1-xml php7.1-mcrypt php7.1-mbstring php7.1-iconv
 
 As you see above this large command will install php, php-cli and the most important php libraries.
 
 #### Install Composer :
 
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-sudo chown -R $USER $HOME/.composer
+sudo chown -R $USER$HOME/.composer
 
 Now you are ready to create your first Laravel app.
 
@@ -101,7 +102,7 @@ Open your browser and you can access to your app through :
 
 [http://localhost](http://localhost/)/lara_app/public
 
-----------
+---
 
 ### Bonus
 
@@ -114,13 +115,14 @@ sudo touch lara_app.conf
 
 Past and update DocumentRoot and Directory with your app folder inside the file.
 
-<VirtualHost *:80>.
+<VirtualHost \*:80>.
 
 ServerName lara_app.dev
 
 ServerAdmin webmaster@localhost
 
 # Your Custom folder
+
 DocumentRoot /media/disk2/Work/lara_app/public/
 
 <Directory /media/disk2/Work/lara_app/public/>
@@ -133,9 +135,9 @@ Require all granted
 
 </Directory>
 
-ErrorLog ${APACHE_LOG_DIR}/error.log
+ErrorLog \${APACHE_LOG_DIR}/error.log
 
-CustomLog ${APACHE_LOG_DIR}/access.log
+CustomLog \${APACHE_LOG_DIR}/access.log
 
 </VirtualHost>
 
@@ -151,19 +153,20 @@ sudo a2ensite lara_app
 At last, you can configure the lara_app.dev domain name by adding this line into /etc/hosts file.
 
 # /etc/hosts
+
 127.0.0.1 localhost
 127.0.0.1 lara_app.dev
 127.0.1.1 youssouf-Latitude-E6410
 
 Now you can access to your app through your custom domain name : http://lara_app.dev
 
-----------
+---
 
 If you are familiar with Docker check My post :[Laravel & Docker, Zero config with Vessel](https://hackernoon.com/laravel-docker-zero-config-with-vessel-60e1aa173ea8).
 
 ### If you are familiar with React check My post :
 
 [**Introducing reactjs-popup 🎉 — Modals, Tooltips and Menus — All in one**
-_This article is about giving you a simple overview of what you can do with reactjs-popup and how to use it effectively._hackernoon.com](https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa "https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa")[](https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa)
+\_This article is about giving you a simple overview of what you can do with reactjs-popup and how to use it effectively.\_hackernoon.com](https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa "https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa")[](https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa)
 
 Thanks for reading! If you think other people should read this, clap for me, tweet and share the post. Remember to follow me on Medium so you can get notified about my future posts.

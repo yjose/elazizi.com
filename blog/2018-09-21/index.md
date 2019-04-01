@@ -1,12 +1,13 @@
 ---
-date: "2018-09-21"
+date: 2018-09-21
 title: "The missing piece in the beginner’s guides : React Native"
 category: "react"
+published: true
 ---
 
-> **This article was originally published on the**  [**Obytes blog**](https://www.obytes.com/blog/)**.**
+> **This article was originally published on the** [**Obytes blog**](https://www.obytes.com/blog/)**.**
 
-For the past few months, I have been working with  [Barmej](https://www.barmej.com/)’s team to build a mobile app using  **React native**. It occurred to me to write this helpful article about this project and share my perspective, ideas and some answers to the questions that beginners usually ask. This article is for every developer with React web background. It is basically about how to start building apps with React Native.
+For the past few months, I have been working with [Barmej](https://www.barmej.com/)’s team to build a mobile app using **React native**. It occurred to me to write this helpful article about this project and share my perspective, ideas and some answers to the questions that beginners usually ask. This article is for every developer with React web background. It is basically about how to start building apps with React Native.
 
 In this paper, I will not talk about setup and basic stuff. Instead, I will respond to some critical questions that you would certainly ask during your React Native app building.
 
@@ -21,8 +22,6 @@ If you are here reading this article, you’re already ready! But first, let me 
 That doesn’t mean that Reactjs mobile part is not ready yet, but I think this because of the amazing stuff that happened on the web platform every Day. However, I guarantee you that this experience will be much fun than developing on Native languages ( Android and swift ).
 
 ![](https://cdn-images-1.medium.com/max/1600/0*T48w-NkE2rLKV4m5)
-
-
 
 As mentioned in React Native official documentation, React Native uses Hot Reloading to build apps faster. Instead of recompiling, you can reload your app instantly. I am sure you’re already familiar with it if you come from the React web development world and it worked well with you. However, in the mobile app building, you are likely to lose the Hot Reloading functionality if you are not careful enough! Especially when your mobile app is growing a little bit because the HMR does not support functional components on React Native.
 
@@ -40,13 +39,11 @@ The graph below explains exactly my React Native experience. When I start a new 
 
 ![](https://cdn-images-1.medium.com/max/1600/1*W7U6g5wrfqlNIp2i0jlHeA.png)
 
-
-
 ### React Native init vs expo
 
 To start a new project with React Native you need Android Studio and XCode. Android Studio means a java environment setup. XCode means you simply need to have a MAC Laptop, yea !! when the expo comes to the React Native ecosystem, they introduce a new way to build a whole mobile app without even using Android Studio or Xcode. I believe they do a great work to allow non-MAC-OS users start building iOS app as well. Not only that expo comes with some great features such as Push Notifications, Asset Manager and sharing the app with your testers without any difficulty. expo comes with a major issue that it does not support native module. This issue is one of the reasons why I choose `react-native init` over Expo. And to be honest, I don’t want to add an extra layer to my app.
 
-That doesn’t mean ”don’t use expo!”, Expo is super useful for a lot of people and the React Native team implements `react-native-create-app` with the expo SDK. I think it is the best choice to create your first app and then migrate to the ‘react-native init’ way. You can read more about this topic in this open discussion issue on the Reactjs community  [GitHub repo](https://github.com/react-community/create-react-native-app/issues/516).
+That doesn’t mean ”don’t use expo!”, Expo is super useful for a lot of people and the React Native team implements `react-native-create-app` with the expo SDK. I think it is the best choice to create your first app and then migrate to the ‘react-native init’ way. You can read more about this topic in this open discussion issue on the Reactjs community [GitHub repo](https://github.com/react-community/create-react-native-app/issues/516).
 
 ### iOS or Android ( Do I need to learn java/swift stuff)
 
@@ -56,7 +53,7 @@ one last advice related to this section is that I highly recommend starting deve
 
 ### State Management and API
 
-This is the part which needs your  **Reactjs**  experience, perhaps you are using Redux or Mobx to manage your app state, you can use them too. But the mobile platform has some specific requirements over the web platform. That means extra features that must be implemented such as the offline ability, caching strategies and some optimistic update.
+This is the part which needs your **Reactjs** experience, perhaps you are using Redux or Mobx to manage your app state, you can use them too. But the mobile platform has some specific requirements over the web platform. That means extra features that must be implemented such as the offline ability, caching strategies and some optimistic update.
 
 During the Barmej development, we opted for a redux & redux-observable & redux-persist stack, and using the same rest API as the web app and also we tried to use some web app code as much as possible. Then, after a while, we’ve found out that the app is not on the best performance we want it to be. Because of the huge number of API's call that we needed to make, the normalization process for caching and the offline support.
 
@@ -66,7 +63,7 @@ _At this point, we are convinced by the GraphQl stack over the redux one. And we
 
 ### Conclusion
 
-This article has come to an end for now. It is normal to have challenging situations during your app development.  **_We are using React Native for a while now and we are convinced by our choice._**
+This article has come to an end for now. It is normal to have challenging situations during your app development. **_We are using React Native for a while now and we are convinced by our choice._**
 
 I will post another article soon about React Native development, so stay tuned and don’t forget to follow me.
 
