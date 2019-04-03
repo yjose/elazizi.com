@@ -3,6 +3,9 @@ date: 2019-03-19
 title: "Choose the right React Native Navigation library"
 category: "react"
 published: true
+keywords:
+  ["react", "react-native", "react-native-navigation", "react-navigation"]
+banner: "https://cdn-images-1.medium.com/max/2600/0*qC8nG1sI8ZP-Dwgr"
 ---
 
 ![](https://cdn-images-1.medium.com/max/2600/0*qC8nG1sI8ZP-Dwgr)

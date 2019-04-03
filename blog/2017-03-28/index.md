@@ -3,6 +3,7 @@ date: 2017-03-28
 title: "[List] Atom Setup for your next react project !!"
 category: "web,react"
 published: true
+banner: "https://cdn-images-1.medium.com/max/2000/1*kbn4dA4rCay1bj_eVXxKGg.png"
 ---
 
 ![](https://cdn-images-1.medium.com/max/2000/1*kbn4dA4rCay1bj_eVXxKGg.png)

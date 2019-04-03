@@ -26,7 +26,7 @@ const Hero = () => (
         flex-direction: column;
       `}
     >
-      <h1
+      <h2
         css={css`
           position: relative;
           z-index: 5;
@@ -35,8 +35,10 @@ const Hero = () => (
           max-width: ${rhythm(15)};
         `}
       >
-        Your blog says the things you want to say.
-      </h1>
+        👋 <br />
+        Hello, I'm Youssouf ! <br />
+        Human first 🙌 | Full stack web developer | Reactjs
+      </h2>
     </Container>
     <div
       css={css`
@@ -150,6 +152,7 @@ export const pageQuery = graphql`
                 }
               }
             }
+
             keywords
           }
         }

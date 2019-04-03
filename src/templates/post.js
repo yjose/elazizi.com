@@ -96,9 +96,6 @@ export const pageQuery = graphql`
       ...site
     }
     mdx(fields: { id: { eq: $id } }) {
-      fields {
-        slug
-      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -112,6 +109,9 @@ export const pageQuery = graphql`
         }
 
         keywords
+      }
+      fields {
+        slug
       }
       code {
         body
