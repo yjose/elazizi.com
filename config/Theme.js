@@ -3,7 +3,7 @@ import { fonts } from "../src/lib/typography";
 
 const brand = {
   //primary: '#0078CC',
-  primary: "#5348FF",
+  primary: "rgba(80, 161, 252, 1)",
   //primary: "#1ABC9C",
   //primary: "#D42210",
   //primary: "#D96E0E",
