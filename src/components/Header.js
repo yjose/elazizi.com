@@ -1,15 +1,15 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import { css } from '@emotion/core'
-import theme from '../../config/theme'
+import React from "react";
+import { Link } from "gatsby";
+import { css } from "@emotion/core";
+import theme from "../../config/theme";
 
-import Container from './Container'
+import Container from "./Container";
 
 const Header = ({
   dark,
-  bgColor = 'none',
+  bgColor = "none",
   siteTitle,
-  headerColor = 'black',
+  headerColor = "black"
 }) => (
   <header
     css={css`
@@ -17,7 +17,7 @@ const Header = ({
       flex-shrink: 0;
       background: none;
       padding: 30px 0 0 0;
-      background: ${dark ? '#090909' : `${bgColor}` || 'none'};
+      background: ${dark ? "#090909" : `${bgColor}` || "none"};
     `}
   >
     <Container noVerticalPadding>
@@ -33,13 +33,13 @@ const Header = ({
           }
           a:hover {
             color: ${headerColor === theme.colors.white
-              ? 'white'
+              ? "white"
               : theme.colors.link_color_hover};
           }
         `}
       >
         <Link to="/" aria-label="go to homepage" activeClassName="active">
-          {siteTitle}
+          Youssouf Blog
         </Link>
         <div
           css={css`
@@ -48,7 +48,7 @@ const Header = ({
             display: flex;
             align-items: center;
             a {
-              color: ${dark ? '#fbfbfb' : 'rgba(0,0,0,0.85)'};
+              color: ${dark ? "#fbfbfb" : "rgba(0,0,0,0.85)"};
               text-decoration: none;
               & + a {
                 margin-left: 32px;
@@ -60,22 +60,19 @@ const Header = ({
             }
           `}
         >
-          {/*
-          <Link
-            to="/blog"
-            activeClassName="active"
-            aria-label="View blog page"
-          >
+          {/* <Link to="/blog" activeClassName="active" aria-label="View blog page">
             Blog
           </Link>
-          */}
+          <Link to="/blog" activeClassName="active" aria-label="View blog page">
+            contact
+          </Link> */}
         </div>
       </nav>
     </Container>
   </header>
-)
+);
 
-export default Header
+export default Header;
 
 export const pageQuery = graphql`
   query {
@@ -85,4 +82,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
