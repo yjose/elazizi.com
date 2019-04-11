@@ -23,7 +23,6 @@ const Description = styled.p`
 
 export default ({ post }) => (
   <div
-    key={post.id}
     css={css`
       margin-bottom: 40px;
       background: white;
@@ -35,24 +34,19 @@ export default ({ post }) => (
     <Link to={post.fields.slug} aria-label={`View ${post.frontmatter.title}`}>
       <PostTitle>{post.frontmatter.title}</PostTitle>
     </Link>
-    <Description>
-      {post.excerpt}
-      <div
-        css={css`
-          margin-top: 10px;
-          display: flex;
-          justify-content: flex-end;
-          padding: 10px;
-        `}
-      >
-        <Link
-          to={post.fields.slug}
-          aria-label={`View ${post.frontmatter.title}`}
-        >
-          Read Article →
-        </Link>
-      </div>
-    </Description>
+
+    <Description>{post.excerpt}</Description>
+    <div
+      css={css`
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+      `}
+    >
+      <Link to={post.fields.slug} aria-label={`View ${post.frontmatter.title}`}>
+        Read Article →
+      </Link>
+    </div>
     <span />
   </div>
 );

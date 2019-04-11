@@ -23,7 +23,7 @@ export default function Index({ data: { site, allMdx } }) {
         `}
       >
         {allMdx.edges.map(({ node: post }) => (
-          <PostCard post={post} />
+          <PostCard post={post} key={post.id} />
         ))}
         <Link
           to="/blog"

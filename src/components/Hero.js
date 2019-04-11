@@ -49,7 +49,7 @@ const Hero = () => (
           flex-wrap: wrap-reverse;
         `}
       >
-        <p
+        <div
           css={css`
             position: relative;
             z-index: 5;
@@ -71,7 +71,7 @@ const Hero = () => (
           A Human first guy 🙌 , I'am a Full stack web developer 👨🏻‍💻 and OSS
           believers, I love working with react and ReactNative and I write my
           programming journey 👇👇👇.
-        </p>
+        </div>
         <Avatar src={image} />
       </div>
     </Container>
