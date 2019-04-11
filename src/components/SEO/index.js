@@ -1,12 +1,18 @@
-import path from 'path'
-import React from 'react'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import PropTypes from 'prop-types'
-import SchemaOrg from './SchemaOrg'
-import config from '../../../config/website'
+import path from "path";
+import React from "react";
+import Helmet from "react-helmet";
+import { StaticQuery, graphql } from "gatsby";
+import PropTypes from "prop-types";
+import SchemaOrg from "./SchemaOrg";
+import config from "../../../config/website";
 
-const SEO = ({ postData, frontmatter = {}, postImage, isBlogPost }) => (
+const SEO = ({
+  postData,
+  frontmatter = {},
+  description: postDescription,
+  postImage,
+  isBlogPost
+}) => (
   <StaticQuery
     query={graphql`
       {
@@ -34,14 +40,15 @@ const SEO = ({ postData, frontmatter = {}, postImage, isBlogPost }) => (
     `}
     render={({ site: { siteMetadata: seo } }) => {
       const postMeta =
-        frontmatter || postData.childMarkdownRemark.frontmatter || {}
-      const title = isBlogPost ? postMeta.title : config.siteTitle
-      const description = postMeta.description || seo.description
-      const image = postImage ? `${seo.canonicalUrl}${postImage}` : seo.image
+        frontmatter || postData.childMarkdownRemark.frontmatter || {};
+      const title = isBlogPost ? postMeta.title : config.siteTitle;
+      const description = !!postDescription ? postDescription : seo.description;
+
+      const image = postImage ? `${seo.canonicalUrl}${postImage}` : seo.image;
       const url = postMeta.slug
         ? `${seo.canonicalUrl}${path.sep}${postMeta.slug}`
-        : seo.canonicalUrl
-      const datePublished = isBlogPost ? postMeta.datePublished : false
+        : seo.canonicalUrl;
+      const datePublished = isBlogPost ? postMeta.datePublished : false;
 
       return (
         <React.Fragment>
@@ -79,26 +86,26 @@ const SEO = ({ postData, frontmatter = {}, postImage, isBlogPost }) => (
             defaultTitle={seo.title}
           />
         </React.Fragment>
-      )
+      );
     }}
   />
-)
+);
 
 SEO.propTypes = {
   isBlogPost: PropTypes.bool,
   postData: PropTypes.shape({
     childMarkdownRemark: PropTypes.shape({
       frontmatter: PropTypes.any,
-      excerpt: PropTypes.any,
-    }),
+      excerpt: PropTypes.any
+    })
   }),
-  postImage: PropTypes.string,
-}
+  postImage: PropTypes.string
+};
 
 SEO.defaultProps = {
   isBlogPost: false,
   postData: { childMarkdownRemark: {} },
-  postImage: null,
-}
+  postImage: null
+};
 
-export default SEO
+export default SEO;
