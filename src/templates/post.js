@@ -1,96 +1,122 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
-import kebabCase from 'lodash/kebabCase';
-import { Layout, Wrapper, Header, Subline, SEO, PrevNext } from 'components';
-import { media } from '../utils/media';
-import config from '../../config/SiteConfig';
-import '../utils/prismjs-theme.css';
+import React from "react";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import SEO from "components/SEO";
+import { css } from "@emotion/core";
+import Container from "components/Container";
+import Layout from "../components/Layout";
+import { fonts } from "../lib/typography";
+import Share from "../components/Share";
+import config from "../../config/website";
+import { bpMaxSM } from "../lib/breakpoints";
 
-const Content = styled.article`
-  grid-column: 2;
-  box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
-  border-radius: 1rem;
-  padding: 2rem 4rem;
-  background-color: ${props => props.theme.colors.bg};
-  z-index: 9000;
-  margin-top: -3rem;
-  @media ${media.tablet} {
-    padding: 3rem 3rem;
-  }
-  @media ${media.phone} {
-    padding: 2rem 1.5rem;
-  }
-`;
-
-const Title = styled.h1`
-  margin-bottom: 1rem;
-`;
-
-const PostContent = styled.div`
-  margin-top: 4rem;
-`;
-
-const Post = ({ pageContext: { slug, prev, next }, data: { markdownRemark: postNode } }) => {
-  console.log(postNode)
-  const post = postNode.frontmatter;
+export default function Post({
+  data: { site, mdx },
+  pageContext: { next, prev }
+}) {
+  const author = mdx.frontmatter.author || config.author;
+  const date = mdx.frontmatter.date;
+  const title = mdx.frontmatter.title;
+  const banner = mdx.frontmatter.banner;
 
   return (
-    <Layout>
-      <Wrapper>
-        <SEO postPath={slug} postNode={postNode} postSEO />
-        <Helmet title={`${post.title} | ${config.siteTitle}`} />
-        <Header>
-          <Link to="/">{config.siteTitle}</Link>
-        </Header>
-        <Content>
-          <Title>{post.title}</Title>
-          <Subline>
-            {post.date} &mdash; {postNode.timeToRead} Min Read &mdash; In{' '}
-            <Link to={`/categories/${kebabCase(post.category)}`}>{post.category}</Link>
-          </Subline>
-          <PostContent dangerouslySetInnerHTML={{ __html: postNode.html }} />
-          <PrevNext prev={prev} next={next} />
-        </Content>
-      </Wrapper>
+    <Layout site={site} frontmatter={mdx.frontmatter}>
+      <SEO frontmatter={mdx.frontmatter} description={mdx.excerpt} isBlogPost />
+      <article
+        css={css`
+          width: 100%;
+          display: flex;
+        `}
+      >
+        <Container>
+          <h1
+            css={css`
+              text-align: center;
+              margin-bottom: 20px;
+            `}
+          >
+            {title}
+          </h1>
+          <div
+            css={css`
+              display: flex;
+              justify-content: center;
+              margin-bottom: 20px;
+              h3,
+              span {
+                text-align: center;
+                font-size: 15px;
+                opacity: 0.6;
+                font-family: ${fonts.regular}, sans-serif;
+                font-weight: normal;
+                margin: 0 5px;
+              }
+            `}
+          >
+            {author && <h3>{author}</h3>}
+            {author && <span>—</span>}
+            {date && <h3>{date}</h3>}
+          </div>
+          {banner && (
+            <div
+              css={css`
+                padding: 30px;
+                ${bpMaxSM} {
+                  padding: 0;
+                }
+              `}
+            >
+              <Img
+                sizes={banner.childImageSharp.fluid}
+                alt={site.siteMetadata.keywords.join(", ")}
+              />
+            </div>
+          )}
+          <br />
+          <MDXRenderer>{mdx.code.body}</MDXRenderer>
+        </Container>
+        {/* <SubscribeForm /> */}
+      </article>
+      <Container noVerticalPadding>
+        <Share
+          url={`${config.siteUrl}/${mdx.fields.slug}/`}
+          title={title}
+          twitterHandle={config.twitterHandle}
+        />
+        <br />
+      </Container>
     </Layout>
   );
-};
+}
 
-export default Post;
-
-Post.propTypes = {
-  pageContext: PropTypes.shape({
-    slug: PropTypes.string.isRequired,
-    next: PropTypes.object,
-    prev: PropTypes.object,
-  }),
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object.isRequired,
-  }).isRequired,
-};
-
-Post.defaultProps = {
-  pageContext: PropTypes.shape({
-    next: null,
-    prev: null,
-  }),
-};
-
-export const postQuery = graphql`
-  query postBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      excerpt
+export const pageQuery = graphql`
+  query($id: String!) {
+    site {
+      ...site
+    }
+    mdx(fields: { id: { eq: $id } }) {
+      excerpt(pruneLength: 300)
       frontmatter {
         title
-        date(formatString: "DD.MM.YYYY")
-        category
+        date(formatString: "MMMM DD, YYYY")
+        author
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 900) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+
+        keywords
       }
-      timeToRead
+      fields {
+        slug
+      }
+      code {
+        body
+      }
     }
   }
 `;

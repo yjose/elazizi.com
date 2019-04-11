@@ -1,12 +1,12 @@
 ---
-date: "2019-03-19"
+date: 2019-03-19
 title: "Choose the right React Native Navigation library"
-category: "react"
+categories: ["react-native"]
+published: true
+keywords:
+  ["react", "react-native", "react-native-navigation", "react-navigation"]
+banner: "./banner.png"
 ---
-
-
-
-![](https://cdn-images-1.medium.com/max/2600/0*qC8nG1sI8ZP-Dwgr)
 
 If you ever had a chance to program a mobile app, you would have probably noticed that there are two major components that are mostly used: “Lists” and “navigation”. Therefore, mastering those two components is quite crucial in a way that they will spare you many challenging problems during your programming. Eventually, they will ensure delivering a friendly mobile app.
 
@@ -70,12 +70,10 @@ As the RN official docs mentioned, you might face some problems using RTL layout
 
 Both libraries RN and RNN are one of the best navigation solutions for React Native. They both have their cons and pros. So, I hope this post can help you make a good choice of the solution that is going to satisfy the needs of your app.
 
--   If your programming an app that has some complicated stacks and some heavy calculation even with some complexity setup, RNN is a go-to. It will provide your app with the best performance.
--   Use RN for less complicated apps.
+- If your programming an app that has some complicated stacks and some heavy calculation even with some complexity setup, RNN is a go-to. It will provide your app with the best performance.
+- Use RN for less complicated apps.
 
 I personally decided to go for React Native Navigation in my projects.
-
-
 
 ### Bonus:
 
@@ -87,12 +85,12 @@ I used both of them and as I already mentioned we recently migrated an app from 
 
 so I recommend doing the following.
 
--   Test your app with a real old android phone. If you are seeing some issue go to the next step, All is well congrats
--   Add [react-native-screens](https://github.com/kmagiera/react-native-screens) to your app, a simple solution that aims to expose native navigation container for your stacks screen. Of course, you will see some improvements. Not enough go to step 3.
--   Try to use the I[nteraction Manager](https://facebook.github.io/react-native/docs/interactionmanager) on the place when you have a heavy calculation.
--   Try to update [android JSC](https://github.com/react-native-community/jsc-android-buildscripts)
--   Migrate to RNN: This migrate will take from 3 weeks to 5 weeks depending on your project.
+- Test your app with a real old android phone. If you are seeing some issue go to the next step, All is well congrats
+- Add [react-native-screens](https://github.com/kmagiera/react-native-screens) to your app, a simple solution that aims to expose native navigation container for your stacks screen. Of course, you will see some improvements. Not enough go to step 3.
+- Try to use the I[nteraction Manager](https://facebook.github.io/react-native/docs/interactionmanager) on the place when you have a heavy calculation.
+- Try to update [android JSC](https://github.com/react-native-community/jsc-android-buildscripts)
+- Migrate to RNN: This migrate will take from 3 weeks to 5 weeks depending on your project.
 
-----------
+---
 
 Thanks for reading! If you think other people should read this post and use this project, like , tweet, and share the post.
