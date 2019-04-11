@@ -1,14 +1,12 @@
 ---
 date: 2019-03-19
 title: "Choose the right React Native Navigation library"
-category: "react"
+categories: ["react-native"]
 published: true
 keywords:
   ["react", "react-native", "react-native-navigation", "react-navigation"]
-banner: "https://cdn-images-1.medium.com/max/2600/0*qC8nG1sI8ZP-Dwgr"
+banner: "./banner.png"
 ---
-
-![](https://cdn-images-1.medium.com/max/2600/0*qC8nG1sI8ZP-Dwgr)
 
 If you ever had a chance to program a mobile app, you would have probably noticed that there are two major components that are mostly used: “Lists” and “navigation”. Therefore, mastering those two components is quite crucial in a way that they will spare you many challenging problems during your programming. Eventually, they will ensure delivering a friendly mobile app.
 

@@ -1,19 +1,18 @@
 ---
 date: 2018-02-02
 title: "Introducing reactjs-popup 🎉 (3kb)—React popup, Modals, Tooltips and Menus — All in one"
-category: "react"
+categories: ["web", "react"]
+keywords: ["react", "react-popup", "react-modal"]
 published: true
 ---
 
 ![](https://cdn-images-1.medium.com/max/800/1*x-TqQwyT2ADmnb51oRJCOg.gif)
 
-reactjs-popup Home page [https://react-popup.elazizi.com/](https://react-popup.elazizi.com/)
-
 > This article is about giving you a simple overview of what you can do with reactjs-popup and how to use it effectively.
 
 Today, we are excited to announce reactjs-popup 1.0.
 
-R[eactjs-popup](https://react-popup.elazizi.com/) is a simple and very small (3 kb) react popup component, with multiple use cases.
+[Reactjs-popup](https://react-popup.elazizi.com/) is a simple and very small (3 kb) react popup component, with multiple use cases.
 we created reactjs-popup to create a color picker for our project [picsrush](https://picsrush.com/) a new online image editor. After a while, We decided to make it available for everyone in GitHub and npm repository.
 
 **Why do you need to choose reactjs\*\***-\***\*popup over all other implementation?**
@@ -35,23 +34,35 @@ If you need to create a simple modal, tooltip or a nested menu this component is
 
 This package is available in npm repository as reactjs-popup. It will work correctly with all popular bundlers.
 
-[**yjose/reactjs-popup**
-\_reactjs-popup - React Popup Component - Modals,Tooltips and Menus - All in one_github.com](https://github.com/yjose/reactjs-popup "https://github.com/yjose/reactjs-popup")[](https://github.com/yjose/reactjs-popup)
-
+```sh
 npm install reactjs-popup --save
 #using yarn
 yarn add reactjs-popup -S
+```
 
 Now you can import the component and start using it :
 
-```
+```jsx
 import React from "react";import Popup from "reactjs-popup";export default () => (  <Popup
 ```
 
 You can also use it with function as children pattern.
 
-```
-import React from "react";import Popup from "reactjs-popup";export default () => (  <Popup trigger={<button>Trigger</button>} position="top left">    {close => (      <div>        Content here        <a className="close" onClick={close}>          &times;        </a>      </div>    )}  </Popup>);
+```jsx
+import React from "react";
+import Popup from "reactjs-popup";
+export default () => (
+  <Popup trigger={<button>Trigger</button>} position="top left">
+    {close => (
+      <div>
+        Content here{" "}
+        <a className="close" onClick={close}>
+          &times;
+        </a>
+      </div>
+    )}
+  </Popup>
+);
 ```
 
 Complete component API : [Reactjs-popup Component API](https://react-popup.elazizi.com/component-api/)
@@ -65,8 +76,6 @@ Complete component API : [Reactjs-popup Component API](https://react-popup.elazi
 > ALL in one demo
 
 ![](https://cdn-images-1.medium.com/max/800/1*x-TqQwyT2ADmnb51oRJCOg.gif)
-
-reactjs-popup demo (Modal,tooltip,Menu)
 
 #### What’s Next For reactjs-popup ?
 

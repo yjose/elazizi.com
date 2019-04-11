@@ -1,8 +1,10 @@
 ---
 date: 2018-04-04
 title: "How to create your own auto direct message Twitter bot for free 💬"
-category: "Coding"
+categories: ["bot", "twitter"]
+keywords: ["bot", "twitter"]
 published: true
+banner: "./banner.png"
 ---
 
 Creating a welcome message for your new followers in Twitter is the first step to getting more people to engage with your tweets and links. As you might know, there are many online services that help you send auto direct messages (DMs) to your new followers. But I think it’s crazy how online services charge between $5 to$15 for a simple tool that creates bots, when you can build your own for free.
@@ -31,7 +33,7 @@ Let’s get started.
 
 If you have already cloned the project to your computer, you will see this structure:
 
-```
+```sh
 $ cd twitter-bot
 $ tree .
 .
@@ -50,8 +52,6 @@ As you can see, the project is a simple Node.js app with an index.js file as an 
 
 ![](https://cdn-images-1.medium.com/max/1600/1*Y-eOVjfnFZYCN5LQUblrhw.png)
 
-infex.js file
-
 The index file is a simple script that imports and calls the `AutoDM` function.
 
 To make the app more fun, I added a simple message that shows when the app has started successfully.
@@ -60,11 +60,7 @@ As I have already mentioned, I use the Twit package to connect to the Twitter AP
 
 ![](https://cdn-images-1.medium.com/max/1600/1*X4jq7jTLSq346ho5Y7WJ5A.png)
 
-Twit.js file
-
 ![](https://cdn-images-1.medium.com/max/1600/1*gpIo0pnMOEGV_ApszXz-0A.png)
-
-config.js file
 
 `process.env.XXXXXXX` is an environment variable that we need to add to our Heroku app in the deployment step.
 
@@ -74,19 +70,13 @@ As you can see below, the `AutoDM` is a simple arrow function. It listens to the
 
 ![](https://cdn-images-1.medium.com/max/1600/0*kGF0ObTjFW4zIVA2.)
 
-AutoDM.js file
-
 The `sendMessge` function gets, as a parameter, the user who follows you (`screen_name`). We need to create an obj with `screen_name` and a text message. We then send a post request to the Twitter API to send a DM to `@screen_name`as per the following:
 
 ![](https://cdn-images-1.medium.com/max/1600/1*8RHHjhuP5MMix6iyB1oFQA.png)
 
-SendMessge Function
-
 Now, think about how you would like to introduce yourself. You can modify the existing `GenerateMessage` function to create your own welcome message. Don’t forget to add some pleasantries in there — those increase the chance that the user clicks your link, or responds to your message.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*vsCpSy_gRmkKavZeyzF9WA.png)
-
-GenerateMessge Function
 
 It is easy, isn’t it? You can read more code from the [Github repo](https://github.com/yjose/twitter-bot).
 

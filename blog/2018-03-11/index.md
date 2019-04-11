@@ -1,15 +1,14 @@
 ---
 date: 2018-03-11
 title: "Create a fancy burger menu using reactjs-popup"
-category: "react"
+categories: ["react", "web"]
+keywords: ["react", "react-popup", "react-modal", "burger menu"]
 published: true
 ---
 
 > This article is a step by step tutorial to create a simple burger menu for your website by using reactjs-popup
 
 ![](https://cdn-images-1.medium.com/max/800/1*ttcLA5BrtUAXSBo6YfoQoA.gif)
-
-burger menu deom
 
 [Reactjs-popup](https://react-popup.netlify.com/) is a new and simple react popup component built using react fragments which is one of the new features that comes with react 16. And it can handle multiple use cases.By using this tiny react popup component you can create a Tooltips, Modals and Menus.
 
@@ -21,9 +20,59 @@ By the end of this article you will be able to create your custom burger menu wi
 
 We will start by building a burger icon component,
 
+```jsx
+import React from "react";
+
+export default ({ open, ...props }) => (
+  <div className={open ? "burger-menu open" : "burger-menu"} {...props}>
+    <div className="bar1" key="b1" />
+    <div className="bar2" key="b2" />
+    <div className="bar3" key="b3" />
+  </div>
+);
+```
+
 As you see we pass the ‘open’ prop to the component so we can permute the icon class name as the preview example explains
 
-Burger icon css
+```css
+.burger-menu,
+.burger-menu.open {
+  display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  z-index: 9999;
+  background: #fff;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.burger-menu .bar1,
+.bar2,
+.bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.burger-menu.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+  transform: rotate(-45deg) translate(-4px, 4px);
+}
+
+.burger-menu.open .bar2 {
+  opacity: 0;
+}
+
+.burger-menu.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px, -6px);
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+```
 
 ![](https://cdn-images-1.medium.com/max/800/1*0Tqwq8OspuZd6vKrfFE0Yw.png)
 
@@ -34,6 +83,24 @@ You can find some good examples for burger icon with animation [here](https://jo
 #### Step 2: Customize CSS Menu
 
 Our menu will be a simple list, so let’s take the reactjs-popup home page menu and use it as an example.
+
+```jsx
+import React from "react";
+
+export default ({ close }) => (
+  <div className="menu">
+    <ul>
+      <li onClick={close}>Home</li>
+      <li onClick={close}>Getting Started</li>
+      <li onClick={close}>Component API</li>
+      <li onClick={close}>Use Case - Tooltip</li>
+      <li onClick={close}>Use Case - Modal</li>
+      <li onClick={close}>Use Case - Menu</li>
+      <li onClick={close}>Contributing</li>
+    </ul>
+  </div>
+);
+```
 
 As you see this menu is a simple ul element, nothing special.
 
@@ -47,25 +114,12 @@ Adding some custom css and this is the final result.
 
 ![](https://cdn-images-1.medium.com/max/800/1*ttcLA5BrtUAXSBo6YfoQoA.gif)
 
-final result
-
 If you read this article from your smartphone , you can see the burger button to launch the menu in [reactjs-popup home page.](https://react-popup.netlify.com/)
 
 Demo Code source
 
 [**yjose/reactjs-popup-burger-menu**
 \_reactjs-popup-burger-menu - reactjs-popup burger menu example_github.com](https://github.com/yjose/reactjs-popup-burger-menu "https://github.com/yjose/reactjs-popup-burger-menu")[](https://github.com/yjose/reactjs-popup-burger-menu)
-
-Read more from my articles :
-
-[**Introducing reactjs-popup 🎉 —React popup, Modals, Tooltips and Menus — All in one**
-\_This article is about giving you a simple overview of what you can do with react popup and how to use it effectively.\_hackernoon.com](https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa "https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa")[](https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa)
-
-[**Frontend Performance Check-list For Production**
-\_In web development and exactly front-end web, we spend more time searching for the best design and content to our…\_hackernoon.com](https://hackernoon.com/front-end-performance-check-list-for-production-4e930cb63e8a "https://hackernoon.com/front-end-performance-check-list-for-production-4e930cb63e8a")[](https://hackernoon.com/front-end-performance-check-list-for-production-4e930cb63e8a)
-
-[**A step-by-step guide to making pure-CSS tooltips**
-\_I recently worked through a short tutorial about creating simple tooltips using pure CSS (and no additional HTML…\_medium.freecodecamp.org](https://medium.freecodecamp.org/a-step-by-step-guide-to-making-pure-css-tooltips-3d5a3e237346 "https://medium.freecodecamp.org/a-step-by-step-guide-to-making-pure-css-tooltips-3d5a3e237346")[](https://medium.freecodecamp.org/a-step-by-step-guide-to-making-pure-css-tooltips-3d5a3e237346)
 
 Thanks for reading! If you think other people should read this post and use this component,tweet and share the post.
 

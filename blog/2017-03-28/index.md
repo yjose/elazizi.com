@@ -1,14 +1,11 @@
 ---
 date: 2017-03-28
 title: "[List] Atom Setup for your next react project !!"
-category: "web,react"
+categories: ["react"]
+keywords: ["react", "dev", "atom"]
 published: true
-banner: "https://cdn-images-1.medium.com/max/2000/1*kbn4dA4rCay1bj_eVXxKGg.png"
+banner: "./banner.png"
 ---
-
-![](https://cdn-images-1.medium.com/max/2000/1*kbn4dA4rCay1bj_eVXxKGg.png)
-
-React & Atom
 
 I discovered Medium six months ago and I fell in love with these amazing stories and all these writers around the world. In this period I read 3 to 5 posts in a day, I follow more people every day and this habit helps me to improve my experience in software development and exactly building stuff using JavaScript and reactjs library.
 
@@ -63,7 +60,7 @@ This is my list of packages to enjoying react development:
 
 ![](https://cdn-images-1.medium.com/max/800/0*c9XtKcyQGYJiCR1j.)
 
-you have other packages please leave a comment.
+You have other packages! please leave a comment.
 
 ---
 

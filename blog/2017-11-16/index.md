@@ -1,13 +1,11 @@
 ---
 date: 2017-11-16
 title: "Laravel & Docker, Zero config with Vessel"
-category: "dev,laravel,php"
+categories: ["web", "dev"]
+keywords: ["dev,laravel,php"]
+banner: "./banner.png"
 published: true
 ---
-
-![](https://cdn-images-1.medium.com/max/2000/1*TktA6G_ZvLrmvF0ATXOBRQ.png)
-
-Laravel & docker
 
 > This article is a step-by-step to get started with Vessel ( the new way to setup the Laravel setup config with docker).
 
@@ -29,16 +27,22 @@ At this moment Vessel only works on Mac and Linux because it uses a bash script 
 
 For Linux Ubuntu distribution the easiest way to install docker is by the following:
 
+```sh
 curl -fsSL get.docker.com | sudo sh
 sudo usermod -aG docker your-user // add your user to docker group
+```
 
 To Install docker compose run this command to download the latest version :
 
+```sh
 sudo curl -L [https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname](https://github.com/docker/compose/releases/download/1.17.0/docker-compose-%60uname) -s`-`uname -m` -o /usr/local/bin/docker-compose
+```
 
 Next,Apply executable permissions to the binary.
 
+```sh
 sudo chmod +x /usr/local/bin/docker-compose
+```
 
 Learn more about docker installation : [docker](https://docs.docker.com/engine/installation/) , [docker-compose](https://docs.docker.com/compose/install/)
 
@@ -46,19 +50,30 @@ Learn more about docker installation : [docker](https://docs.docker.com/engine/i
 
 First you need to create a Laravel project to start with by the following :
 
+```sh
 composer create-project — prefer-dist laravel/laravel vessel_test
+```
 
 Now and as I mention before Vessel is lightweight docker environment includes a Laravel service provider that makes easy and simple to start your own development setup. All you need to do in order to start your dev setup with vessel :
 
 _# Install Vessel into your project_
+
+```sh
 composer require shipping-docker/vessel
+```
 
 _# Publish the `vessel` command and Docker files_
+
+```sh
 php artisan vendor:publish — provider=”Vessel\VesselServiceProvider”
+```
 
 _# Run this once to initialize project_
 _# Must run with “bash” until initialized_
+
+```sh
 bash vessel init
+```
 
 The first time you start up an application with Vessel using the init command, vessel will download the following official Docker images:
 
@@ -69,8 +84,10 @@ The first time you start up an application with Vessel using the init command, v
 
 Start vessel by running :
 
+```sh
 cd vessel_test
 ./vessel start
+```
 
 Head to [http://localhost](http://localhost/) in your browser and see your Laravel site!
 

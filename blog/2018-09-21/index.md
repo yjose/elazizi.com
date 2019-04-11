@@ -1,8 +1,10 @@
 ---
 date: 2018-09-21
 title: "The missing piece in the beginner’s guides : React Native"
-category: "react"
+categories: ["react-native"]
+keywords: ["react", "react-native", "mobile dev"]
 published: true
+banner: "./banner.png"
 ---
 
 > **This article was originally published on the** [**Obytes blog**](https://www.obytes.com/blog/)**.**

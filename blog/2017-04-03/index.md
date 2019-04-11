@@ -1,7 +1,8 @@
 ---
 date: 2017-04-03
 title: "A step-by-step guide to making pure-CSS tooltips"
-category: "web,frontend,css"
+categories: ["css", "web"]
+keywords: ["css", "animation", "tooltip"]
 published: true
 ---
 
@@ -29,36 +30,48 @@ This trick is was smart and clean, but it wasn’t generic enough.
 
 In this part, I’ll make this trick more generic and we’ll discover more about some CSS properties. Here’s what we ultimately want to be able to do:
 
-<button tooltip=”tooltip content here”> click here !! </button>
+```html
+<button tooltip="”tooltip" content here”>click here !!</button>
+```
 
 Not only that, but we want to be able to specify the tooltip position easily:
 
-<button tooltip=”tooltip content here” tooltip-position=”left” > click here !! </button>
+```html
+<button tooltip="”tooltip" content here” tooltip-position="”left”">
+  click here !!
+</button>
+```
 
 First — as mentioned in the video — we’ll add a `before` and an `after` pseudo element to the button.
 
 `::after` and `::before` are pseudo-elements, which allow you to insert content onto a page from CSS before or after the content of the element. They work like this:
 
+```css
 div::after {
-content: “after”;
+  content: “after”;
 }
 div::before {
-content: “before”;
+  content: “before”;
 }
+```
 
 The result looks something like this:
 
+```html
 <div>
- before
- <!-- div content here -->
- after
+  before
+  <!-- div content here -->
+  after
 </div>
+```
 
 ### Let’s walk through this step-by-step
 
 **Step 1:** we’ll add a tooltip attribute like this:
 
-<button tooltip=”simple tooltip here”> click Me !! </button>
+```html
+<button tooltip="”simple" tooltip here”>click Me !!</button>
+```
 
 We need `::after` and `::before` pseudo-elements. These will be a simple rectangle with the content of the tooltip. We create a simple rectangle with CSS by adding a border around an empty element that we create with the `content` property.
 
@@ -70,19 +83,97 @@ We add also some position tricks to make the tooltip in the center with the tran
 
 Here’s our CSS:
 
+```css
+button {
+  margin: auto;
+  background: #3498db;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+}
+[tooltip] {
+  margin: 20px;
+  position: relative;
+}
+[tooltip]::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px 6px 0 6px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent;
+  z-index: 100;
+}
+[tooltip]::after {
+  content: attr(tooltip);
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  transform: translateX(-50%) translateY(-100%);
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  color: #fff;
+  padding: 4px 2px;
+  font-size: 12px;
+  min-width: 80px;
+  border-radius: 5px;
+  pointer-events: none;
+}
+```
+
 **Step 2:** we just play with the `::before` and `::after` pseudo-elements to create a tooltip position. Our button HTML will look like this:
 
-<button tooltip=”tooltip here” tooltip-position=”left”> click here !! </button>
+`<button tooltip=”tooltip here” tooltip-position=”left”> click here !! </button>`
 
 The tooltip-position can be: right, left, top, or bottom.
+
+```css
+[tooltip-position="left"]::before {
+  left: 0%;
+  top: 50%;
+  margin-left: -12px;
+  transform: translatey(-50%) rotate(-90deg);
+}
+[tooltip-position="top"]::before {
+  left: 50%;
+}
+[tooltip-position="bottom"]::before {
+  top: 100%;
+  margin-top: 8px;
+  transform: translateX(-50%) translatey(-100%) rotate(-180deg);
+}
+[tooltip-position="right"]::before {
+  left: 100%;
+  top: 50%;
+  margin-left: 1px;
+  transform: translatey(-50%) rotate(90deg);
+}
+[tooltip-position="left"]::after {
+  left: 0%;
+  top: 50%;
+  margin-left: -8px;
+  transform: translateX(-100%) translateY(-50%);
+}
+[tooltip-position="top"]::after {
+  left: 50%;
+}
+[tooltip-position="bottom"]::after {
+  top: 100%;
+  margin-top: 8px;
+  transform: translateX(-50%) translateY(0%);
+}
+[tooltip-position="right"]::after {
+  left: 100%;
+  top: 50%;
+  margin-left: 8px;
+  transform: translateX(0%) translateY(-50%);
+}
+```
 
 **step 3**: in this final step, we will add a simple hover animation to the tooltip.
 
 This CodePen shows the end result (and you can click through to see the final code):
 
-### If you are familiar with React check My post :
-
-[**Introducing reactjs-popup 🎉 — Modals, Tooltips and Menus — All in one**
-\_This article is about giving you a simple overview of what you can do with reactjs-popup and how to use it effectively.\_hackernoon.com](https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa "https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa")[](https://hackernoon.com/introducing-reactjs-popup-modals-tooltips-and-menus-all-in-one-227de37766fa)
-
-Thanks for reading! If you think other people should read this, press the 💚 button, tweet and share the post. Remember to follow me on Medium so you can get notified about my future posts.
+https://codepen.io/yjose/pen/KWEqMg
