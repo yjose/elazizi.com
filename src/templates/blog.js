@@ -146,7 +146,10 @@ export const pageQuery = graphql`
     site {
       ...site
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      filter: { fields: { type: { eq: "blog" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt(pruneLength: 300)
