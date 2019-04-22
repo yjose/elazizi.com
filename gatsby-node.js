@@ -142,6 +142,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         : _.kebabCase(node.frontmatter.title) || titleSlugged;
 
     createNodeField({
+      name: "type",
+      node,
+      value: parent.sourceInstanceName
+    });
+
+    createNodeField({
       name: "id",
       node,
       value: node.id

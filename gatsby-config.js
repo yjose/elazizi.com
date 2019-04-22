@@ -42,6 +42,13 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/talks`,
+        name: "talks"
+      }
+    },
+    {
       resolve: `gatsby-mdx`,
       options: {
         extensions: [".mdx", ".md", ".markdown"],
