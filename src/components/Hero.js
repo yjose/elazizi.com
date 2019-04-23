@@ -2,18 +2,19 @@ import React from "react";
 
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
-
 import Container from "components/Container";
 import { rhythm } from "../lib/typography";
 import theme from "../../config/theme";
+import { Twitter, GitHub, LinkedIn } from "./Social";
+
 const image = require("../../static/images/elazizi.png");
 const Avatar = styled.img`
   height: 160px;
   width: 160px;
   border-radius: 80px;
   border: 4px solid #fff;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
   margin: auto;
 `;
 const Hero = () => (
@@ -68,11 +69,32 @@ const Hero = () => (
             </span>
             <span> </span>Hello, I'm Youssouf ! <br />{" "}
           </h2>
-          A Human first guy 🙌 , I'am a Full stack web developer 👨🏻‍💻 and OSS
-          believers, I love working with react and ReactNative and I write my
-          programming journey 👇👇👇.
+          A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believers. I
+          love working with react and ReactNative and I admire writing about my
+          programming journey 👇👇👇
         </div>
-        <Avatar src={image} />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+          `}
+        >
+          <Avatar src={image} />
+          <div
+            css={css`
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              margin-top: 20px;
+            `}
+          >
+            <Twitter /> <LinkedIn /> <GitHub />
+          </div>
+        </div>
       </div>
     </Container>
     <div
