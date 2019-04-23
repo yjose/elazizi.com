@@ -49,6 +49,22 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GitHub",
+        fieldName: "github",
+        // Url to query from
+        url: "https://api.github.com/graphql",
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.dev/env-vars
+          Authorization: `bearer dceeed1c79fc6d1e6e500e3bbdc635f9bf8447ae`
+        },
+        // Additional options to pass to node-fetch
+        fetchOptions: {}
+      }
+    },
+    {
       resolve: `gatsby-mdx`,
       options: {
         extensions: [".mdx", ".md", ".markdown"],
