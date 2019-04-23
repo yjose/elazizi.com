@@ -2,10 +2,9 @@ import React from "react";
 import { graphql } from "gatsby";
 import { css } from "@emotion/core";
 import Layout from "../components/Layout";
-import Link from "../components/Link";
 import Container from "components/Container";
 import Hero from "components/Hero";
-import PostCard from "components/PostCard";
+import TalkCard from "components/TalkCard";
 import theme from "../../config/theme";
 
 export default function Index({ data: { site, allMdx } }) {
@@ -22,16 +21,9 @@ export default function Index({ data: { site, allMdx } }) {
           padding-bottom: 0;
         `}
       >
-        {allMdx.edges.map(({ node: post }) => (
-          <PostCard post={post} key={post.id} />
+        {allMdx.edges.map(({ node: talk }) => (
+          <TalkCard talk={talk} />
         ))}
-        <Link
-          to="/blog"
-          aria-label="Visit blog page"
-          className="button-secondary"
-        >
-          View all articles
-        </Link>
         <hr />
       </Container>
     </Layout>
@@ -46,17 +38,14 @@ export const pageQuery = graphql`
         title
       }
     }
+
     allMdx(
-      limit: 5
+      filter: { fields: { type: { eq: "talks" } } }
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: { published: { ne: false } }
-        fields: { type: { eq: "blog" } }
-      }
     ) {
       edges {
         node {
-          excerpt(pruneLength: 190)
+          excerpt(pruneLength: 300)
           id
           fields {
             title
@@ -70,12 +59,13 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            url
+            place
             date(formatString: "MMMM DD, YYYY")
-            description
             banner {
               childImageSharp {
-                sizes(maxWidth: 720) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
