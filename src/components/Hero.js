@@ -68,9 +68,9 @@ const Hero = () => (
             </span>
             <span> </span>Hello, I'm Youssouf ! <br />{" "}
           </h2>
-          A Human first guy 🙌 , I'am a Full stack web developer 👨🏻‍💻 and OSS
-          believers, I love working with react and ReactNative and I write my
-          programming journey 👇👇👇.
+          A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believers. I
+          love working with react and ReactNative and I admire writing about my
+          programming journey 👇👇👇
         </div>
         <Avatar src={image} />
       </div>
