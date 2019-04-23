@@ -58,7 +58,7 @@ module.exports = {
         // HTTP headers
         headers: {
           // Learn about environment variables: https://gatsby.dev/env-vars
-          Authorization: `bearer dceeed1c79fc6d1e6e500e3bbdc635f9bf8447ae`
+          Authorization: `bearer 3dfbb91b2090040f7680e185301379e6f10ca82b`
         },
         // Additional options to pass to node-fetch
         fetchOptions: {}
