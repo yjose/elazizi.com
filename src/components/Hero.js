@@ -12,8 +12,8 @@ const Avatar = styled.img`
   width: 160px;
   border-radius: 80px;
   border: 4px solid #fff;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
   margin: auto;
 `;
 const Hero = () => (
