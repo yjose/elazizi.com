@@ -2,10 +2,11 @@ import React from "react";
 
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
-
 import Container from "components/Container";
 import { rhythm } from "../lib/typography";
 import theme from "../../config/theme";
+import { Twitter, GitHub, LinkedIn } from "./Social";
+
 const image = require("../../static/images/elazizi.png");
 const Avatar = styled.img`
   height: 160px;
@@ -72,7 +73,19 @@ const Hero = () => (
           love working with react and ReactNative and I admire writing about my
           programming journey 👇👇👇
         </div>
-        <Avatar src={image} />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+          `}
+        >
+          <Avatar src={image} />
+          <div>
+            <Twitter /> <LinkedIn /> <GitHub />
+          </div>
+        </div>
       </div>
     </Container>
     <div
