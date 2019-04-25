@@ -1,28 +1,29 @@
-import React from 'react'
-import Link from './Link'
-import theme from '../../config/theme'
-import { css } from '@emotion/core'
-import config from '../../config/website'
+import React from "react";
+import Link from "./Link";
+import theme from "../../config/theme";
+import { css } from "@emotion/core";
+import config from "../../config/website";
 
 export const Twitter = ({
   color = `${theme.colors.body_color}`,
   url = `${config.twitter}`,
+  width = 24,
+  height = 20
 }) => (
   <Link
     to={url}
     css={css`
       color: ${color};
       margin-left: 10px;
-      :hover {
-        color: ${theme.brand.primary};
-      }
+      cursor: pointer;
     `}
+    target="_blank"
     aria-label="Visit my Twitter"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 24 20"
     >
       <path
@@ -32,27 +33,28 @@ export const Twitter = ({
       />
     </svg>
   </Link>
-)
+);
 
 export const LinkedIn = ({
   color = `${theme.colors.body_color}`,
   url = `${config.linkedin}`,
+  width = 23,
+  height = 23
 }) => (
   <Link
     to={url}
     css={css`
       margin-left: 10px;
       color: ${color};
-      :hover {
-        color: ${theme.brand.primary};
-      }
+      cursor: pointer;
     `}
+    target="_blank"
     aria-label="Visit my LinkedIn"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="23"
-      height="23"
+      width={width}
+      height={height}
       viewBox="0 0 23 23"
     >
       <path
@@ -61,27 +63,28 @@ export const LinkedIn = ({
       />
     </svg>
   </Link>
-)
+);
 
 export const GitHub = ({
   color = `${theme.colors.body_color}`,
   url = `${config.github}`,
+  width = 23,
+  height = 23
 }) => (
   <Link
     to={url}
     css={css`
       margin-left: 10px;
       color: ${color};
-      :hover {
-        color: ${theme.brand.primary};
-      }
+      cursor: pointer;
     `}
     aria-label="Visit my GitHub"
+    target="_blank"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="23"
-      height="23"
+      width={width}
+      height={height}
       viewBox="0 0 23 23"
     >
       <path
@@ -91,4 +94,4 @@ export const GitHub = ({
       />
     </svg>
   </Link>
-)
+);

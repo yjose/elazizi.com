@@ -23,11 +23,12 @@ const Hero = () => (
       * {
         color: ${theme.colors.white};
       }
+      z-index: 2;
       width: 100%;
       background: ${theme.brand.primary};
       padding: 30px 0 30px 0;
       display: flex;
-      margin-top: -60px;
+      margin-top: -80px;
 
       background-image: linear-gradient(
         179.3deg,
@@ -59,7 +60,13 @@ const Hero = () => (
             max-width: ${rhythm(15)};
           `}
         >
-          <h2>
+          <div
+            css={css`
+              display: flex;
+              flex-direction: row;
+              align-items: flex-end;
+            `}
+          >
             <span
               css={css`
                 font-size: 80px;
@@ -67,8 +74,14 @@ const Hero = () => (
             >
               👋
             </span>
-            <span> </span>Hello, I'm Youssouf ! <br />{" "}
-          </h2>
+            <h3
+              css={css`
+                padding: 15px;
+              `}
+            >
+              <span> </span>Hello, I'm Youssouf! <br />{" "}
+            </h3>
+          </div>
           A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believers. I
           love working with react and ReactNative and I admire writing about my
           programming journey 👇👇👇
@@ -79,7 +92,8 @@ const Hero = () => (
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            margin: auto;
+            margin: 30px auto;
+            margin-bottom: 0px;
           `}
         >
           <Avatar src={image} />
@@ -92,7 +106,9 @@ const Hero = () => (
               margin-top: 20px;
             `}
           >
-            <Twitter /> <LinkedIn /> <GitHub />
+            <Twitter height={36} width={28} />
+            <LinkedIn height={30} width={30} />
+            <GitHub height={30} width={30} />
           </div>
         </div>
       </div>

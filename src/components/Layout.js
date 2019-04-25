@@ -1,17 +1,17 @@
-import React, { Fragment } from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import { MDXProvider } from '@mdx-js/tag'
-import { Global, css } from '@emotion/core'
-import { ThemeProvider } from 'emotion-theming'
-import { bpMaxSM } from '../lib/breakpoints'
-import theme from '../../config/theme'
-import mdxComponents from './mdx'
-import Header from './Header'
-import reset from '../lib/reset'
-import { fonts } from '../lib/typography'
-import config from '../../config/website'
-import Footer from '../components/Footer'
+import React, { Fragment } from "react";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/tag";
+import { Global, css } from "@emotion/core";
+import { ThemeProvider } from "emotion-theming";
+import { bpMaxSM } from "../lib/breakpoints";
+import theme from "../../config/theme";
+import mdxComponents from "./mdx";
+import Header from "./Header";
+import reset from "../lib/reset";
+import { fonts } from "../lib/typography";
+import config from "../../config/website";
+import Footer from "../components/Footer";
 
 export const globalStyles = css`
   .button-secondary {
@@ -101,7 +101,7 @@ export const globalStyles = css`
     }
   }
   ${reset};
-`
+`;
 
 export default ({
   site,
@@ -110,21 +110,22 @@ export default ({
   dark,
   headerBg,
   headerColor,
+  hoverColor,
   noFooter,
-  noSubscribeForm,
+  noSubscribeForm
 }) => {
   const {
     description: siteDescription,
-    keywords: siteKeywords,
-  } = site.siteMetadata
+    keywords: siteKeywords
+  } = site.siteMetadata;
 
   const {
     keywords: frontmatterKeywords,
-    description: frontmatterDescription,
-  } = frontmatter
+    description: frontmatterDescription
+  } = frontmatter;
 
-  const keywords = (frontmatterKeywords || siteKeywords).join(', ')
-  const description = frontmatterDescription || siteDescription
+  const keywords = (frontmatterKeywords || siteKeywords).join(", ");
+  const description = frontmatterDescription || siteDescription;
 
   return (
     <ThemeProvider theme={theme}>
@@ -141,8 +142,8 @@ export default ({
           <Helmet
             title={config.siteTitle}
             meta={[
-              { name: 'description', content: description },
-              { name: 'keywords', content: keywords },
+              { name: "description", content: description },
+              { name: "keywords", content: keywords }
             ]}
           >
             <html lang="en" />
@@ -153,6 +154,7 @@ export default ({
             dark={dark}
             bgColor={headerBg}
             headerColor={headerColor}
+            hoverColor={hoverColor}
           />
           <MDXProvider components={mdxComponents}>
             <Fragment>{children}</Fragment>
@@ -166,8 +168,8 @@ export default ({
         </div>
       </Fragment>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   fragment site on Site {
@@ -180,4 +182,4 @@ export const pageQuery = graphql`
       keywords
     }
   }
-`
+`;
