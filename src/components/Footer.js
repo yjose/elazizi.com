@@ -2,6 +2,8 @@ import React from "react";
 import { css } from "@emotion/core";
 import { bpMaxSM } from "../lib/breakpoints";
 import SubscribeForm from "./Forms/Subscribe";
+import theme from "../../config/theme";
+
 import { Twitter, GitHub, LinkedIn } from "./Social";
 import Container from "./Container";
 
@@ -37,7 +39,14 @@ const Footer = ({ author, noSubscribeForm }) => (
         >
           {author && `${author} \u00A9 ${new Date().getFullYear()}`}
         </div>
-        <div>
+        <div
+          css={css`
+            cursor: pointer;
+            :hover {
+              color: ${theme.brand.primary};
+            }
+          `}
+        >
           <LinkedIn />
           <Twitter />
           <GitHub />

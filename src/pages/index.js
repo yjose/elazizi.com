@@ -12,7 +12,8 @@ export default function Index({ data: { site, allMdx } }) {
   return (
     <Layout
       site={site}
-      headerColor={theme.colors.white}
+      headerColor="#FFF"
+      hoverColor="#000"
       headerBg={theme.brand.primary}
       noSubscribeForm
     >
