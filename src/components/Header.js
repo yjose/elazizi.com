@@ -1,23 +1,39 @@
 import React from "react";
 import { Link } from "gatsby";
 import { css } from "@emotion/core";
-import theme from "../../config/theme";
+import styled from "@emotion/styled";
 
+import theme from "../../config/theme";
 import Container from "./Container";
+
+const image = require("../../static/images/elazizi.png");
+
+const Avatar = styled.img`
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  border: 2px solid #fff;
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
+  margin: auto;
+  margin-right: 5px;
+`;
 
 const Header = ({
   dark,
   bgColor = "none",
   siteTitle,
-  headerColor = "black"
+  headerColor = "black",
+  hoverColor = theme.colors.link_color_hover
 }) => (
   <header
     css={css`
       width: 100%;
       flex-shrink: 0;
       background: none;
-      padding: 30px 0 0 0;
-      background: ${dark ? "#090909" : `${bgColor}` || "none"};
+      padding: 20px 0 20px 0;
+      background: transparent;
+      z-index: 3;
     `}
   >
     <Container noVerticalPadding>
@@ -29,17 +45,30 @@ const Header = ({
           align-items: center;
           color: ${headerColor};
           a {
-            color: ${headerColor ? headerColor : theme.colors.body_color};
+            color:   ${headerColor};
+            /* ${dark ? "#fbfbfb" : "rgba(0,0,0,0.85)"}; */
+            text-decoration: none;
           }
           a:hover {
-            color: ${headerColor === theme.colors.white
-              ? "white"
-              : theme.colors.link_color_hover};
+            color: ${hoverColor};
+          }
+          background: transparent;
+          .active_home {
+            visibility: hidden;
           }
         `}
       >
-        <Link to="/" aria-label="go to homepage" activeClassName="active">
-          Youssouf Blog
+        <Link
+          to="/"
+          aria-label="go to homepage"
+          css={css`
+            display: flex;
+            align-items: center;
+          `}
+          activeClassName="active_home"
+        >
+          <Avatar src={image} />
+          Youssouf
         </Link>
         <div
           css={css`
@@ -48,24 +77,30 @@ const Header = ({
             display: flex;
             align-items: center;
             a {
-              color: ${dark ? "#fbfbfb" : "rgba(0,0,0,0.85)"};
+              /* color: ${dark ? "#fbfbfb" : "rgba(0,0,0,0.85)"}; */
               text-decoration: none;
               & + a {
                 margin-left: 32px;
               }
             }
             .active {
-              display: none;
-              visibility: hidden;
+              visibility: visible;
             }
           `}
         >
-          {/* <Link to="/blog" activeClassName="active" aria-label="View blog page">
+          <Link to="/blog" activeClassName="active" aria-label="View blog page">
             Blog
           </Link>
-          <Link to="/blog" activeClassName="active" aria-label="View blog page">
-            contact
-          </Link> */}
+          <Link
+            to="/talks"
+            activeClassName="active"
+            aria-label="View blog page"
+          >
+            Talks
+          </Link>
+          <Link to="/oss" activeClassName="active" aria-label="View blog page">
+            Oss
+          </Link>
         </div>
       </nav>
     </Container>

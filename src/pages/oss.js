@@ -21,13 +21,7 @@ export default function Index({ data: { site, github } }) {
     )
     .sort((a, b) => b.stargazers.totalCount - a.stargazers.totalCount);
   return (
-    <Layout
-      site={site}
-      headerColor={theme.colors.white}
-      headerBg={theme.brand.primary}
-      noSubscribeForm
-    >
-      <Hero />
+    <Layout site={site} headerBg={theme.brand.primary} noSubscribeForm>
       <Container
         css={css`
           padding-bottom: 0;

@@ -9,13 +9,7 @@ import theme from "../../config/theme";
 
 export default function Index({ data: { site, allMdx } }) {
   return (
-    <Layout
-      site={site}
-      headerColor={theme.colors.white}
-      headerBg={theme.brand.primary}
-      noSubscribeForm
-    >
-      <Hero />
+    <Layout site={site} headerBg={theme.brand.primary} noSubscribeForm>
       <Container
         css={css`
           padding-bottom: 0;
