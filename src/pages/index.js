@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import Link from "../components/Link";
 import Container from "components/Container";
 import Hero from "components/Hero";
+import SEO from "../components/SEO";
 import PostCard from "components/PostCard";
 import theme from "../../config/theme";
 
@@ -17,6 +18,7 @@ export default function Index({ data: { site, allMdx } }) {
       headerBg={theme.brand.primary}
       noSubscribeForm
     >
+      <SEO />
       <Hero />
       <Container
         css={css`

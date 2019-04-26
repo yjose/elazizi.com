@@ -139,16 +139,6 @@ export default ({
             min-height: 100vh;
           `}
         >
-          <Helmet
-            title={config.siteTitle}
-            meta={[
-              { name: "description", content: description },
-              { name: "keywords", content: keywords }
-            ]}
-          >
-            <html lang="en" />
-            <noscript>This site runs best with JavaScript enabled.</noscript>
-          </Helmet>
           <Header
             siteTitle={site.siteMetadata.title}
             dark={dark}
