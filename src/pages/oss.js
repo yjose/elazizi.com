@@ -2,9 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import { css } from "@emotion/core";
 import Layout from "../components/Layout";
-import Link from "../components/Link";
 import Container from "components/Container";
-import Hero from "components/Hero";
+import SEO from "components/SEO";
 import GitHubRepoCard from "components/GitHubRepoCard";
 import theme from "../../config/theme";
 
@@ -22,6 +21,7 @@ export default function Index({ data: { site, github } }) {
     .sort((a, b) => b.stargazers.totalCount - a.stargazers.totalCount);
   return (
     <Layout site={site} headerBg={theme.brand.primary} noSubscribeForm>
+      <SEO />
       <Container
         css={css`
           padding-bottom: 0;

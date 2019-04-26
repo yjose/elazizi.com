@@ -3,13 +3,14 @@ import { graphql } from "gatsby";
 import { css } from "@emotion/core";
 import Layout from "../components/Layout";
 import Container from "components/Container";
-import Hero from "components/Hero";
 import TalkCard from "components/TalkCard";
 import theme from "../../config/theme";
+import SEO from "../components/SEO";
 
 export default function Index({ data: { site, allMdx } }) {
   return (
     <Layout site={site} headerBg={theme.brand.primary} noSubscribeForm>
+      <SEO />
       <Container
         css={css`
           padding-bottom: 0;
