@@ -11,7 +11,8 @@ const SEO = ({
   frontmatter = {},
   description: postDescription,
   postImage,
-  isBlogPost
+  isBlogPost,
+  postUrl
 }) => (
   <StaticQuery
     query={graphql`
@@ -45,8 +46,8 @@ const SEO = ({
       const description = !!postDescription ? postDescription : seo.description;
 
       const image = postImage ? `${seo.canonicalUrl}${postImage}` : seo.image;
-      const url = postMeta.slug
-        ? `${seo.canonicalUrl}${path.sep}${postMeta.slug}`
+      const url = postUrl
+        ? `${seo.canonicalUrl}${path.sep}${postUrl}`
         : seo.canonicalUrl;
       const datePublished = isBlogPost ? postMeta.datePublished : false;
 

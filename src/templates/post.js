@@ -19,10 +19,18 @@ export default function Post({
   const date = mdx.frontmatter.date;
   const title = mdx.frontmatter.title;
   const banner = mdx.frontmatter.banner;
+  const postImage = banner ? banner.childImageSharp.fluid.src : null;
+  const postUrl = mdx.fields.slug;
 
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
-      <SEO frontmatter={mdx.frontmatter} description={mdx.excerpt} isBlogPost />
+      <SEO
+        frontmatter={mdx.frontmatter}
+        description={mdx.excerpt}
+        isBlogPost
+        postImage={postImage}
+        postUrl={postUrl}
+      />
       <article
         css={css`
           width: 100%;
