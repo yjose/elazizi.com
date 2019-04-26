@@ -23,6 +23,7 @@ const SEO = ({
             description
             canonicalUrl
             image
+            banner
             author {
               name
             }
@@ -45,7 +46,7 @@ const SEO = ({
       const title = isBlogPost ? postMeta.title : config.siteTitle;
       const description = !!postDescription ? postDescription : seo.description;
 
-      const image = postImage ? `${seo.canonicalUrl}${postImage}` : seo.image;
+      const image = postImage ? `${seo.canonicalUrl}${postImage}` : seo.banner;
       const url = postUrl
         ? `${seo.canonicalUrl}${path.sep}${postUrl}`
         : seo.canonicalUrl;

@@ -12,15 +12,16 @@ module.exports = {
     title: config.siteTitle,
     twitterHandle: config.twitterHandle,
     description: config.siteDescription,
-    keywords: ["Video Blogger"],
+    keywords: ["elazizi", "dev", "react"],
     canonicalUrl: config.siteUrl,
     image: config.siteLogo,
+    banner: config.banner,
     author: {
       name: config.author,
       minibio: `
-        <strong>egghead</strong> is the premier place on the internet for
-        experienced developers to enhance their skills and stay current
-        in the fast-faced field of web development.
+      A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believers. I
+      love working with react and ReactNative and I admire writing about my
+      programming journey 👇👇👇
       `
     },
     organization: {
