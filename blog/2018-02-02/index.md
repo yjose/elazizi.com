@@ -43,7 +43,14 @@ yarn add reactjs-popup -S
 Now you can import the component and start using it :
 
 ```jsx
-import React from "react";import Popup from "reactjs-popup";export default () => (  <Popup
+import React from "react";
+import Popup from "reactjs-popup";
+
+export default () => (
+  <Popup trigger={<button> Trigger</button>} position="right center">
+    <div>Popup content here !!</div>
+  </Popup>
+);
 ```
 
 You can also use it with function as children pattern.
@@ -51,6 +58,7 @@ You can also use it with function as children pattern.
 ```jsx
 import React from "react";
 import Popup from "reactjs-popup";
+
 export default () => (
   <Popup trigger={<button>Trigger</button>} position="top left">
     {close => (
