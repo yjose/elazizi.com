@@ -4,6 +4,7 @@ title: Create React Modal with 22 lines of code
 categories: ["react"]
 published: true
 keywords: ["react", "react-modal", "modal"]
+banner: "./banner.png"
 ---
 
 Nowadays, Modals are one of the most used components in React Application, having an easy way to create React Modals will help you sheep Modals related features fast in your upcoming React Applications.
