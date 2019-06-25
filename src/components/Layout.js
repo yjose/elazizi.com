@@ -82,7 +82,7 @@ export const globalStyles = css`
     font-size: 16px;
     padding: 10px;
     overflow-x: auto;
-    white-space: nowrap;
+
     /* Track */
     ::-webkit-scrollbar {
       width: 100%;
