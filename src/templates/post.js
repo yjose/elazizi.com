@@ -10,7 +10,8 @@ import { fonts } from "../lib/typography";
 import Share from "../components/Share";
 import config from "../../config/website";
 import { bpMaxSM } from "../lib/breakpoints";
-import { OneSignalProvider, OneSignalContext } from "../components/OneSignal";
+import { OneSignalContext } from "../components/OneSignal";
+const isBrowser = typeof window !== "undefined";
 
 export default function Post({
   data: { site, mdx },
@@ -133,7 +134,9 @@ export const pageQuery = graphql`
 `;
 
 const SubscribeSection = () => {
-  const { isSubscribed, subscribe, loading } = useContext(OneSignalContext);
+  const { isSubscribed, subscribe, loading } = isBrowser
+    ? useContext(OneSignalContext)
+    : {};
   if (isSubscribed && !loading) return null;
 
   return (
