@@ -95,6 +95,7 @@ module.exports = {
         start_url: config.pathPrefix,
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
+        gcm_sender_id: "482941778795",
         display: "standalone",
         icons: [
           {

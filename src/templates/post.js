@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
@@ -10,6 +10,7 @@ import { fonts } from "../lib/typography";
 import Share from "../components/Share";
 import config from "../../config/website";
 import { bpMaxSM } from "../lib/breakpoints";
+import { OneSignalProvider, OneSignalContext } from "../components/OneSignal";
 
 export default function Post({
   data: { site, mdx },
@@ -84,6 +85,7 @@ export default function Post({
           <br />
           <MDXRenderer>{mdx.code.body}</MDXRenderer>
         </Container>
+
         {/* <SubscribeForm /> */}
       </article>
       <Container noVerticalPadding>
@@ -93,6 +95,7 @@ export default function Post({
           twitterHandle={config.twitterHandle}
         />
         <br />
+        <SubscribeSection />
       </Container>
     </Layout>
   );
@@ -128,3 +131,34 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+const SubscribeSection = () => {
+  const { isSubscribed, subscribe, loading } = useContext(OneSignalContext);
+  if (isSubscribed && !loading) return null;
+
+  return (
+    <div
+      css={css`
+        padding: 30px;
+        ${bpMaxSM} {
+          padding: 0;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+      `}
+    >
+      <p
+        css={css`
+          text-align: center;
+          font-weight: bold;
+        `}
+      >
+        Liked this article? Make sure to subscribe to get last articles and
+        updates.
+      </p>
+      <button onClick={subscribe}> SUBSCRIBE TO UPDATES {isSubscribed} </button>
+    </div>
+  );
+};
