@@ -18,8 +18,6 @@ const Description = styled.p`
 `;
 
 export default ({ post, banner = false }) => {
-  console.log(post);
-
   const theme = useTheme();
   const dark = theme.themeName === "dark";
 

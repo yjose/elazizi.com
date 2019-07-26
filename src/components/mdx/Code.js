@@ -9,7 +9,6 @@ const Code = ({
   ...props
 }) => {
   const language = className.replace(/language-/, "");
-  console.log("data", language);
 
   return (
     <Highlight
