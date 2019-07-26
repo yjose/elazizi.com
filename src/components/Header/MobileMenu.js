@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import { css } from '@emotion/core'
-import Container from '../container'
+import React, { useState } from "react";
+import { css } from "@emotion/core";
+import Container from "../Container";
 
-import { bpMaxSM } from '../../lib/breakpoints'
+import { bpMaxSM } from "../../lib/breakpoints";
 
-import { useTheme } from '../Theming'
+import { useTheme } from "../Theming";
 
 const Toggle = ({ children }) => {
-  const [isToggledOn, setToggle] = useState(false)
-  const toggle = () => setToggle(!isToggledOn)
-  const theme = useTheme()
-  const color = theme.colors.white
+  const [isToggledOn, setToggle] = useState(false);
+  const toggle = () => setToggle(!isToggledOn);
+  const theme = useTheme();
+  const color = theme.colors.white;
 
   return (
     <div
@@ -25,7 +25,7 @@ const Toggle = ({ children }) => {
     >
       <button
         onClick={toggle}
-        aria-label={`${isToggledOn ? 'close menu' : 'open menu'}`}
+        aria-label={`${isToggledOn ? "close menu" : "open menu"}`}
         css={css`
           z-index: 30;
           top: -5px;
@@ -48,10 +48,10 @@ const Toggle = ({ children }) => {
             background: ${color};
             position: absolute;
             left: 0;
-            ${isToggledOn ? 'background: transparent' : `background: ${color}`};
+            ${isToggledOn ? "background: transparent" : `background: ${color}`};
             transition: all 250ms cubic-bezier(0.86, 0, 0.07, 1);
             ::before {
-              content: '';
+              content: "";
               top: -8px;
               width: 24px;
               height: 2px;
@@ -59,21 +59,21 @@ const Toggle = ({ children }) => {
               position: absolute;
               left: 0;
               ${isToggledOn
-                ? 'transform: rotate(45deg); top: 0; '
-                : 'transform: rotate(0)'};
+                ? "transform: rotate(45deg); top: 0; "
+                : "transform: rotate(0)"};
               transition: all 250ms cubic-bezier(0.86, 0, 0.07, 1);
             }
             ::after {
               top: 8px;
-              content: '';
+              content: "";
               width: 24px;
               height: 2px;
               background: ${color};
               position: absolute;
               left: 0;
               ${isToggledOn
-                ? 'transform: rotate(-45deg); top: 0;'
-                : 'transform: rotate(0)'};
+                ? "transform: rotate(-45deg); top: 0;"
+                : "transform: rotate(0)"};
               transition: all 250ms cubic-bezier(0.86, 0, 0.07, 1);
             }
           `}
@@ -119,7 +119,7 @@ const Toggle = ({ children }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Toggle
+export default Toggle;
