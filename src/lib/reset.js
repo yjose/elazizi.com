@@ -1,17 +1,19 @@
-import { css } from '@emotion/core'
-import theme from '../../config/theme'
-import typography, { fonts } from '../lib/typography'
+import { css } from "@emotion/core";
+import { useTheme } from "../components/Theming";
+import typography, { fonts } from "../lib/typography";
 
-const reset = css`
-form {
-  margin: 0;
-}
-ul, ol {
-  list-style-position: inside;
-  margin-left: 0;
-  font-size: ${typography.baseFontSize};
-}
-*,
+const resetStyles = () => {
+  const theme = useTheme();
+  return css`
+  form {
+    margin: 0;
+  }
+  ul, ol {
+    list-style-position: inside;
+    margin-left: 0;
+    font-size: ${typography.baseFontSize};
+  }
+  *,
   *:before,
   *:after {
     box-sizing: inherit;
@@ -30,27 +32,13 @@ ul, ol {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-  body {
-    color: ${theme.colors.body_color};
-    background-color: ${theme.colors.bg_color};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  ::selection {
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.link_color};
-  }
-  
   a {
-    color: ${theme.colors.link_color};
-    transition: all 0.3s ease-in-out;
+    transition: 100ms;
     text-decoration: none;
-    &:hover,
-    &:focus {
-      color: ${theme.colors.link_color_hover};
-    }
-  
   }
-  
   a:not([href]):not([tabindex]) {
     color: inherit;
     text-decoration: none;
@@ -63,9 +51,8 @@ ul, ol {
       outline: 0;
     }
   }
-
   blockquote {
-    border-left: 5px solid ${theme.colors.link_color};
+    border-left: 5px solid ${theme.colors.link};
     padding-left: 1rem !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -103,12 +90,12 @@ ul, ol {
   }
   table {
     border-collapse: collapse;
-    background-color: ${theme.colors.bg_color};
+    background-color: ${theme.colors.bodyBg};
   }
   caption {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    color: ${theme.colors.body_color};
+    color: ${theme.colors.bodyBg};
     text-align: center;
     caption-side: bottom;
   }
@@ -165,7 +152,7 @@ ul, ol {
   [hidden] {
     display: none !important;
   }
+`;
+};
 
-`
-
-export default reset
+export default resetStyles;

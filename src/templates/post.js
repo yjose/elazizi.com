@@ -84,7 +84,17 @@ export default function Post({
             </div>
           )}
           <br />
-          <MDXRenderer>{mdx.code.body}</MDXRenderer>
+          <div
+            css={css`
+              img {
+                margin-top: 20px !important;
+                margin-bottom: 20px !important;
+                width: 100% !important;
+              }
+            `}
+          >
+            <MDXRenderer>{mdx.code.body}</MDXRenderer>
+          </div>
         </Container>
 
         {/* <SubscribeForm /> */}

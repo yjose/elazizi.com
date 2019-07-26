@@ -1,14 +1,14 @@
 import React from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
+import Img from "gatsby-image";
 import Link from "../components/Link";
 
 import { rhythm } from "../lib/typography";
-import theme from "../../config/theme";
+import { useTheme } from "./Theming";
 
 const PostTitle = styled.h2`
   margin-bottom: ${rhythm(0.3)};
-  transition: ${theme.transition.ease};
 `;
 
 const Description = styled.p`
@@ -17,33 +17,55 @@ const Description = styled.p`
   display: inline-block;
 `;
 
-export default ({ post }) => (
-  <Link to={post.fields.slug} aria-label={`View ${post.frontmatter.title}`}>
-    <div
+export default ({ post, banner = false }) => {
+  const theme = useTheme();
+  const dark = theme.themeName === "dark";
+
+  return (
+    <Link
+      to={post.fields.slug}
+      aria-label={`View ${post.frontmatter.title}`}
       css={css`
-        margin-bottom: 40px;
-        background: white;
-        padding: 10px 20px 10px 20px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-        border-radius: 5px;
-        cursor: pointer;
-        :hover {
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.27);
-          transition: ${theme.transition.ease};
-        }
-        color: rgba(0, 0, 0, 0.85);
+        text-decoration: none !important;
       `}
     >
-      <PostTitle>{post.frontmatter.title}</PostTitle>
-      <Description>{post.excerpt}</Description>
       <div
         css={css`
-          display: flex;
-          justify-content: flex-end;
-          padding: 10px;
+          margin-bottom: 40px;
+          padding: 0px;
+          box-shadow: 0 1px 2px ${theme.colors.text};
+          border-radius: 5px;
+          cursor: pointer;
+          :hover {
+            transform: scale(1.02);
+          }
+          color: ${theme.colors.text};
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.27);
+
+          transition: all 0.3s ease 0s;
+          background: ${dark ? "rgb(43, 42, 42)" : theme.colors.white};
         `}
-      />
-      <span />
-    </div>
-  </Link>
-);
+      >
+        {banner && (
+          <Img sizes={post.frontmatter.banner.childImageSharp.fluid} />
+        )}
+        <div
+          css={css`
+            padding: 10px 20px 10px 20px;
+          `}
+        >
+          <PostTitle>{post.frontmatter.title}</PostTitle>
+          <Description>{post.excerpt}</Description>
+          <div
+            css={css`
+              display: flex;
+              justify-content: flex-end;
+              padding: 10px;
+            `}
+          />
+          <span />
+        </div>
+      </div>
+    </Link>
+  );
+};

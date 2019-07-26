@@ -82,8 +82,8 @@ const Hero = () => (
               <span> </span>Hello, I'm Youssouf! <br />{" "}
             </h3>
           </div>
-          A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believers. I
-          love working with react and ReactNative and I admire writing about my
+          A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believer. I love
+          working with react and ReactNative and I admire writing about my
           programming journey 👇👇👇
         </div>
         <div

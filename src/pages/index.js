@@ -11,13 +11,7 @@ import theme from "../../config/theme";
 
 export default function Index({ data: { site, allMdx } }) {
   return (
-    <Layout
-      site={site}
-      headerColor="#FFF"
-      hoverColor="#000"
-      headerBg={theme.brand.primary}
-      noSubscribeForm
-    >
+    <Layout site={site} isHome>
       <SEO />
       <Hero />
       <Container

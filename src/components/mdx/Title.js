@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 export default styled.h1`
   font-size: 24px;
@@ -8,4 +8,4 @@ export default styled.h1`
   margin-bottom: 20px;
   padding-top: 30px;
   padding-bottom: 10px;
-`
+`;
