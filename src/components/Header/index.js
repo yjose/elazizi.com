@@ -55,7 +55,7 @@ const Header = ({ siteTitle = "Youssouf" }) => {
               align-items: center;
               a {
                 text-decoration: none;
-                color: ${theme.colors.white};
+                color: ${theme.colors.text};
                 margin-left: 16px;
                 margin-right: 16px;
               }

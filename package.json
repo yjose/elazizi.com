@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-minimal-blog",
-  "description": "Gatsby Starter - Minimal Blog",
+  "name": "elazizi-blog",
+  "description": "Youssouf EL Azizi - Blog",
   "version": "2.0.0",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "author": "Youssouf El Azizi",
   "dependencies": {
     "@callstack/react-theme-provider": "^3.0.0",
     "@emotion/core": "^10.0.10",
