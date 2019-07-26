@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import { MDXProvider } from "@mdx-js/tag";
+import { MDXProvider } from "@mdx-js/react";
 import { Global, css } from "@emotion/core";
 import { lighten } from "polished";
 import { bpMaxSM } from "../lib/breakpoints";
