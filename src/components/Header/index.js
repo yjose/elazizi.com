@@ -1,25 +1,13 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import { css } from "@emotion/core";
-import styled from "@emotion/styled";
+import { bpMaxSM } from "../../lib/breakpoints";
 
-import { useTheme } from "./Theming";
-import ThemeToggler from "./ThemeToggler";
-
-import Container from "./Container";
-
-const image = require("../../static/images/elazizi.png");
-
-const Avatar = styled.img`
-  height: 36px;
-  width: 36px;
-  border-radius: 18px;
-  border: 2px solid #fff;
-  /* -webkit-filter: grayscale(100%);
-  filter: grayscale(100%); */
-  margin: auto;
-  margin-right: 5px;
-`;
+import { useTheme } from "../Theming";
+import Container from "../Container";
+import Links from "./Links";
+import MobileMenu from "./MobileMenu";
+const image = require("../../../static/images/elazizi.png");
 
 const Header = ({ siteTitle = "Youssouf" }) => {
   const theme = useTheme();
@@ -66,43 +54,31 @@ const Header = ({ siteTitle = "Youssouf" }) => {
               display: flex;
               align-items: center;
               a {
-                color: ${theme.colors.text};
                 text-decoration: none;
-                & + a {
-                  margin-left: 32px;
-                }
+                color: ${theme.colors.white};
+                margin-left: 16px;
+                margin-right: 16px;
               }
               .active {
-                visibility: visible;
+                display: none;
+                visibility: hidden;
               }
             `}
           >
-            <Link
-              to="/blog"
-              activeClassName="active"
-              aria-label="View blog page"
+            <div
+              css={css`
+                display: flex;
+                align-items: center;
+                ${bpMaxSM} {
+                  display: none;
+                }
+              `}
             >
-              Blog
-            </Link>
-            <Link
-              to="/talks"
-              activeClassName="active"
-              aria-label="View blog page"
-            >
-              Talks
-            </Link>
-            <Link
-              to="/oss"
-              activeClassName="active"
-              aria-label="View blog page"
-            >
-              Oss
-            </Link>
-
-            <ThemeToggler
-              toggleTheme={theme.toggleTheme}
-              themeName={theme.themeName}
-            />
+              <Links />
+            </div>
+            <MobileMenu>
+              <Links />
+            </MobileMenu>
           </div>
         </nav>
       </Container>

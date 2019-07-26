@@ -6,7 +6,7 @@ import { Global, css } from "@emotion/core";
 import { lighten } from "polished";
 import { bpMaxSM } from "../lib/breakpoints";
 import mdxComponents from "./mdx";
-import Header from "./Header";
+import Header from "./Header/";
 import reset from "../lib/reset";
 import { fonts } from "../lib/typography";
 import config from "../../config/website";

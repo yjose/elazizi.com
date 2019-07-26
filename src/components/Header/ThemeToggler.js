@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../Button";
 import styled from "@emotion/styled";
 import { FiMoon, FiSun } from "react-icons/fi";
-import { useTheme } from "./Theming";
+import { useTheme } from "../Theming";
 
 const DarkMode = styled(FiMoon)({
   display: "flex",
@@ -30,7 +30,6 @@ const ThemeToggler = ({ toggleTheme, themeName }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        margin: "0px 0px 0px 30px",
         borderStyle: "solid",
         borderWidth: "1px",
         color: theme.colors.white,
