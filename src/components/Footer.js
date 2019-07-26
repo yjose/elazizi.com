@@ -1,7 +1,6 @@
 import React from "react";
 import { css } from "@emotion/core";
 import { bpMaxSM } from "../lib/breakpoints";
-import SubscribeForm from "./Forms/Subscribe";
 import theme from "../../config/theme";
 
 import { Twitter, GitHub, LinkedIn } from "./Social";
@@ -17,13 +16,6 @@ const Footer = ({ author, noSubscribeForm }) => (
         }
       `}
     >
-      {false && (
-        <div>
-          <SubscribeForm />
-          <br />
-          <br />
-        </div>
-      )}
       <div
         css={css`
           display: flex;

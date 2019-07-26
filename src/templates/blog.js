@@ -1,12 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import { css } from "@emotion/core";
 import Container from "components/Container";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
+import PostCard from "../components/PostCard";
 import Link from "../components/Link";
-import { bpMaxSM } from "../lib/breakpoints";
 
 const Blog = ({
   data: { site, allMdx },
@@ -29,6 +28,7 @@ const Blog = ({
       <Container
         noVerticalPadding
         css={css`
+          padding-top: 40px;
           a,
           p {
           }
@@ -43,89 +43,31 @@ const Blog = ({
         `}
       >
         {posts.map(({ node: post }) => (
-          <div
+          <PostCard
             key={post.id}
-            css={css`
-              :not(:first-of-type) {
-                margin-top: 20px;
-                ${bpMaxSM} {
-                  margin-top: 20px;
-                }
-              }
-              :first-of-type {
-                margin-top: 20px;
-                ${bpMaxSM} {
-                  margin-top: 20px;
-                }
-              }
-              .gatsby-image-wrapper {
-              }
-              background: white;
-              padding: 40px;
-              ${bpMaxSM} {
-                padding: 20px;
-              }
-              display: flex;
-              flex-direction: column;
-            `}
-          >
-            {post.frontmatter.banner && (
-              <div
-                css={css`
-                  padding: 60px 60px 40px 60px;
-                  ${bpMaxSM} {
-                    padding: 20px;
-                  }
-                `}
-              >
-                <Link
-                  aria-label={`View ${post.frontmatter.title} article`}
-                  to={`/${post.fields.slug}`}
-                >
-                  <Img sizes={post.frontmatter.banner.childImageSharp.fluid} />
-                </Link>
-              </div>
-            )}
-            <h2
-              css={css`
-                margin-top: 30px;
-                margin-bottom: 10px;
-              `}
-            >
-              <Link
-                aria-label={`View ${post.frontmatter.title} article`}
-                to={`/${post.fields.slug}`}
-              >
-                {post.frontmatter.title}
-              </Link>
-            </h2>
-            {/* <small>{post.frontmatter.date}</small> */}
-            <p
-              css={css`
-                margin-top: 10px;
-              `}
-            >
-              {post.excerpt}
-            </p>{" "}
-            <Link
-              to={`/${post.fields.slug}`}
-              aria-label={`view "${post.frontmatter.title}" article`}
-            >
-              Read Article →
-            </Link>
-          </div>
+            post={post}
+            banner={post.frontmatter.banner}
+          />
         ))}
-        <br />
-        <br />
-        <div>
-          {nextPagePath && (
-            <Link to={nextPagePath} aria-label="View next page">
-              Next Page →
-            </Link>
-          )}
-          {previousPagePath && (
+        <div
+          css={css`
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+          `}
+        >
+          {!previousPagePath ? (
+            <div />
+          ) : (
             <Link to={previousPagePath} aria-label="View previous page">
               ← Previous Page
+            </Link>
+          )}
+          {!nextPagePath ? (
+            <div />
+          ) : (
+            <Link to={nextPagePath} aria-label="View next page">
+              Next Page →
             </Link>
           )}
         </div>

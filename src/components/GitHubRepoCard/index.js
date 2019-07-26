@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import Link from "../Link";
+import { useTheme } from "../Theming";
 
 import { rhythm } from "../../lib/typography";
 import theme from "../../../config/theme";
@@ -27,54 +28,72 @@ export default ({
     languages,
     stargazers: { totalCount: stars }
   }
-}) => (
-  <div
-    css={css`
-      margin-bottom: 40px;
-      background: white;
-      padding: 10px 20px 10px 20px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-      border-radius: 5px;
-      cursor: pointer;
-      :hover {
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.27);
-        transition: ${theme.transition.ease};
-      }
-    `}
-  >
-    <Link to={url} aria-label={`View ${name}`} target="_blank">
-      <RepoName>
-        <Project /> {name}
-      </RepoName>
-    </Link>
-    <Description>{description}</Description>
-    <div
+}) => {
+  const theme = useTheme();
+  const dark = theme.themeName === "dark";
+
+  return (
+    <Link
+      to={url}
+      aria-label={`View ${name}`}
+      target="_blank"
       css={css`
-        color: grey;
-        font-size: 16px;
-        margin-top: 20px;
-        background: white;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        text-decoration: none !important;
       `}
     >
-      <span> {languages}</span>
-      <span>
-        <span>
-          <Star />
-          {stars}
-        </span>
-        <span
+      <div
+        css={css`
+          margin-bottom: 40px;
+          padding: 10px 20px 10px 20px;
+          box-shadow: 0 1px 2px ${theme.colors.text};
+          border-radius: 5px;
+          cursor: pointer;
+          :hover {
+            /* box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px,
+              rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
+              rgba(0, 0, 0, 0.12) 0px 3px 1px -2px; */
+            transform: scale(1.02);
+          }
+          color: ${theme.colors.text};
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.27);
+
+          transition: all 0.3s ease 0s;
+          background: ${dark ? "rgb(43, 42, 42)" : theme.colors.white};
+        `}
+      >
+        <RepoName>
+          <Project /> {name}
+        </RepoName>
+
+        <Description>{description}</Description>
+        <div
           css={css`
-            margin-left: 15px;
+            color: ${theme.colors.text};
+            font-size: 16px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
           `}
         >
-          <Fork /> {forkCount}
-        </span>
-      </span>
-    </div>
-    <span />
-  </div>
-);
+          <span> {languages}</span>
+          <span>
+            <span>
+              <Star />
+              {stars}
+            </span>
+            <span
+              css={css`
+                margin-left: 15px;
+              `}
+            >
+              <Fork /> {forkCount}
+            </span>
+          </span>
+        </div>
+        <span />
+      </div>
+    </Link>
+  );
+};
