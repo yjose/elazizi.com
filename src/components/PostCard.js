@@ -23,7 +23,7 @@ export default ({ post, banner = false }) => {
 
   return (
     <Link
-      to={post.fields.slug}
+      to={ "/" + post.fields.slug}
       aria-label={`View ${post.frontmatter.title}`}
       css={css`
         text-decoration: none !important;
