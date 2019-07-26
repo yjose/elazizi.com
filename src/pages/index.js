@@ -11,7 +11,7 @@ import theme from "../../config/theme";
 
 export default function Index({ data: { site, allMdx } }) {
   return (
-    <Layout site={site}>
+    <Layout site={site} isHome>
       <SEO />
       <Hero />
       <Container

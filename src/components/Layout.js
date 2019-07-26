@@ -137,7 +137,7 @@ export default ({
   frontmatter = {},
   children,
   noFooter,
-  noSubscribeForm
+  isHome = false
 }) => {
   const initializeTheme = () => {
     if (typeof window !== "undefined") {
@@ -194,16 +194,11 @@ export default ({
             <html lang="en" />
             <noscript>This site runs best with JavaScript enabled.</noscript>
           </Helmet>
-          <Header />
+          <Header isHome={isHome} />
           <MDXProvider components={mdxComponents}>
             <Fragment>{children}</Fragment>
           </MDXProvider>
-          {!noFooter && (
-            <Footer
-              author={site.siteMetadata.author.name}
-              noSubscribeForm={noSubscribeForm}
-            />
-          )}
+          {!noFooter && <Footer author={site.siteMetadata.author.name} />}
         </div>
       </Fragment>
     </ThemeProvider>

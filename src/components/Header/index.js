@@ -9,7 +9,7 @@ import Links from "./Links";
 import MobileMenu from "./MobileMenu";
 const image = require("../../../static/images/elazizi.png");
 
-const Header = ({ siteTitle = "Youssouf" }) => {
+const Header = ({ siteTitle = "Youssouf", isHome }) => {
   const theme = useTheme();
   return (
     <header
@@ -21,7 +21,7 @@ const Header = ({ siteTitle = "Youssouf" }) => {
         background: "transparent";
         z-index: 3;
         a {
-          color: ${theme.colors.text};
+          color: ${isHome ? theme.colors.white : theme.colors.text};
           text-decoration: none;
         }
       `}
@@ -39,7 +39,7 @@ const Header = ({ siteTitle = "Youssouf" }) => {
             to="/"
             aria-label="go to homepage"
             css={css`
-              color: ${theme.colors.text};
+              color: ${isHome ? theme.colors.white : theme.colors.text};
               display: flex;
               align-items: center;
             `}
@@ -55,7 +55,7 @@ const Header = ({ siteTitle = "Youssouf" }) => {
               align-items: center;
               a {
                 text-decoration: none;
-                color: ${theme.colors.text};
+                color: ${isHome ? theme.colors.white : theme.colors.text};
                 margin-left: 16px;
                 margin-right: 16px;
               }
