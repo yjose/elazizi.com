@@ -20,43 +20,43 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
         padding: 20px 0 20px 0;
         background: "transparent";
         z-index: 3;
-        a {
-          color: ${isHome ? theme.colors.white : theme.colors.text};
-          text-decoration: none;
-        }
       `}
     >
       <Container noVerticalPadding>
         <nav
-          css={css`
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            a {
-              text-decoration: none;
-              color: ${isHome ? theme.colors.white : theme.colors.text};
+          css={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            a: {
+              ":hover": {
+                textDecoration: "none !important",
+                color: theme.colors.link
+              },
+              textDecoration: "none",
+              color: theme.colors.text
+            },
+            ".active": {
+              color: theme.colors.link,
+              background: "transparent !important"
             }
-            .active {
-              color: ${theme.colors.link};
-              background: transparent !important;
-              ${bpMaxSM} {
-                color: ${theme.colors.white};
-              }
-            }
-          `}
+          }}
         >
           <Link
             to="/"
             aria-label="go to homepage"
-            css={css`
-              color: ${isHome ? theme.colors.white : theme.colors.text};
-              display: flex;
-              align-items: center;
-              .active {
-                color: ${isHome ? theme.colors.white : theme.colors.text};
+            css={{
+              color: theme.colors.text,
+              display: "flex",
+              alignItems: "center",
+              ".active_home": {
+                color: theme.colors.text
+              },
+              ":hover": {
+                color: theme.colors.text
               }
-            `}
+            }}
             activeClassName="active_home"
           >
             👨🏻‍💻 Youssouf

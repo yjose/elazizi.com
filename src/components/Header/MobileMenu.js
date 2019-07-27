@@ -106,12 +106,6 @@ const Toggle = ({ children, isHome }) => {
                 margin: 10px 0;
                 padding: 10px;
                 border-radius: 5px;
-                :hover {
-                  background: rgba(0, 0, 0, 0.2);
-                }
-              }
-              .active {
-                background: rgba(0, 0, 0, 0.2);
               }
             `}
           >
