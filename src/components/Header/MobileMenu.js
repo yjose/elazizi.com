@@ -6,11 +6,12 @@ import { bpMaxSM } from "../../lib/breakpoints";
 
 import { useTheme } from "../Theming";
 
-const Toggle = ({ children }) => {
+const Toggle = ({ children, isHome }) => {
   const [isToggledOn, setToggle] = useState(false);
   const toggle = () => setToggle(!isToggledOn);
+  const closeMenu = () => setToggle(false);
   const theme = useTheme();
-  const color = theme.colors.white;
+  const color = isHome ? theme.colors.white : theme.colors.text;
 
   return (
     <div
@@ -114,7 +115,7 @@ const Toggle = ({ children }) => {
               }
             `}
           >
-            {children}
+            {children(closeMenu)}
           </Container>
         </div>
       )}

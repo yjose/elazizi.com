@@ -60,8 +60,11 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
                 margin-right: 16px;
               }
               .active {
-                display: none;
-                visibility: hidden;
+                color: ${theme.colors.link};
+                background: transparent !important;
+                ${bpMaxSM} {
+                  color: ${theme.colors.white};
+                }
               }
             `}
           >
@@ -76,8 +79,8 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
             >
               <Links />
             </div>
-            <MobileMenu>
-              <Links />
+            <MobileMenu isHome={isHome}>
+              {close => <Links close={close} />}
             </MobileMenu>
           </div>
         </nav>
