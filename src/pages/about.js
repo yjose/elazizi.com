@@ -113,8 +113,8 @@ export default ({ data: { site } }) => {
             </a>{" "}
             or by clicking the button 👇 to enable new blog post notifications
             <br />
-            <SubscribeSection />
           </p>
+          <SubscribeSection />
         </div>
       </Container>
     </Layout>

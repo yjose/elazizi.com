@@ -7,23 +7,13 @@ import Link from "../components/Link";
 import { rhythm } from "../lib/typography";
 import { useTheme } from "./Theming";
 
-const PostTitle = styled.h2`
-  margin-bottom: ${rhythm(0.3)};
-`;
-
-const Description = styled.p`
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: inline-block;
-`;
-
 export default ({ post, banner = false }) => {
   const theme = useTheme();
   const dark = theme.themeName === "dark";
 
   return (
     <Link
-      to={ "/" + post.fields.slug}
+      to={"/" + post.fields.slug}
       aria-label={`View ${post.frontmatter.title}`}
       css={css`
         text-decoration: none !important;
@@ -54,8 +44,22 @@ export default ({ post, banner = false }) => {
             padding: 10px 20px 10px 20px;
           `}
         >
-          <PostTitle>{post.frontmatter.title}</PostTitle>
-          <Description>{post.excerpt}</Description>
+          <h2
+            css={css`
+              margin-bottom: ${rhythm(0.3)};
+            `}
+          >
+            {post.frontmatter.title}
+          </h2>
+          <p
+            css={css`
+              margin-top: 10px;
+              margin-bottom: 10px;
+              display: inline-block;
+            `}
+          >
+            {post.excerpt}
+          </p>
           <div
             css={css`
               display: flex;

@@ -27,6 +27,6 @@ const themes = {
   }
 };
 
-const { ThemeProvider, withTheme, useTheme } = createTheming(themes.default);
+const { ThemeProvider, withTheme, useTheme } = createTheming(themes.dark);
 
 export { ThemeProvider, withTheme, useTheme, themes, colors };
