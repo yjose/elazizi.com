@@ -17,7 +17,7 @@ export default function Index({ data: { site, allMdx } }) {
         `}
       >
         {allMdx.edges.map(({ node: talk }) => (
-          <TalkCard talk={talk} />
+          <TalkCard talk={talk} key={talk.id} />
         ))}
         <hr />
       </Container>

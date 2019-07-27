@@ -33,6 +33,17 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            a {
+              text-decoration: none;
+              color: ${isHome ? theme.colors.white : theme.colors.text};
+            }
+            .active {
+              color: ${theme.colors.link};
+              background: transparent !important;
+              ${bpMaxSM} {
+                color: ${theme.colors.white};
+              }
+            }
           `}
         >
           <Link
@@ -42,6 +53,9 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
               color: ${isHome ? theme.colors.white : theme.colors.text};
               display: flex;
               align-items: center;
+              .active {
+                color: ${isHome ? theme.colors.white : theme.colors.text};
+              }
             `}
             activeClassName="active_home"
           >
@@ -54,17 +68,8 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
               display: flex;
               align-items: center;
               a {
-                text-decoration: none;
-                color: ${isHome ? theme.colors.white : theme.colors.text};
                 margin-left: 16px;
                 margin-right: 16px;
-              }
-              .active {
-                color: ${theme.colors.link};
-                background: transparent !important;
-                ${bpMaxSM} {
-                  color: ${theme.colors.white};
-                }
               }
             `}
           >
