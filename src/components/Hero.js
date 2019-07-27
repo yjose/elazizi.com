@@ -6,6 +6,8 @@ import Container from "components/Container";
 import { rhythm } from "../lib/typography";
 import theme from "../../config/theme";
 import { Twitter, GitHub, LinkedIn } from "./Social";
+import { Link } from "gatsby";
+import { useTheme } from "./Theming";
 
 const image = require("../../static/images/elazizi.png");
 const Avatar = styled.img`
@@ -58,6 +60,9 @@ const Hero = () => (
             line-height: 1.5;
             margin: 0;
             max-width: ${rhythm(15)};
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
           `}
         >
           <div
@@ -85,6 +90,8 @@ const Hero = () => (
           A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believer. I love
           working with react and ReactNative and I admire writing about my
           programming journey 👇👇👇
+          <br />
+          <GetInTouch />
         </div>
         <div
           css={css`
@@ -123,3 +130,60 @@ const Hero = () => (
 );
 
 export default Hero;
+
+const GetInTouch = () => {
+  const theme = useTheme();
+
+  return (
+    <Link
+      css={css`
+        display: block;
+        text-decoration: none;
+        align-self: center;
+        :hover {
+          color: ${theme.colors.blue};
+          text-decoration: none;
+          :after {
+            height: 260%;
+            opacity: 1;
+          }
+        }
+        background: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        display: inline-block;
+        margin-top: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        outline: none;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+        overflow: hidden;
+        ::after {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          transition: all 0.3s;
+          width: 100%;
+          height: 0;
+          top: 50%;
+          left: 50%;
+          background: #fff;
+          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        }
+      `}
+      to="/about"
+      aria-label="View about page"
+    >
+      Get In Touch
+    </Link>
+  );
+};

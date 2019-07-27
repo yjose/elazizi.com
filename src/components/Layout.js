@@ -27,6 +27,7 @@ const getGlobalStyles = theme => {
     a {
       color: ${theme.colors.link};
       text-decoration: none;
+      cursor: pointer;
       &:hover,
       &:focus {
         color: ${theme.colors.link};

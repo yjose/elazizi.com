@@ -39,9 +39,9 @@ const Footer = ({ author, noSubscribeForm }) => (
             }
           `}
         >
-          <LinkedIn />
-          <Twitter />
-          <GitHub />
+          <Twitter height={36} width={28} />
+          <LinkedIn height={30} width={30} />
+          <GitHub height={30} width={30} />
         </div>
       </div>
     </Container>
