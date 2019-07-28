@@ -102,11 +102,12 @@ Taking some time to search for the best resource using css-trick serverless reso
 - Authentication is the best way to guarantee one vote per user. There are some other approaches but they are not secure.
 - [**Auth0**](https://auth0.com/) for authentication: Free for 7000 active users which is enough for us.
 - Using [**Netlify**](https://www.netlify.com/products/) functions to write our API: I love Netlify and we're already using it to host the static website.
-- Using [**Faunadb**](https://fauna.com/) as a database: Great free storage quota, support for **GraphQl** and works great with Netlify function.
+- Using [**Faunadb**](https://fauna.com/) as a database: Great free storage quota, support for **GraphQl** and works great with Netlify functions.
 - We need an admin panel to validate submission before they appear in the suggestion list.
 - App architecture draft
 
 ![](./banner.png)
+<b/>
 
 > **In the next part we will jump into the coding part and understanding the whole architecture, stay tunned.**
 
