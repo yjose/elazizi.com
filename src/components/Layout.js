@@ -12,7 +12,7 @@ import { fonts } from "../lib/typography";
 import config from "../../config/website";
 import Footer from "../components/Footer";
 
-import { ThemeProvider, themes } from "./Theming";
+import { useTheme } from "./Theming";
 
 const getGlobalStyles = theme => {
   return css`
@@ -140,25 +140,6 @@ export default ({
   noFooter,
   isHome = false
 }) => {
-  const initializeTheme = () => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "default";
-    } else {
-      return "default";
-    }
-  };
-
-  const [themeName, setTheme] = useState(initializeTheme);
-
-  useEffect(() => {
-    localStorage.setItem("theme", themeName);
-  }, [themeName]);
-
-  const toggleTheme = name => setTheme(name);
-  const theme = {
-    ...themes[themeName],
-    toggleTheme: toggleTheme
-  };
   const {
     description: siteDescription,
     keywords: siteKeywords
@@ -171,38 +152,37 @@ export default ({
 
   const keywords = (frontmatterKeywords || siteKeywords).join(", ");
   const description = frontmatterDescription || siteDescription;
+  const theme = useTheme();
 
   return (
-    <ThemeProvider theme={theme}>
-      <Fragment>
-        <Global styles={reset()} />
-        <Global styles={getGlobalStyles(theme)} />
-        <div
-          css={css`
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            min-height: 100vh;
-          `}
+    <Fragment>
+      <Global styles={reset()} />
+      <Global styles={getGlobalStyles(theme)} />
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          min-height: 100vh;
+        `}
+      >
+        <Helmet
+          title={config.siteTitle}
+          meta={[
+            { name: "description", content: description },
+            { name: "keywords", content: keywords }
+          ]}
         >
-          <Helmet
-            title={config.siteTitle}
-            meta={[
-              { name: "description", content: description },
-              { name: "keywords", content: keywords }
-            ]}
-          >
-            <html lang="en" />
-            <noscript>This site runs best with JavaScript enabled.</noscript>
-          </Helmet>
-          <Header isHome={isHome} />
-          <MDXProvider components={mdxComponents}>
-            <Fragment>{children}</Fragment>
-          </MDXProvider>
-          {!noFooter && <Footer author={site.siteMetadata.author.name} />}
-        </div>
-      </Fragment>
-    </ThemeProvider>
+          <html lang="en" />
+          <noscript>This site runs best with JavaScript enabled.</noscript>
+        </Helmet>
+        <Header isHome={isHome} />
+        <MDXProvider components={mdxComponents}>
+          <Fragment>{children}</Fragment>
+        </MDXProvider>
+        {!noFooter && <Footer author={site.siteMetadata.author.name} />}
+      </div>
+    </Fragment>
   );
 };
 

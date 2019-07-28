@@ -20,6 +20,7 @@ const DefaultMode = styled(FiSun)({
 
 const ThemeToggler = ({ toggleTheme, themeName }) => {
   const theme = useTheme();
+
   return (
     <Button
       css={{

@@ -42,6 +42,7 @@ export default ({ close }) => {
       <ThemeToggler
         toggleTheme={theme.toggleTheme}
         themeName={theme.themeName}
+        setTheme={theme.setTheme}
       />
     </React.Fragment>
   );
