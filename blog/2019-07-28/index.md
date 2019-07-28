@@ -7,9 +7,9 @@ keywords: ["react", "serverless", "netlify", "auth0", "FaunaDB"]
 banner: "./banner.png"
 ---
 
-Nowadays, for sure you have heard of Serverless and how this new hype can help you build application fast and almost for free for small apps which the case for most side project you are trying to build.
+Nowadays, for sure you have heard of Serverless and how this new hype can help you build applications fast and almost for free for small ones, which the case for most side projects you are trying to build.
 
-In this article I will share with you a step-by-step from search to launch guide to how you can build complex logic apps using Serverless services and your brain.
+In this article I will share with you a step-by-step from search to launch on how you can build complex logic apps using Serverless services and your brain.
 
 This post is a great use case for people who have a good side project ideas and perhaps don't have enough skills on backend, environment configuration or enough time and budget to start working on it.
 
@@ -27,19 +27,19 @@ Well, this is not our main topic but you can find some good answers from those t
 
 [GeeksBlabla](https://geeksblabla.com/) is one of the [DevC Casablanca](https://www.facebook.com/groups/DevC.Casablanca/) community products. its a 3 to 5 people show talking about a specific dev topic or interviewing a success Moroccan person in IT. Briefly it's a Geeks blabla.
 
-At the moment I am writing this article there are more than 30 hours of great and valuable discussions. make sure to take a look.
+At the moment I am writing this article, there are more than 30 hours of great and valuable discussions. Make sure to take a look.
 
 > Before we start, we need to answer some questions to make sure we understand what we are trying to build.
 
-#### What we are trying to build?
+#### What are we trying to build?
 
-One of the most requested features is to add a new suggest page where people can suggest a new topic and also votes for existed ones. And of course with some requirements:
+One of the most requested features is adding a new page where people can suggest a new topic and also vote for existing ones and of course with some requirements:
 
 - The Process should be fast and secure.
-- Prevent spam submit.
-- The User only allowed to vote one time per suggestion.
+- Prevent spam submissions.
+- The User is only allowed to vote one time per suggestion.
 
-#### What we have?
+#### What do we have?
 
 - A static website built using Gatsbyjs.
 - 0\$ budget.
@@ -74,9 +74,9 @@ Guess what! this is a wrong question in our case, all Google result is related t
 
 **Voting system platform? ( Existing sass product**)
 
-Recently, you can find a sass project for every feature you want: contact page, authentication notification almost everything. that’s why I thought we can find a sass voting system with a simple API to use. Unfortunately, I only found some complex platform and API that would be impossible to be part of our existing stack.
+Recently, you can find a sass project for every feature you want: contact page, authentication notification almost everything. that’s why I thought we could find a SASS voting system with a simple API to use. Unfortunately, I only found some complex platform and API that would be impossible to be part of our existing stack.
 
-After a while, I remember a page I already see in [expo](https://expo.canny.io/feature-requests) website which let developers suggest new features to be added on the expo platform and Guess what this is perfectly what we are trying to build.
+After a while, I recall a page I already seen in [expo](https://expo.canny.io/feature-requests) website which let developers suggest new features to be added on the expo platform and Guess what this is perfectly what we are trying to build.
 
 As you can see you can suggest new features and other developers can votes.
 
@@ -84,7 +84,7 @@ As you can see you can suggest new features and other developers can votes.
 
 First look, I noticed “ power by canny ” link. Ok let’s see what is Canny
 
-Reading the features page and feeling happy look like this is the best choice for us. But unfortunately the pricing page is not what we want to hear, no freemium plan and starter plan starts from \$50/mo.
+Reading the features page and feeling happy looks like this is the best choice for us. But unfortunately the pricing page isn't what we're anticipating,no freemium plan and starter plan starts from \$50/mo.
 
 ![](https://cdn-images-1.medium.com/max/800/0*Yp4JdRhzCW6LCGuZ)
 
@@ -93,21 +93,21 @@ Reading the features page and feeling happy look like this is the best choice fo
 **Best Serverless resources?**
 
 Jumping from page to page, I found a great website in CSS-tricks team that needs to be added in your bookmarks.
-[The power of Serverless for front-end developers](https://serverless.css-tricks.com/) is a complete list of serverless services and resources organized by sections in one place, Almost any think you will need in your project : data storage, cloud functions, payments, etc.
+[The power of Serverless for front-end developers](https://serverless.css-tricks.com/) is a complete list of serverless services and resources organized by sections in one place, almost anything you will need in your project : data storage, cloud functions, payments, etc.
 
-### Conclusion
+## Final notes & search results
 
-Taking some time to search for the best resource in our case and this is My final notes based on the first step ( Search):
+Taking some time to search for the best resource using css-trick serverless resources and inspired by Canny features,This is My final notes :
 
 - Authentication is the best way to guarantee one vote per user. There are some other approaches but they are not secure.
 - [**Auth0**](https://auth0.com/) for authentication: Free for 7000 active users which is enough for us.
-- Using [**Netlify**](https://www.netlify.com/products/) functions to write our API: I love Netlify and we already using it to host the static website.
+- Using [**Netlify**](https://www.netlify.com/products/) functions to write our API: I love Netlify and we're already using it to host the static website.
 - Using [**Faunadb**](https://fauna.com/) as a database: Great free storage quota, support for **GraphQl** and works great with Netlify function.
 - We need an admin panel to validate submission before they appear in the suggestion list.
+- App architecture draft
 
-And this is the first draft of app architecture:
 ![](./banner.png)
 
-In the next post we will jump into the coding part and understanding the whole architecture, stay tunned.
+> **In the next part we will jump into the coding part and understanding the whole architecture, stay tunned.**
 
 Thanks for reading! If you think other people should read this post. tweet,share and enable notification to get updates.

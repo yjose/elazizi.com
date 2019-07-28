@@ -73,7 +73,7 @@ export default ({ data: { site } }) => {
             <a href="https://react-popup.elazizi.com/" target="_blank">
               5M downloads react component package
             </a>{" "}
-            and submitting some PRs to project I usually use such us
+            and submitting some PRs to projects I usually use such us
             react-native and Gatsbyjs. <br />
             <br />
             I'm also a{" "}
@@ -83,7 +83,7 @@ export default ({ data: { site } }) => {
             >
               DevC Casablanca
             </a>{" "}
-            core team members, I do my best for that as well as sharing my
+            core team member, I do my best for that as well as sharing my
             knowledge and helping on events organization.
             <br />
             <br />
@@ -111,7 +111,7 @@ export default ({ data: { site } }) => {
             <a href="https://twitter.com/ElaziziYoussouf" target="_blank">
               Twitter
             </a>{" "}
-            or by clicking the button 👇 to enable new blog post notifications
+            or by clicking the button 👇 to enable new blog posts notifications
             <br />
           </p>
           <SubscribeSection />
