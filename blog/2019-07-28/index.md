@@ -72,9 +72,9 @@ Questions:
 
 Guess what! this is a wrong question in our case, all Google result is related to blockchain and mathematics theories.
 
-**Voting system platform? ( Existing sass product**)
+**Voting system platform? ( Existing SAAS product**)
 
-Recently, you can find a sass project for every feature you want: contact page, authentication notification almost everything. that’s why I thought we could find a SASS voting system with a simple API to use. Unfortunately, I only found some complex platform and API that would be impossible to be part of our existing stack.
+Recently, you can find a SAAS project for every feature you want: contact page, authentication notification almost everything. that’s why I thought we could find a SASS voting system with a simple API to use. Unfortunately, I only found some complex platform and API that would be impossible to be part of our existing stack.
 
 After a while, I recall a page I already seen in [expo](https://expo.canny.io/feature-requests) website which let developers suggest new features to be added on the expo platform and Guess what this is perfectly what we are trying to build.
 
