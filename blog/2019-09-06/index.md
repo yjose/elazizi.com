@@ -1,5 +1,5 @@
 ---
-date: 2019-07-28
+date: 2019-09-10
 title: "React Native news from last week"
 categories: ["react", "react-native"]
 published: true
