@@ -155,21 +155,8 @@ export default ({
   const theme = useTheme();
 
   return (
-<<<<<<< HEAD
-    <ThemeProvider theme={theme}>
-      <Fragment>
-        <Global styles={reset(theme)} />
-        <Global styles={getGlobalStyles(theme)} />
-        <div
-          css={css`
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            min-height: 100vh;
-          `}
-=======
     <Fragment>
-      <Global styles={reset()} />
+      <Global styles={reset(theme)} />
       <Global styles={getGlobalStyles(theme)} />
       <div
         css={css`
@@ -185,7 +172,6 @@ export default ({
             { name: "description", content: description },
             { name: "keywords", content: keywords }
           ]}
->>>>>>> db5ff45c0aa3b03210e5e7e3d1383f1109f56e55
         >
           <html lang="en" />
           <noscript>This site runs best with JavaScript enabled.</noscript>
