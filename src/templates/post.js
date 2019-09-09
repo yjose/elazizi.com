@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "components/SEO";
 import { css } from "@emotion/core";
 import Container from "components/Container";
@@ -37,6 +37,10 @@ export default function Post({
         css={css`
           width: 100%;
           display: flex;
+          twitter-widget {
+            margin-left: auto;
+            margin-right: auto;
+          }
         `}
       >
         <Container>
@@ -93,7 +97,7 @@ export default function Post({
               }
             `}
           >
-            <MDXRenderer>{mdx.code.body}</MDXRenderer>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
           </div>
         </Container>
 
@@ -136,17 +140,15 @@ export const pageQuery = graphql`
       fields {
         slug
       }
-      code {
-        body
-      }
+      body
     }
   }
 `;
 
 const SubscribeSection = () => {
-  const { isSubscribed, subscribe, loading } = isBrowser
-    ? useContext(OneSignalContext)
-    : {};
+  const { isSubscribed, subscribe, loading } =
+    useContext(OneSignalContext) || {};
+
   if (isSubscribed && !loading) return null;
 
   return (
