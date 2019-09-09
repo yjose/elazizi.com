@@ -156,7 +156,7 @@ export default ({
 
   return (
     <Fragment>
-      <Global styles={reset()} />
+      <Global styles={reset(theme)} />
       <Global styles={getGlobalStyles(theme)} />
       <div
         css={css`

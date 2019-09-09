@@ -133,9 +133,8 @@ export const pageQuery = graphql`
 `;
 
 const SubscribeSection = () => {
-  const { isSubscribed, subscribe, loading } = isBrowser
-    ? useContext(OneSignalContext)
-    : {};
+  const { isSubscribed, subscribe, loading } =
+    useContext(OneSignalContext) || {};
   if (isSubscribed && !loading) return null;
 
   return (

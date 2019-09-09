@@ -66,7 +66,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [".mdx", ".md", ".markdown"],
         gatsbyRemarkPlugins: [
@@ -77,10 +77,12 @@ module.exports = {
               maxWidth: 1035,
               sizeByPixelDensity: true
             }
-          }
+          },
+          { resolve: "gatsby-remark-embedder" }
         ]
       }
     },
+    "gatsby-plugin-twitter",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-emotion",

@@ -1,9 +1,7 @@
 import { css } from "@emotion/core";
-import { useTheme } from "../components/Theming";
 import typography, { fonts } from "../lib/typography";
 
-const resetStyles = () => {
-  const theme = useTheme();
+const resetStyles = theme => {
   return css`
   form {
     margin: 0;
