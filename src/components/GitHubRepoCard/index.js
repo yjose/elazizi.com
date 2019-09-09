@@ -30,7 +30,6 @@ export default ({
   }
 }) => {
   const theme = useTheme();
-  const dark = theme.themeName === "dark";
 
   return (
     <Link
@@ -42,24 +41,20 @@ export default ({
       `}
     >
       <div
-        css={css`
-          margin-bottom: 40px;
-          padding: 10px 20px 10px 20px;
-          box-shadow: 0 1px 2px ${theme.colors.text};
-          border-radius: 5px;
-          cursor: pointer;
-          :hover {
-            /* box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px,
-              rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
-              rgba(0, 0, 0, 0.12) 0px 3px 1px -2px; */
-            transform: scale(1.02);
-          }
-          color: ${theme.colors.text};
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.27);
-
-          transition: all 0.3s ease 0s;
-          background: ${dark ? "rgb(43, 42, 42)" : theme.colors.white};
-        `}
+        css={{
+          marginBottom: "40px",
+          padding: "10px 20px 10px 20px",
+          boxShadow: `0 1px 2px  ${theme.colors.text}`,
+          borderRadius: "5px",
+          cursor: "pointer",
+          ":hover": {
+            transform: "scale(1.02)"
+          },
+          color: theme.colors.text,
+          boxShadow: "0 1px 2px rgba(0, 0, 0, 0.27)",
+          transition: "all 0.3s ease 0s",
+          backgroundColor: theme.colors.cardBg
+        }}
       >
         <RepoName>
           <Project /> {name}
