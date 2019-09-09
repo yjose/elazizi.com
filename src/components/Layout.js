@@ -175,7 +175,7 @@ export default ({
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
-        <Global styles={reset()} />
+        <Global styles={reset(theme)} />
         <Global styles={getGlobalStyles(theme)} />
         <div
           css={css`
