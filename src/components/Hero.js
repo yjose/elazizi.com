@@ -9,7 +9,7 @@ import { Twitter, GitHub, LinkedIn } from "./Social";
 import { Link } from "gatsby";
 import { useTheme } from "./Theming";
 
-const image = require("../../static/images/elazizi.png");
+const image = require("../../static/images/elazizi.jpg");
 const Avatar = styled.img`
   height: 160px;
   width: 160px;

@@ -7,7 +7,7 @@ import { useTheme } from "../Theming";
 import Container from "../Container";
 import Links from "./Links";
 import MobileMenu from "./MobileMenu";
-const image = require("../../../static/images/elazizi.png");
+const image = require("../../../static/images/elazizi.jpg");
 
 const Header = ({ siteTitle = "Youssouf", isHome }) => {
   const theme = useTheme();
