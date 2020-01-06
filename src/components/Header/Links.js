@@ -39,6 +39,9 @@ export default ({ close }) => {
       >
         About
       </Link>
+      <a href="https://tinyletter.com/yjose" target="_blank">
+        Subscribe
+      </a>
       <ThemeToggler
         toggleTheme={theme.toggleTheme}
         themeName={theme.themeName}
