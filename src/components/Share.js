@@ -48,6 +48,7 @@ const Share = ({ url, title, twitterHandle }) => {
         via={twitterHandle.split("@").join("")}
         css={css`
           cursor: pointer;
+          margin-left: 10px;
         `}
       >
         Facebook

@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { css } from "@emotion/core";
 import Layout from "../components/Layout";
 
 import Container from "components/Container";
 import { Twitter, GitHub, LinkedIn } from "components/Social";
-import { OneSignalContext } from "../components/OneSignal";
 import { bpMaxSM } from "../lib/breakpoints";
-const isBrowser = typeof window !== "undefined";
+import Subscribe from "../components/Subscribe";
 
 export default ({ data: { site } }) => {
   return (
@@ -111,10 +110,10 @@ export default ({ data: { site } }) => {
             <a href="https://twitter.com/ElaziziYoussouf" target="_blank">
               Twitter
             </a>{" "}
-            or by clicking the button 👇 to enable new blog posts notifications
+            or by Subscribing to my Email list 👇
             <br />
           </p>
-          <SubscribeSection />
+          <Subscribe description={false} />
         </div>
       </Container>
     </Layout>
@@ -131,26 +130,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-const SubscribeSection = () => {
-  const { isSubscribed, subscribe, loading } =
-    useContext(OneSignalContext) || {};
-  if (isSubscribed && !loading) return null;
-
-  return (
-    <div
-      css={css`
-        padding: 30px;
-        ${bpMaxSM} {
-          padding: 0;
-        }
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px;
-      `}
-    >
-      <button onClick={subscribe}> SUBSCRIBE TO UPDATES {isSubscribed} </button>
-    </div>
-  );
-};

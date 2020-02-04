@@ -10,8 +10,7 @@ import { fonts } from "../lib/typography";
 import Share from "../components/Share";
 import config from "../../config/website";
 import { bpMaxSM } from "../lib/breakpoints";
-import { OneSignalContext } from "../components/OneSignal";
-const isBrowser = typeof window !== "undefined";
+import Subscribe from "../components/Subscribe";
 
 export default function Post({
   data: { site, mdx },
@@ -110,7 +109,7 @@ export default function Post({
           twitterHandle={config.twitterHandle}
         />
         <br />
-        <SubscribeSection />
+        <Subscribe />
       </Container>
     </Layout>
   );
@@ -146,11 +145,6 @@ export const pageQuery = graphql`
 `;
 
 const SubscribeSection = () => {
-  const { isSubscribed, subscribe, loading } =
-    useContext(OneSignalContext) || {};
-
-  if (isSubscribed && !loading) return null;
-
   return (
     <div
       css={css`
@@ -163,17 +157,6 @@ const SubscribeSection = () => {
         align-items: center;
         margin-bottom: 30px;
       `}
-    >
-      <p
-        css={css`
-          text-align: center;
-          font-weight: bold;
-        `}
-      >
-        Liked this article? Make sure to subscribe to get last articles and
-        updates.
-      </p>
-      <button onClick={subscribe}> SUBSCRIBE TO UPDATES {isSubscribed} </button>
-    </div>
+    ></div>
   );
 };
