@@ -1,9 +1,9 @@
 ---
 date: 2020-03-11
-title: "Gatsby Showcase: Contributors List For Open source Project"
+title: "GatsbyJs Showcase: Contributors List For Open source Project"
 categories: ["react", "Gatsby"]
 published: true
-keywords: ["react", "Gatsby", "js"]
+keywords: ["react", "GatsbyJs", "js"]
 banner: "./banner.png"
 ---
 
@@ -212,5 +212,7 @@ To see the workflow in Actions, We are Going to choose a contribution from Moham
 **Step 3** : Done! PR Merged 😄.
 
 ![](https://media.giphy.com/media/Mp4hQy51LjY6A/source.gif)
+
+> Github Repo : https://github.com/DevC-Casa/geeksblabla.com
 
 Thanks for reading! I hope you found it interesting, informative, and entertaining. If you think other people should read this post, Make sure to tweet, share and [follow me](https://twitter.com/ElaziziYoussouf) for upcoming stories.
