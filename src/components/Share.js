@@ -20,7 +20,6 @@ const Share = ({ url, title, twitterHandle }) => {
           }
         }
         span {
-          margin-right: 20px;
           font-size: 70%;
           text-transform: uppercase;
           line-height: 2.5;
@@ -34,7 +33,16 @@ const Share = ({ url, title, twitterHandle }) => {
           border-top: 1px solid ${theme.colors.gray};
         `}
       />
-      <span>Share article</span>
+      <span>Share article </span>
+      <span
+        css={css`
+          font-size: 30px !important;
+          margin-right: 15px;
+          margin-left: 5px;
+        `}
+      >
+        👉
+      </span>
       <TwitterShareButton
         url={url}
         quote={title}

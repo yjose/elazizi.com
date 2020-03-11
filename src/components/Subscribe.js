@@ -7,7 +7,7 @@ import { bpMaxSM } from "../lib/breakpoints";
 const SignUp = ({ theme, description = true }) => (
   <div>
     {description && (
-      <h2
+      <h4
         css={css`
           margin-bottom: ${rhythm(1)};
           margin-top: 0;
@@ -15,7 +15,7 @@ const SignUp = ({ theme, description = true }) => (
       >
         Liked this article? Make sure to subscribe to get last articles and
         updates.
-      </h2>
+      </h4>
     )}
 
     <form
