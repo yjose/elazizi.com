@@ -104,7 +104,7 @@ To create a new source we need to export `sourceNodes` function from our `gatsby
 First, we load the data from `.all-contributorsrc` file using node filesystem API.Then, we parse the data using the JSON built-in API as we know that `.all-contributorsrc` is a JSON format.
 Our last step is to create a new node for every contributor using GatsbyJs node API.
 
-```js
+```javascript {9,11,22}
 //gatsby-node.js
 const fs = require("fs");
 // ....
@@ -201,13 +201,13 @@ To see the workflow in Actions, We are Going to choose a contribution from Moham
 
 ![Step1](./step1.png)
 
-> Step1
+> Comment
 
 **Step 2** : Netlify preview will deploy a preview version of our website. We just need to Make sure our new contributor has been added to the contributors’ section.
 
 ![Step2](./step2.png)
 
-> Step1
+> PR with Netlify preview
 
 **Step 3** : Done! PR Merged 😄.
 
