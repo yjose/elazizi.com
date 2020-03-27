@@ -13,8 +13,7 @@ const SignUp = ({ theme, description = true }) => (
           margin-top: 0;
         `}
       >
-        Liked this article? Make sure to subscribe to get last articles and
-        updates.
+        Liked this article? Make sure to join my Newsletter.
       </h4>
     )}
 
