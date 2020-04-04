@@ -64,13 +64,13 @@ export default ({ data: { site } }) => {
             team and helping my team produce good quality Apps. <br />
             <br />
             I blog from time to time about my journey as a developer. My blog
-            posts have had over 200k reads and have been featured on Dev’s top
+            posts have had over 300k reads and have been featured on Dev’s top
             7, Medium top 20 recommended stories. <br />
             <br />
             I'm actively involved in the open source community as a maintainer
             and contributor. Maintaining a{" "}
             <a href="https://react-popup.elazizi.com/" target="_blank">
-              5M downloads react component package
+              10M downloads react component package
             </a>{" "}
             and submitting some PRs to projects I usually use such us
             react-native and Gatsbyjs. <br />
@@ -82,19 +82,18 @@ export default ({ data: { site } }) => {
             >
               DevC Casablanca
             </a>{" "}
-            core team member, I do my best for that as well as sharing my
-            knowledge and helping on events organization.
+            co-lead, I do my best sharing my knowledge and helping on events
+            organization.
             <br />
             <br />
             When I am not coding you can find me playing football or having fun
             with friends.
             <br />
-            <br />
           </p>
           <p>
             The best way to contact me for a quick question is on my{" "}
             <a href="https://twitter.com/ElaziziYoussouf" target="_blank">
-              Twitter page
+              Twitter profile.
             </a>{" "}
             <br />
             <br />
