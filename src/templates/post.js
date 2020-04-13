@@ -14,7 +14,7 @@ import Subscribe from "../components/Subscribe";
 
 export default function Post({
   data: { site, mdx },
-  pageContext: { next, prev }
+  pageContext: { next, prev },
 }) {
   const author = mdx.frontmatter.author || config.author;
   const date = mdx.frontmatter.date;
@@ -93,6 +93,14 @@ export default function Post({
                 margin-top: 20px !important;
                 margin-bottom: 20px !important;
                 width: 100% !important;
+                max-width: 100% !important;
+              }
+              .demo {
+                display: flex;
+                justify-content: center;
+                img {
+                  width: auto !important;
+                }
               }
             `}
           >
