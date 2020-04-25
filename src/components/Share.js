@@ -2,7 +2,14 @@ import React from "react";
 import { css } from "@emotion/core";
 import { useTheme } from "./Theming";
 
-import { TwitterShareButton, FacebookShareButton } from "react-share";
+import {
+  TwitterShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+} from "react-share";
 
 const Share = ({ url, title, twitterHandle }) => {
   const theme = useTheme();
@@ -44,12 +51,27 @@ const Share = ({ url, title, twitterHandle }) => {
         👉
       </span>
       <TwitterShareButton
+        css={css`
+          cursor: pointer;
+          margin-left: 10px;
+        `}
         url={url}
         quote={title}
         via={twitterHandle.split("@").join("")}
       >
-        Twitter
+        <TwitterIcon size={32} round={true} />
       </TwitterShareButton>
+      <LinkedinShareButton
+        css={css`
+          cursor: pointer;
+          margin-left: 10px;
+        `}
+        url={url}
+        quote={title}
+        via={twitterHandle.split("@").join("")}
+      >
+        <LinkedinIcon size={32} round={true} />
+      </LinkedinShareButton>
       <FacebookShareButton
         url={url}
         quote={title}
@@ -59,7 +81,7 @@ const Share = ({ url, title, twitterHandle }) => {
           margin-left: 10px;
         `}
       >
-        Facebook
+        <FacebookIcon size={32} round={true} />
       </FacebookShareButton>
     </div>
   );
