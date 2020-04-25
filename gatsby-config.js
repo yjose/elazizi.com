@@ -2,7 +2,7 @@ const config = require("./config/website");
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
@@ -22,32 +22,33 @@ module.exports = {
       A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believers. I
       love working with react and ReactNative and I admire writing about my
       programming journey 👇👇👇
-      `
+      `,
     },
     organization: {
       name: config.organization,
       url: config.siteUrl,
-      logo: config.siteLogo
+      logo: config.siteLogo,
     },
     social: {
       twitter: config.twitterHandle,
-      fbAppID: ""
-    }
+      fbAppID: "",
+    },
   },
   plugins: [
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/blog`,
-        name: "blog"
-      }
+        name: "blog",
+      },
     },
+
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/talks`,
-        name: "talks"
-      }
+        name: "talks",
+      },
     },
     {
       resolve: "gatsby-source-graphql",
@@ -59,11 +60,11 @@ module.exports = {
         // HTTP headers
         headers: {
           // Learn about environment variables: https://gatsby.dev/env-vars
-          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
         },
         // Additional options to pass to node-fetch
-        fetchOptions: {}
-      }
+        fetchOptions: {},
+      },
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -75,12 +76,12 @@ module.exports = {
             options: {
               backgroundColor: "#fafafa",
               maxWidth: 1035,
-              sizeByPixelDensity: true
-            }
+              sizeByPixelDensity: true,
+            },
           },
-          { resolve: "gatsby-remark-embedder" }
-        ]
-      }
+          { resolve: "gatsby-remark-embedder" },
+        ],
+      },
     },
     "gatsby-plugin-twitter",
     "gatsby-plugin-sharp",
@@ -103,21 +104,21 @@ module.exports = {
           {
             src: "/android-chrome-192x192.png",
             sizes: "192x192",
-            type: "image/png"
+            type: "image/png",
           },
           {
             src: "/android-chrome-512x512.png",
             sizes: "512x512",
-            type: "image/png"
-          }
-        ]
-      }
+            type: "image/png",
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-127901499-2"
-      }
+        trackingId: "UA-127901499-2",
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -137,7 +138,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
+              return allMdx.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.fields.date,
@@ -169,17 +170,23 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Blog RSS Feed"
-          }
-        ]
-      }
+            title: "Blog RSS Feed",
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/lib/typography`
-      }
+        pathToConfigModule: `src/lib/typography`,
+      },
     },
-    "gatsby-plugin-offline"
-  ]
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `elazizi`,
+      },
+    },
+    "gatsby-plugin-offline",
+  ],
 };
