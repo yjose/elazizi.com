@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
+import { Disqus } from "gatsby-plugin-disqus";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "components/SEO";
@@ -22,6 +23,10 @@ export default function Post({
   const banner = mdx.frontmatter.banner;
   const postImage = banner ? banner.childImageSharp.fluid.src : null;
   const postUrl = mdx.fields.slug;
+  let disqusConfig = {
+    url: `${config.siteUrl}/${mdx.fields.slug}/`,
+    title: title,
+  };
 
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
@@ -107,8 +112,6 @@ export default function Post({
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </div>
         </Container>
-
-        {/* <SubscribeForm /> */}
       </article>
       <Container noVerticalPadding>
         <Share
@@ -117,6 +120,7 @@ export default function Post({
           twitterHandle={config.twitterHandle}
         />
         <br />
+        <Disqus config={disqusConfig} />
         <Subscribe />
       </Container>
     </Layout>
