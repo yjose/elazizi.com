@@ -7,9 +7,8 @@ import Container from "components/Container";
 import Hero from "components/Hero";
 import SEO from "../components/SEO";
 import PostCard from "components/PostCard";
-import theme from "../../config/theme";
 
-export default function Index({ data: { site, allMdx } }) {
+export default ({ data: { site, allMdx } }) => {
   return (
     <Layout site={site} isHome>
       <SEO />
@@ -33,7 +32,7 @@ export default function Index({ data: { site, allMdx } }) {
       </Container>
     </Layout>
   );
-}
+};
 
 export const pageQuery = graphql`
   query {

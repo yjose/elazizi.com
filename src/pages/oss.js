@@ -7,7 +7,7 @@ import SEO from "components/SEO";
 import GitHubRepoCard from "components/GitHubRepoCard";
 import theme from "../../config/theme";
 
-export default function Index({ data: { site, github } }) {
+export default ({ data: { site, github } }) => {
   const GithubRepos = github.viewer.repositories.edges
     .map(({ node }) => {
       const l = node.languages.edges.reduce((tmp, { node }, idx, arr) => {
@@ -16,7 +16,7 @@ export default function Index({ data: { site, github } }) {
       return { ...node, languages: l };
     })
     .filter(
-      p => p.nameWithOwner.includes("yjose") && p.stargazers.totalCount > 2
+      (p) => p.nameWithOwner.includes("yjose") && p.stargazers.totalCount > 2
     )
     .sort((a, b) => b.stargazers.totalCount - a.stargazers.totalCount);
   return (
@@ -27,14 +27,14 @@ export default function Index({ data: { site, github } }) {
           padding-bottom: 0;
         `}
       >
-        {GithubRepos.map(project => (
+        {GithubRepos.map((project) => (
           <GitHubRepoCard project={project} key={project.id} />
         ))}
         <hr />
       </Container>
     </Layout>
   );
-}
+};
 
 export const pageQuery = graphql`
   query {

@@ -1,0 +1,141 @@
+---
+date: 2020-04-27
+title: "17 React Native libraries you should use in 2020"
+categories: ["react", "react-native"]
+published: true
+keywords: ["react", "react-native", "react-navigation", "tools", "forms"]
+banner: "./package.png"
+---
+
+Having fundamental and advanced skills in the development field is important for sure to create height quality applications and find solutions for challenges, but it is not enough. I want to highlight an aspect that people mostly forget in their learning path despite that it is very important. This aspect is about having the overview of your stack ecosystems( libraries and tools) in your field, having this skill will help you decide the best package or tools you need to use for every situation you have.
+
+Most questions people ask me on RN were not related to fundamental or advanced staff, I noticed that most of them are in the following format.
+
+Hey Youssouf what is the best library to handle XXXXX ( XXXXX here can be authentication, forms, API call…)
+
+In today's article, I will try to collect the best dependencies and libraries I use on almost every react native project I worked on that I think you should give a try.
+
+> This list can be useful for reactjs dev too.
+
+<br />
+<br />
+Before starting, I think it is not fair to give the list without some advice and
+tricks to help get updated about new libraries and tools:
+
+- Try to be an early adopter developer, which means try to use new promising techniques and libraries in your Apps from the ecosystem. This is the only way to have experience very fast. To be honest most of the best practices resources will disagree with this advice as adopting new techs and libs come with an application stability price.
+- Follow the best people in your field on Twitter and be an active member on Reddit channel.
+- One of the useful tricks i do when i found an open-source project or even project of a friend, is that I search on the first place in package.json file, i take a look and i search for every package i don't know, believe me, you can't even imagine how such a simple habit will get you to know so many great tools and lib in your ecosystem 😎.
+  <br />
+  <br />
+
+> Back to our main subject and there are the packages I used in almost every project I worked on:
+
+### react-native-bootsplash for creating splash Screen
+
+This is usually the first task we do in a new react native application, this package will help Show a bootsplash during app startup instead of the standard black screen, you can hide it when you are ready.
+
+One of the reasons I prefer using [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash) package over the most famous solution [react-native-splash-scree](https://github.com/crazycodeboy/react-native-splash-screen)n is that this solution does not prevent you from seeing red screen errors.
+
+bootsplash package also provides a CLI to resize assets, create the Android Drawable XML file, and the iOS Storyboard file automatically.
+
+![](https://lh4.googleusercontent.com/FpN1DFC_iAmBRrFgxtf66fH5VvXmabYefFAuaJPS72rtPwQq32wN4GcCfhfy6TGECJnsHdClTQrYci-dR2V3LwtJ7EdypZ2ut_zjh0ZLuFocxIgquDtx8Ydl719rtchWyIGER1U)
+
+### react-native-make to generate platform-specific app icons
+
+[react-native-make](https://github.com/bamlab/react-native-make) is a plugin for React Native CLI, Once installed, the plugin will be available through the React Native CLI and you can easily create your platform-specific icons using set-icon commend like the following:
+
+```
+
+react-native set-icon --path path-to-image
+
+```
+
+### react-navigation as your first navigation solution.
+
+Last year I wrote a blog post about how to choose the right React Native Navigation library and we ended up that using react-native-navigation is the best choice for navigation due to some issues you will face with react-navigation on heavy screens.
+
+Starting from v3 the library uses [react-native-reanimated](https://software-mansion.github.io/react-native-reanimated/) and [react-native-gesture-handle](https://software-mansion.github.io/react-native-gesture-handler/docs/getting-started.html)r to implement performant animations and gestures. This helps us avoid issues related to transition and animation for heavy screens.
+
+Moreover [react-navigation](https://reactnavigation.org/) v5 introduces a new component API to Make it easy to use by new developers coming from reactjs web background and familiar with routing solutions such as react-router.
+
+### react-native-svg for icons
+
+For a long time, I used react-vector-icon to create my custom Icons assets, this approach comes with some difficulty as I always find myself regenerating a new font whenever our designer changes an icon in the design system. Also, this approach has some limits on supporting some SVG properties.
+
+Using [react-native-svg](https://github.com/react-native-community/react-native-svg) will fix most of those issues, also I found it very simple to add new icons as Most of the design tools Nowadays export the SVG icon as React native component.
+
+> if you only have SVG icon you can use [this playground tool](https://react-svgr.com/playground/) that converts SVG files to React Native components
+
+### Forms With react-hook-form
+
+I can’t imagine developing a new mobile app without dealing with forms, and to be honest forms in React native can be a little bit hard as you need to deal with form state, validation, error, API, and keyboard issues. That’s why i recommend checking my last article about [Forms in React Native, The right way](https://elazizi.com/forms-in-react-native-the-right-way)
+
+### [react-native-keychain](https://github.com/oblador/react-native-keychain) to save sensitive data
+
+From my experience. I always noticed that people use async-storage to store API tokens and sensitive data, and I can understand if people only use it for demo purposes, unfortunately, I found a lot of people storing sensitive data using Async-storage in production.
+
+The [react-native-keychain](https://github.com/oblador/react-native-keychain) library provides keychain/Keystore access to your React Native application, making your sensitive data secure.
+
+### API call using react-apollo or react-query
+
+Dealing with API in a React Native or front-end application, in general, is a crucial task, and choosing the right stack can make your work easy and enjoyable.
+
+Implementing features like caching, offline support or optimistic API wouldn’t be easy if you are using a Redux redux-saga stack.
+
+My suggestion here is to use [react-query](https://github.com/tannerlinsley/react-query) or [apollo-client](https://www.apollographql.com/docs/react/) (depend on your backend implementation) which comes with all the features we talk about out of the box.React-query for REST API and react-apollo for GraphQl.
+
+### Content Loaders
+
+[React-content-loader](https://github.com/danilowoz/react-content-loader) is one of the great libraries to easily create placeholder loadings, it is an SVG powered component with a lot of presets to use,you can easily use their playground to create your custom content loader.
+
+![Example's react-content-loader](https://lh6.googleusercontent.com/DIH8ui53vzo25aEA3-yPbSz2g2P_PF3X8U7Z0khUIBaaMS-dnnwIWeI_C6Ft6k2com-BMN1vECD5IdfFcRVPIhKJzx6V4_nCVWqeDI27j0x7fcfvEMF-f1LfDMTPvXrrZuVzyE0)
+
+### Handling and Tracking Errors
+
+[Sentry](https://github.com/getsentry/sentry-react-native) is cloud-based error monitoring that can help you discover an error in real-time, by creating a free account and installing react-native-sentry you can quickly find and fix production errors.
+
+In the same field, I would recommend using [react-native-exception-handler](https://github.com/master-atul/react-native-exception-handler), A react native module that lets you register a global error handler that can capture fatal/non-fatal uncaught exceptions. The module helps prevent the abrupt crashing of React Native Apps without a graceful message to the user.
+
+> I am planning to write a complete guide about Handling errors in React Native, Make sure to subscribe to my newsletter.
+
+### Patch packages
+
+During my App development and due to some unmaintained community packages I used in some of my old applications, I found my self updating node_modules files to fix issues, and as you know when you update the code inside node_module and then you install a new package by running npm or yarn command you will lose your update. In this case using a [patch-package](https://github.com/ds300/patch-package) library is life-saving.
+
+Check this complete tutorial about [patch-package by the amazing @benawad](https://www.youtube.com/watch?v=2AVs-Yh1bS8)
+
+### Detox for E2E testing
+
+[native-testing-library](https://github.com/testing-library/native-testing-library) is an implementation of the well-known testing-library API by the amazing @ketcdoods that works for React Native. The primary goal is to mimic the testing library API as closely as possible while still accounting for the differences in the platforms. Believe me, you will love it 🥰.
+
+For end-to-end testing, I can recommend using [Detox from Wix](https://github.com/wix/Detox) As a solution to automate end to end tests for your application using javascript. To be honest I faced some issues setting up the library but I think it is the best choice we have at least for now.
+
+# Warp up
+
+This is My complte list 👇
+
+- [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash)
+- [react-native-make](https://github.com/bamlab/react-native-make)
+- [react-navigation](https://reactnavigation.org/)
+- [react-native-reanimated](https://software-mansion.github.io/react-native-reanimated/)
+- [react-native-gesture-handle](https://software-mansion.github.io/react-native-gesture-handler/docs/getting-started.html)r
+- [react-native-svg](https://github.com/react-native-community/react-native-svg)
+- [react-hook-form](https://react-hook-form.com/)
+- [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view)
+- [react-native-keychain](https://github.com/oblador/react-native-keychain)
+- [react-query](https://github.com/tannerlinsley/react-query)
+- [apollo-client](https://www.apollographql.com/docs/react/)
+- [react-content-loader](https://github.com/danilowoz/react-content-loader)
+- [react-native-sentry](https://github.com/getsentry/sentry-react-native)
+- [react-native-exception-handler](https://github.com/master-atul/react-native-exception-handler)
+- [patch-package](https://github.com/ds300/patch-package)
+- [native-testing-library](https://github.com/testing-library/native-testing-library)
+- [Detox from Wix](https://github.com/wix/Detox)
+
+If you think I am missing some great libraries that can help me improve my React Native Application please make sure to let me know in the comments.
+
+I hope you found that interesting, informative, and entertaining. I would be more than happy to hear your remarks and thoughts.
+
+If you think other people should read this post. Tweet, share and [Follow me on twitter](https://twitter.com/ElaziziYoussouf) for the next articles.
+
+> **Reac More 👉 [GraphQL: Front-End Superpower](https://elazizi.com/graph-ql-front-end-superpower)**

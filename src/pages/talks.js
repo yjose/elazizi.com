@@ -7,7 +7,7 @@ import TalkCard from "components/TalkCard";
 import theme from "../../config/theme";
 import SEO from "../components/SEO";
 
-export default function Index({ data: { site, allMdx } }) {
+export default ({ data: { site, allMdx } }) => {
   return (
     <Layout site={site} headerBg={theme.brand.primary} noSubscribeForm>
       <SEO />
@@ -23,7 +23,7 @@ export default function Index({ data: { site, allMdx } }) {
       </Container>
     </Layout>
   );
-}
+};
 
 export const pageQuery = graphql`
   query {
