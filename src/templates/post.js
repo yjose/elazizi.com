@@ -8,7 +8,7 @@ import { css } from "@emotion/core";
 import Container from "components/Container";
 import Layout from "../components/Layout";
 import { fonts } from "../lib/typography";
-import Share from "../components/Share";
+import Share, { HorizontalShare } from "../components/Share";
 import config from "../../config/website";
 import { bpMaxSM } from "../lib/breakpoints";
 import Subscribe from "../components/Subscribe";
@@ -48,6 +48,11 @@ export default function Post({
         `}
       >
         <Container>
+          <HorizontalShare
+            url={`${config.siteUrl}/${mdx.fields.slug}/`}
+            title={title}
+            twitterHandle={config.twitterHandle}
+          />
           <h1
             css={css`
               text-align: center;
