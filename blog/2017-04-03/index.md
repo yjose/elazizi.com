@@ -18,7 +18,7 @@ By the end of this post, you’ll know how to add a tooltip to any element by ad
 
 I needed to create a custom tooltip for my project.
 
-I started off by Googling “CSS Tooltip Generator.” I found quite a few generators. Their approach was to add a span with an absolute position inside the element you want a tooltip for.
+I started off by Googling “CSS Tooltip Generator. I found quite a few generators. Their approach was to add a span with an absolute position inside the element you want a tooltip for.
 
 But I already had an otherwise-complete project. I didn’t want to go back through and add all these span elements throughout my project. This would take time and will complicate my HTML. There had to be a better way.
 
@@ -31,13 +31,13 @@ This trick is was smart and clean, but it wasn’t generic enough.
 In this part, I’ll make this trick more generic and we’ll discover more about some CSS properties. Here’s what we ultimately want to be able to do:
 
 ```html
-<button tooltip="”tooltip" content here”>click here !!</button>
+<button tooltip="tooltip content here">click here !!</button>
 ```
 
 Not only that, but we want to be able to specify the tooltip position easily:
 
 ```html
-<button tooltip="”tooltip" content here” tooltip-position="”left”">
+<button tooltip="tooltip content here" tooltip-position="left">
   click here !!
 </button>
 ```
@@ -48,10 +48,10 @@ First — as mentioned in the video — we’ll add a `before` and an `a
 
 ```css
 div::after {
-  content: “after”;
+  content: "after";
 }
 div::before {
-  content: “before”;
+  content: "before";
 }
 ```
 
@@ -70,7 +70,7 @@ The result looks something like this:
 **Step 1:** we’ll add a tooltip attribute like this:
 
 ```html
-<button tooltip="”simple" tooltip here”>click Me !!</button>
+<button tooltip="simple tooltip here">click Me !!</button>
 ```
 
 We need `::after` and `::before` pseudo-elements. These will be a simple rectangle with the content of the tooltip. We create a simple rectangle with CSS by adding a border around an empty element that we create with the `content` property.
@@ -125,7 +125,9 @@ button {
 
 **Step 2:** we just play with the `::before` and `::after` pseudo-elements to create a tooltip position. Our button HTML will look like this:
 
-`<button tooltip=”tooltip here” tooltip-position=”left”> click here !! </button>`
+```html
+<button tooltip="tooltip here" tooltip-position="left">click here !!</button>
+```
 
 The tooltip-position can be: right, left, top, or bottom.
 
@@ -174,6 +176,19 @@ The tooltip-position can be: right, left, top, or bottom.
 
 **step 3**: in this final step, we will add a simple hover animation to the tooltip.
 
+```css
+[tooltip]:hover::after,
+[tooltip]:hover::before {
+  opacity: 1;
+}
+```
+
 This CodePen shows the end result (and you can click through to see the final code):
 
 https://codepen.io/yjose/pen/KWEqMg
+
+I hope you found that interesting, informative, and entertaining. I would be more than happy to hear your remarks and thoughts.
+
+If you think other people should read this post. Tweet, share and [Follow me on twitter](https://twitter.com/ElaziziYoussouf) for the next articles.
+
+> **Reac More 👉 [GraphQL: Front-End Superpower](https://elazizi.com/graph-ql-front-end-superpower)**
