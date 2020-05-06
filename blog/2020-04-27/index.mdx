@@ -32,11 +32,11 @@ tricks to help get updated about new libraries and tools:
 
 ### react-native-bootsplash for creating splash Screen
 
-This is usually the first task we do in a new react native application, this package will help Show a bootsplash during app startup instead of the standard black screen, you can hide it when you are ready.
+This is usually the first task we do in a new react native application, this package will help show a bootsplash during app startup instead of the standard black screen, you can hide it when you are ready.
 
-One of the reasons I prefer using [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash) package over the most famous solution [react-native-splash-scree](https://github.com/crazycodeboy/react-native-splash-screen)n is that this solution does not prevent you from seeing red screen errors.
+One of the reasons I prefer using [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash) package over the most famous solution [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen) is that this solution does not prevent you from seeing red screen errors.
 
-bootsplash package also provides a CLI to resize assets, create the Android Drawable XML file, and the iOS Storyboard file automatically.
+Bootsplash package also provides a CLI to resize assets, create the Android Drawable XML file, and the iOS Storyboard file automatically.
 
 ![](https://lh4.googleusercontent.com/FpN1DFC_iAmBRrFgxtf66fH5VvXmabYefFAuaJPS72rtPwQq32wN4GcCfhfy6TGECJnsHdClTQrYci-dR2V3LwtJ7EdypZ2ut_zjh0ZLuFocxIgquDtx8Ydl719rtchWyIGER1U)
 
@@ -60,9 +60,9 @@ Moreover [react-navigation](https://reactnavigation.org/) v5 introduces a new co
 
 ### react-native-svg for icons
 
-For a long time, I used react-vector-icon to create my custom Icons assets, this approach comes with some difficulty as I always find myself regenerating a new font whenever our designer changes an icon in the design system. Also, this approach has some limits on supporting some SVG properties.
+For a long time, I used react-native-vector-icons to create my custom icons assets, this approach comes with some difficulty as I always find myself regenerating a new font whenever our designer changes an icon in the design system. Also, this approach has some limits on supporting some SVG properties.
 
-Using [react-native-svg](https://github.com/react-native-community/react-native-svg) will fix most of those issues, also I found it very simple to add new icons as Most of the design tools Nowadays export the SVG icon as React native component.
+Using [react-native-svg](https://github.com/react-native-community/react-native-svg) will fix most of those issues, also I found it very simple to add new icons as Most of the design tools Nowadays export the SVG icon as React Native component.
 
 > if you only have SVG icon you can use [this playground tool](https://react-svgr.com/playground/) that converts SVG files to React Native components
 
@@ -82,7 +82,7 @@ Dealing with API in a React Native or front-end application, in general, is a cr
 
 Implementing features like caching, offline support or optimistic API wouldn’t be easy if you are using a Redux redux-saga stack.
 
-My suggestion here is to use [react-query](https://github.com/tannerlinsley/react-query) or [apollo-client](https://www.apollographql.com/docs/react/) (depend on your backend implementation) which comes with all the features we talk about out of the box.React-query for REST API and react-apollo for GraphQl.
+My suggestion here is to use [react-query](https://github.com/tannerlinsley/react-query) or [apollo-client](https://www.apollographql.com/docs/react/) (depend on your backend implementation, React-query for REST API and react-apollo for GraphQl.) which comes with all the features we talk about out of the box.
 
 ### Content Loaders
 
