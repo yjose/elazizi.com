@@ -47,7 +47,7 @@ export const HorizontalShare = (props) => {
         display: flex;
         flex-direction: column;
         width: 100px;
-        margin-left: -150px;
+        margin-left: -200px;
         position: sticky;
         top: 50vh;
         text-align: center;

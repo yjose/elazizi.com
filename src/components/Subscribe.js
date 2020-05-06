@@ -1,53 +1,80 @@
 import React from "react";
 import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 import { withTheme } from "./Theming";
 import { rhythm } from "../lib/typography";
 import { bpMaxSM } from "../lib/breakpoints";
 
-const SignUp = ({ theme, description = true }) => (
-  <div>
+const image = require("../../static/images/elazizi.jpg");
+const Avatar = styled.img`
+  height: 90px;
+  width: 90px;
+  border-radius: 80px;
+  border: 4px solid #fff;
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
+  margin: auto;
+`;
+
+const Subscribe = ({ theme, description = true }) => (
+  <div
+    css={css`
+      margin-top: ${rhythm(1)};
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+    `}
+  >
     {description && (
-      <h4
+      <div
         css={css`
-          margin-bottom: ${rhythm(1)};
           margin-top: 0;
+          text-align: center;
         `}
       >
-        Liked this article? Make sure to join my Newsletter.
-      </h4>
+        <Avatar src={image} />
+        <h2
+          css={css`
+            margin-top: 0px;
+          `}
+        >
+          Get updates via email
+        </h2>
+        <p> JavaScript, React, React Native and web thoughts</p>
+      </div>
     )}
 
     <form
       css={css`
         display: flex;
         align-items: flex-end;
-
-        button {
-          margin-left: 10px;
-        }
         .field-error {
           display: block;
           color: ${theme.colors.red};
           font-size: 80%;
         }
-        input,
-        label {
-          width: 100%;
-        }
-        ${bpMaxSM} {
-          flex-direction: column;
-          align-items: flex-start;
-          width: auto;
-          label,
-          input {
-            margin: 5px 0 0 0 !important;
-            width: 100%;
-            display: flex;
+        input {
+          border-radius: 4px 0px 0px 4px;
+          ${bpMaxSM} {
             flex-direction: column;
+            align-items: flex-start;
+            width: auto;
+            label,
+            input {
+              margin: 5px 0 0 0 !important;
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              font-size: 10%;
+            }
           }
-          button {
-            margin: 20px 0 0 0;
-          }
+        }
+
+        button {
+          margin: 0px;
+          border-radius: 0px 4px 4px 0px;
         }
       `}
       action="https://tinyletter.com/yjose"
@@ -55,23 +82,13 @@ const SignUp = ({ theme, description = true }) => (
       target="popupwindow"
       onsubmit="window.open('https://tinyletter.com/yjose', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
     >
-      <label
-        htmlFor="tlemail"
-        css={css`
-          margin-left: 10px;
-        `}
-      >
-        <div
-          css={css`
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-          `}
-        >
-          Email:
-        </div>
-        <input type="text" name="email" id="tlemail" />
-      </label>
+      <input
+        type="text"
+        name="email"
+        placeholder="Type your email"
+        id="tlemail"
+      />
+
       <input type="hidden" value="1" name="embed" />
       <button data-element="submit" type="submit">
         Subscribe
@@ -85,4 +102,4 @@ const SignUp = ({ theme, description = true }) => (
   </div>
 );
 
-export default withTheme(SignUp);
+export default withTheme(Subscribe);
