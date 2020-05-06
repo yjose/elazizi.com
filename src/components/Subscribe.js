@@ -42,7 +42,7 @@ const Subscribe = ({ theme, description = true }) => (
         >
           Get updates via email
         </h2>
-        <p> JavaScript,React,React Native and web thoughts</p>
+        <p> JavaScript, React, React Native and web thoughts</p>
       </div>
     )}
 
