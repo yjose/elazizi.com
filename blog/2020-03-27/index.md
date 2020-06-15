@@ -120,7 +120,7 @@ In order to inject Props to Input children, we are going to use `React.createEle
 
 By using the `name` property We can filter all Input that needs to be part of our form data or return the child without creating a new one if it's not the case.
 
-For each Input child, we use the `register` function to register inputs ref manually and inject validation rules.
+For each Input child, we use the `register` function to register inputs manually inside useEffect and inject validation rules.
 
 By using the custom register call, we will need to update the input value manually with `setValue` using the `onChangeText` Input property.
 
@@ -132,26 +132,26 @@ export default ({
   errors,
   setValue,
   validation,
-  children
+  children,
 }: Props) => {
+  React.useEffect(() => {
+    (Array.isArray(children) ? [...children] : [children]).forEach((child) => {
+      if (child.props.name)
+        register({ name: child.props.name }, validation[child.props.name]);
+    });
+  }, [register, children]);
   return (
     <>
-      {(Array.isArray(children) ? [...children] : [children]).map(child => {
+      {(Array.isArray(children) ? [...children] : [children]).map((child) => {
         return child.props.name
           ? React.createElement(child.type, {
               ...{
                 ...child.props,
-                ref: () => {
-                  register(
-                    { name: child.props.name },
-                    validation[child.props.name]
-                  );
-                },
                 onChangeText: (v: string) =>
                   setValue(child.props.name, v, true),
                 key: child.props.name,
-                error: errors[child.props.name]
-              }
+                error: errors[child.props.name],
+              },
             })
           : child;
       })}
@@ -202,6 +202,13 @@ export default ({
 }: Props) => {
   const Inputs = React.useRef < Array < TextInput >> []
 
+  React.useEffect(() => {
+    (Array.isArray(children) ? [...children] : [children]).forEach((child) => {
+      if (child.props.name)
+        register({ name: child.props.name }, validation[child.props.name]);
+    });
+  }, [register,children]);
+
   return (
     <>
       {(Array.isArray(children) ? [...children] : [children]).map(
@@ -211,10 +218,6 @@ export default ({
                 ...{
                   ...child.props,
                   ref: (e: TextInput) => {
-                    register(
-                      { name: child.props.name },
-                      validation[child.props.name]
-                    )
                     Inputs.current[i] = e
                   },
                   onChangeText: (v: string) =>
