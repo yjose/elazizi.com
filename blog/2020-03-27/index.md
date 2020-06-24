@@ -139,7 +139,7 @@ export default ({
       if (child.props.name)
         register({ name: child.props.name }, validation[child.props.name]);
     });
-  }, [register, children]);
+  }, [register]);
   return (
     <>
       {(Array.isArray(children) ? [...children] : [children]).map((child) => {
@@ -207,7 +207,7 @@ export default ({
       if (child.props.name)
         register({ name: child.props.name }, validation[child.props.name]);
     });
-  }, [register,children]);
+  }, [register]);
 
   return (
     <>
