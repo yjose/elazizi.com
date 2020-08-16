@@ -32,15 +32,19 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
             a: {
               ":hover": {
                 textDecoration: "none !important",
-                color: theme.colors.link
+                color: theme.colors.link,
               },
               textDecoration: "none",
-              color: theme.colors.text
+              color: theme.colors.text,
             },
             ".active": {
               color: theme.colors.link,
-              background: "transparent !important"
-            }
+              background: "transparent !important",
+            },
+            ".buy_me": {
+              height: 30,
+              margin: "auto",
+            },
           }}
         >
           <Link
@@ -51,11 +55,11 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
               display: "flex",
               alignItems: "center",
               ".active_home": {
-                color: theme.colors.text
+                color: theme.colors.text,
               },
               ":hover": {
-                color: theme.colors.text
-              }
+                color: theme.colors.text,
+              },
             }}
             activeClassName="active_home"
           >
@@ -85,7 +89,7 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
               <Links />
             </div>
             <MobileMenu isHome={isHome}>
-              {close => <Links close={close} />}
+              {(close) => <Links close={close} />}
             </MobileMenu>
           </div>
         </nav>
@@ -93,7 +97,7 @@ const Header = ({ siteTitle = "Youssouf", isHome }) => {
     </header>
   );
 };
-const ConnectedHeader = props => (
+const ConnectedHeader = (props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -104,7 +108,7 @@ const ConnectedHeader = props => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <Header siteTitle={data.site.siteMetadata.title} {...props} />
     )}
   />
