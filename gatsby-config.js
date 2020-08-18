@@ -187,6 +187,7 @@ module.exports = {
         shortname: `elazizi`,
       },
     },
+    `gatsby-plugin-sitemap`,
     "gatsby-plugin-offline",
   ],
 };
