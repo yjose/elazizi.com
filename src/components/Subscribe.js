@@ -34,7 +34,6 @@ const Subscribe = ({ theme, description = true }) => (
           text-align: center;
         `}
       >
-        <Avatar src={image} />
         <h2
           css={css`
             margin-top: 0px;

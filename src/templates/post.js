@@ -12,6 +12,7 @@ import Share, { HorizontalShare } from "../components/Share";
 import config from "../../config/website";
 import { bpMaxSM } from "../lib/breakpoints";
 import Subscribe from "../components/Subscribe";
+import Meet from "../components/Meet";
 
 export default function Post({
   data: { site, mdx },
@@ -124,6 +125,7 @@ export default function Post({
           title={title}
           twitterHandle={config.twitterHandle}
         />
+        <Meet />
         <br />
         <Disqus config={disqusConfig} />
         <Subscribe />
