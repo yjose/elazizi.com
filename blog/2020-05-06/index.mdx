@@ -40,7 +40,7 @@ The error boundaries API only works with class Component, and a class component 
 
 [React-error-boundary](https://github.com/bvaughn/react-error-boundary) is a simple reusable component based on React error boundary API that provides a wrapper around your components and automatically catch-all error from the children’s components hierarchy, and also provides a great way to recover your component tree.
 
-My suggestion is to wrap every navigation screen in your Application with a react-error-boundary component and provide a `fullback component` to Make sure the user knows what’s happening, and maybe you can recover the screen with a rerender.
+My suggestion is to wrap every navigation screen in your Application with a react-error-boundary component and provide a `fallback component` to Make sure the user knows what’s happening, and maybe you can recover the screen with a rerender.
 
 The best way to do it is to create an `Errorhandler` component like the following.
 
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-As you can see I am using an error fullback component to provide more information to the user instead of a white screen.
+As you can see I am using an error fallback component to provide more information to the user instead of a white screen.
 
 I also added a try again button to programmatically re-render the screen as a way to recover it and solve the issue. when the user clicks the `try again` button the error boundary will trigger a rerender for the Screen Component which can help to avoid error and show the correct components.
 
