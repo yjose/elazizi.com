@@ -4,7 +4,7 @@ import { Disqus } from "gatsby-plugin-disqus";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "components/SEO";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import Container from "components/Container";
 import Layout from "../components/Layout";
 import { fonts } from "../lib/typography";

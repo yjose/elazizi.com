@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import theme from "prism-react-renderer/themes/nightOwl";
 import { bpDesktopOnly } from "../../lib/breakpoints";
 import Highlight, { defaultProps } from "prism-react-renderer";
@@ -26,8 +26,8 @@ function calculateLinesToHighlight(meta) {
   if (RE.test(meta)) {
     const lineNumbers = RE.exec(meta)[1]
       .split(",")
-      .map(v => v.split("-").map(y => parseInt(y, 10)));
-    return index => {
+      .map((v) => v.split("-").map((y) => parseInt(y, 10)));
+    return (index) => {
       const lineNumber = index + 1;
       const inRange = lineNumbers.some(([start, end]) =>
         end ? lineNumber >= start && lineNumber <= end : lineNumber === start
@@ -57,7 +57,7 @@ function Code({ codeString, language, metastring }) {
                 {...getLineProps({
                   line,
                   key: i,
-                  className: shouldHighlightLine(i) ? "highlight-line" : ""
+                  className: shouldHighlightLine(i) ? "highlight-line" : "",
                 })}
               >
                 <span

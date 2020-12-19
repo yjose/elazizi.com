@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import Container from "../Container";
 
 import { bpMaxSM } from "../../lib/breakpoints";
