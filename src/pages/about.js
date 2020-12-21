@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import Layout from "../components/Layout";
 
 import Container from "components/Container";
@@ -58,11 +58,8 @@ export default ({ data: { site } }) => {
             <a href="https://obytes.com/" target="_blank">
               Obytes
             </a>
-            . Currently working with{" "}
-            <a href="https://www.barmej.com/" target="_blank">
-              Barmej
-            </a>{" "}
-            team and helping my team produce good quality Apps. <br />
+            . Currently working with helping my team produce good quality Apps.{" "}
+            <br />
             <br />
             I blog from time to time about my journey as a developer. My blog
             posts have had over 300k reads and have been featured on Dev’s top
@@ -71,7 +68,7 @@ export default ({ data: { site } }) => {
             I'm actively involved in the open source community as a maintainer
             and contributor. Maintaining a{" "}
             <a href="https://react-popup.elazizi.com/" target="_blank">
-              10M downloads react component package
+              10M downloads/year and 1k stars on github react component package
             </a>{" "}
             and submitting some PRs to projects I usually use such us
             react-native and Gatsbyjs. <br />
@@ -104,6 +101,14 @@ export default ({ data: { site } }) => {
             <a href="mailto:youssoufelazizi@gmail.com">
               youssoufelazizi@gmail.com
             </a>{" "}
+            <b>
+              {" "}
+              If you are interested in a 30min 1:1 discussion about Javascript,
+              React or React Native,{" "}
+              <a href="https://calendly.com/yjose/meet" target="_blank">
+                Make sure to reserve your seat.
+              </a>
+            </b>
             <br />
             <br />
             To get updates from me, Make sure to follow me on{" "}

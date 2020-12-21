@@ -1,7 +1,7 @@
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import typography, { fonts } from "../lib/typography";
 
-const resetStyles = theme => {
+const resetStyles = (theme) => {
   return css`
   form {
     margin: 0;

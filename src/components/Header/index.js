@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { bpMaxSM } from "../../lib/breakpoints";
 
 import { useTheme } from "../Theming";

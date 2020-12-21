@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import Img from "gatsby-image";
 import Link from "../components/Link";
 
@@ -16,12 +16,12 @@ export default React.memo(({ post, banner = false }) => {
     borderRadius: "5px",
     cursor: "pointer",
     ":hover": {
-      transform: "scale(1.02)"
+      transform: "scale(1.02)",
     },
     color: theme.colors.text,
     boxShadow: "0 1px 2px rgba(0, 0, 0, 0.27)",
     transition: "all 0.3s ease 0s",
-    background: theme.colors.cardBg
+    background: theme.colors.cardBg,
   });
 
   return (

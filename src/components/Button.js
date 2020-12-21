@@ -1,5 +1,5 @@
 import { React } from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { Link } from "gatsby";
 import { useTheme } from "./Theming";
 import { rgba, darken } from "polished";
@@ -20,9 +20,9 @@ const Button = ({ to, children, secondary, ...restProps }) => {
     "@media (hover: hover)": {
       ":hover": {
         color: theme.colors.white,
-        background: darken(0.1, theme.colors.primary)
-      }
-    }
+        background: darken(0.1, theme.colors.primary),
+      },
+    },
   });
   return to ? (
     <Link to={to} css={styles} {...restProps}>

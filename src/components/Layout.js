@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
-import { Global, css } from "@emotion/core";
+import { Global, css } from "@emotion/react";
 import { lighten } from "polished";
 import { bpMaxSM } from "../lib/breakpoints";
 import mdxComponents from "./mdx";
@@ -14,7 +14,7 @@ import Footer from "../components/Footer";
 
 import { useTheme } from "./Theming";
 
-const getGlobalStyles = theme => {
+const getGlobalStyles = (theme) => {
   return css`
     body {
       background: ${theme.colors.bodyBg};
@@ -144,16 +144,16 @@ export default ({
   frontmatter = {},
   children,
   noFooter,
-  isHome = false
+  isHome = false,
 }) => {
   const {
     description: siteDescription,
-    keywords: siteKeywords
+    keywords: siteKeywords,
   } = site.siteMetadata;
 
   const {
     keywords: frontmatterKeywords,
-    description: frontmatterDescription
+    description: frontmatterDescription,
   } = frontmatter;
 
   const keywords = (frontmatterKeywords || siteKeywords).join(", ");
@@ -176,7 +176,7 @@ export default ({
           title={config.siteTitle}
           meta={[
             { name: "description", content: description },
-            { name: "keywords", content: keywords }
+            { name: "keywords", content: keywords },
           ]}
         >
           <html lang="en" />

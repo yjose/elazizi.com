@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import Container from "components/Container";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
@@ -9,18 +9,18 @@ import Link from "../components/Link";
 
 const Blog = ({
   data: { site, allMdx },
-  pageContext: { pagination, categories }
+  pageContext: { pagination, categories },
 }) => {
   const { page, nextPagePath, previousPagePath } = pagination;
 
   const posts = page
-    .map(id =>
+    .map((id) =>
       allMdx.edges.find(
-        edge =>
+        (edge) =>
           edge.node.id === id && edge.node.parent.sourceInstanceName !== "pages"
       )
     )
-    .filter(post => post !== undefined);
+    .filter((post) => post !== undefined);
 
   return (
     <Layout site={site}>

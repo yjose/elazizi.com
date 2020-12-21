@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "./Link";
 import { useTheme } from "./Theming";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import config from "../../config/website";
 
 export const Twitter = ({ url = `${config.twitter}`, ...props }) => {
