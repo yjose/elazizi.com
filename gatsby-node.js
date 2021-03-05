@@ -12,12 +12,12 @@ const createPosts = (createPage, createRedirect, edges) => {
     const pagePath = node.fields.slug;
 
     if (node.fields.redirects) {
-      node.fields.redirects.forEach(fromPath => {
+      node.fields.redirects.forEach((fromPath) => {
         createRedirect({
           fromPath,
           toPath: pagePath,
           redirectInBrowser: true,
-          isPermanent: true
+          isPermanent: true,
         });
       });
     }
@@ -28,8 +28,8 @@ const createPosts = (createPage, createRedirect, edges) => {
       context: {
         id: node.id,
         prev,
-        next
-      }
+        next,
+      },
     });
   });
 };
@@ -71,24 +71,40 @@ exports.createPages = ({ actions, graphql }) =>
 
     const { edges } = data.allMdx;
     const { createRedirect, createPage } = actions;
-    createPosts(createPage, createRedirect, edges);
-    createPaginatedPages(actions.createPage, edges, "/blog", {
-      categories: []
+
+    //  blog
+    const posts = edges.filter(
+      (e) => e.node.parent.sourceInstanceName === "blog"
+    );
+
+    createPosts(createPage, createRedirect, posts);
+    createPaginatedPages(actions.createPage, posts, "/blog", {
+      categories: [],
     });
+
+    // bookshelf
+    const books = edges.filter(
+      (e) => e.node.parent.sourceInstanceName === "books"
+    );
+    createPosts(createPage, createRedirect, books);
+    createPaginatedPages(
+      actions.createPage,
+      books,
+      "/bookshelf",
+      {
+        categories: [],
+      },
+      path.resolve(`src/templates/bookshelf.js`)
+    );
   });
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-      alias: {
-        $components: path.resolve(__dirname, "src/components")
-      }
-    }
-  });
-};
-
-const createPaginatedPages = (createPage, edges, pathPrefix, context) => {
+const createPaginatedPages = (
+  createPage,
+  edges,
+  pathPrefix,
+  context,
+  template = path.resolve(`src/templates/blog.js`)
+) => {
   const pages = edges.reduce((acc, value, index) => {
     const pageIndex = Math.floor(index / PAGINATION_OFFSET);
 
@@ -108,7 +124,7 @@ const createPaginatedPages = (createPage, edges, pathPrefix, context) => {
 
     createPage({
       path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
-      component: path.resolve(`src/templates/blog.js`),
+      component: template,
       context: {
         pagination: {
           page,
@@ -116,10 +132,10 @@ const createPaginatedPages = (createPage, edges, pathPrefix, context) => {
           previousPagePath:
             index === pages.length - 1 ? null : previousPagePath,
           pageCount: pages.length,
-          pathPrefix
+          pathPrefix,
         },
-        ...context
-      }
+        ...context,
+      },
     });
   });
 };
@@ -141,67 +157,67 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: "type",
       node,
-      value: parent.sourceInstanceName
+      value: parent.sourceInstanceName,
     });
 
     createNodeField({
       name: "id",
       node,
-      value: node.id
+      value: node.id,
     });
 
     createNodeField({
       name: "published",
       node,
-      value: node.frontmatter.published
+      value: node.frontmatter.published,
     });
 
     createNodeField({
       name: "title",
       node,
-      value: node.frontmatter.title
+      value: node.frontmatter.title,
     });
 
     createNodeField({
       name: "description",
       node,
-      value: node.frontmatter.description
+      value: node.frontmatter.description,
     });
 
     createNodeField({
       name: "slug",
       node,
-      value: slug
+      value: slug,
     });
 
     createNodeField({
       name: "date",
       node,
-      value: node.frontmatter.date ? node.frontmatter.date.split(" ")[0] : ""
+      value: node.frontmatter.date ? node.frontmatter.date.split(" ")[0] : "",
     });
 
     createNodeField({
       name: "banner",
       node,
-      value: node.frontmatter.banner
+      value: node.frontmatter.banner,
     });
 
     createNodeField({
       name: "categories",
       node,
-      value: node.frontmatter.categories || []
+      value: node.frontmatter.categories || [],
     });
 
     createNodeField({
       name: "keywords",
       node,
-      value: node.frontmatter.keywords || []
+      value: node.frontmatter.keywords || [],
     });
 
     createNodeField({
       name: "redirects",
       node,
-      value: node.frontmatter.redirects
+      value: node.frontmatter.redirects,
     });
   }
 };
@@ -212,8 +228,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
       alias: {
         "react-dom": "@hot-loader/react-dom",
-        $components: path.resolve(__dirname, "src/components")
-      }
-    }
+        $components: path.resolve(__dirname, "src/components"),
+      },
+    },
   });
 };

@@ -51,6 +51,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/bookshelf`,
+        name: "books",
+      },
+    },
+    {
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "GitHub",

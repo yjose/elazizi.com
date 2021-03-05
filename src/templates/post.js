@@ -92,7 +92,7 @@ export default function Post({
               `}
             >
               <Img
-                sizes={banner.childImageSharp.fluid}
+                fluid={banner.childImageSharp.fluid}
                 alt={site.siteMetadata.keywords.join(", ")}
               />
             </div>
