@@ -39,14 +39,6 @@ export default ({ close }) => {
       >
         About
       </Link>
-      <a href="https://www.buymeacoffee.com/yjose" target="_blank">
-        <img
-          className="buy_me"
-          src="https://cdn.buymeacoffee.com/buttons/default-orange.png"
-          alt="Buy Me A Coffee"
-          style={{ height: "20px !important", width: "217px !important" }}
-        />
-      </a>
       <ThemeToggler
         toggleTheme={theme.toggleTheme}
         themeName={theme.themeName}

@@ -60,7 +60,7 @@ export default ({ talk }) => {
           backgroundColor: theme.colors.cardBg,
         }}
       >
-        <Img sizes={talk.frontmatter.banner.childImageSharp.fluid} />
+        <Img fluid={talk.frontmatter.banner.childImageSharp.fluid} />
         <div
           css={css`
             padding: 0px 20px 10px 20px;

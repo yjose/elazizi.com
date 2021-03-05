@@ -35,7 +35,7 @@ export default React.memo(({ post, banner = false }) => {
     >
       <div css={styles}>
         {banner && (
-          <Img sizes={post.frontmatter.banner.childImageSharp.fluid} />
+          <Img fluid={post.frontmatter.banner.childImageSharp.fluid} />
         )}
         <div
           css={css`
