@@ -7,6 +7,8 @@ keywords: ["react", "react-native", "form", "react-hook-form"]
 banner: "./form-in-react-native.png"
 ---
 
+> Updated 06/04/2021 : adding select input and date picker
+
 Handling forms in react native is a crucial task in your journey as a react native developer, you can’t think about developing a new react native app without dealing with forms, at least for login and sign up screen in case your app is retrieving data in the most of the cases. Finding a solution for such a repetitive task will help you save a lot of time for your next sprint 😉.
 
 Through My 2 years experience As a react native developer, I used to use different approaches to handle forms without feeling confident about the best solution that deserves a new article. Today I am confident to share with you the right way to handle forms in your next react native project. I would be more than happy to hear your remarks and thoughts about this solution ( this is why i am sharing this article)
@@ -270,6 +272,199 @@ export default () => {
           <Input name="password" label="Password" secureTextEntry={true} />
           <Button title="Submit" onPress={handleSubmit(onSubmit)} />
         </Form>
+      </View>
+    </KeyboardAwareScrollView>
+  );
+};
+```
+
+## Bonus 💎
+
+I received multiple requests on how we can handle custom form input such us select input or even a Birth Date input, Here is How 😉👇👇
+
+```jsx
+// DatePickerInput.tsx
+import React, { useState } from "react";
+import { Pressable } from "react-native";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { FieldError } from "react-hook-form";
+import { View, Text, StyleSheet, TextInputProps } from "react-native";
+
+type ValueOptions = {
+  shouldValidate?: boolean,
+};
+
+interface Props {
+  name: string;
+  label: string;
+  setValue: (name: string, value: string, options?: ValueOptions) => void;
+  watch: any;
+  error?: FieldError | undefined;
+}
+
+export const DatePickerInput = ({
+  name,
+  label,
+  setValue,
+  watch,
+  error,
+}: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const value = watch(name);
+
+  const hideDatePicker = () => {
+    setIsOpen(false);
+  };
+
+  const handleConfirm = (date: any) => {
+    const d = formatDate(date);
+    setValue(name, d, { shouldValidate: true });
+    hideDatePicker();
+  };
+
+  return (
+    <Pressable onPress={() => setIsOpen(true)}>
+      <View style={styles.container}>
+        {label && <Text style={[styles.label]}>{label}</Text>}
+        <View
+          style={[styles.input, { borderColor: error ? "#fc6d47" : "#c0cbd3" }]}
+        >
+          <Text style={styles.text}>{value ? value : "YYYY-MM-DD"} </Text>
+          <DateTimePickerModal
+            isVisible={isOpen}
+            mode="date"
+            onConfirm={handleConfirm}
+            onCancel={hideDatePicker}
+          />
+        </View>
+        <Text style={styles.textError}>{error && error.message}</Text>
+      </View>
+    </Pressable>
+  );
+};
+
+function formatDate(date: string) {
+  let d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+}
+```
+
+```jsx
+// SelectInput.tsx
+import React from "react";
+import RNPickerSelect from "react-native-picker-select";
+import { FieldError } from "react-hook-form";
+import { View, Text, StyleSheet, TextInputProps } from "react-native";
+
+type ValueOptions = {
+  shouldValidate?: boolean,
+};
+
+interface Props extends TextInputProps {
+  name: string;
+  label: string;
+  setValue: (name: string, value: string, options?: ValueOptions) => void;
+  watch: any;
+  error?: FieldError | undefined;
+}
+
+export const SelectInput = ({ name, label, setValue, watch, error }: Props) => {
+  const value = watch(name);
+  return (
+    <View style={styles.container}>
+      {label && <Text style={[styles.label]}>{label}</Text>}
+      <View
+        style={[styles.input, { borderColor: error ? "#fc6d47" : "#c0cbd3" }]}
+      >
+        <RNPickerSelect
+          style={pickerSelectStyles}
+          onValueChange={(v) => setValue(name, v, { shouldValidate: true })}
+          items={[
+            { label: "Female", value: "female" },
+            { label: "Male", value: "male" },
+            { label: "Other", value: "other" },
+          ]}
+        />
+      </View>
+      <Text style={styles.textError}>{error && error.message}</Text>
+    </View>
+  );
+};
+
+const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    borderStyle: "solid",
+    borderRadius: 5,
+    // paddingVertical: 5,
+    paddingLeft: 5,
+    fontSize: 16,
+    height: 40,
+    color: "#c0cbd3",
+    borderColor: "#c0cbd3",
+    justifyContent: "center",
+  },
+  inputAndroid: {
+    borderStyle: "solid",
+    borderRadius: 5,
+    paddingVertical: 5,
+    paddingLeft: 5,
+    fontSize: 16,
+    height: 40,
+    color: "#c0cbd3",
+    borderColor: "#c0cbd3",
+    justifyContent: "center",
+  },
+});
+```
+
+And this is how you can use them:
+
+```ts
+//App.tsx
+
+type FormData = {
+  gender: string;
+  date: string;
+};
+
+export default () => {
+  const { handleSubmit, register, setValue, errors } = useForm<FormData>();
+
+  const onSubmit = (data: FormData) => {
+    Alert.alert("data", JSON.stringify(data));
+  };
+
+  React.useEffect(() => {
+    register("gender", validation.gender);
+    register("date", validation.date);
+  }, [register]);
+
+  return (
+    <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+      <Hero />
+      <View style={styles.formContainer}>
+        <SelectInput
+          name="gender"
+          label="Gender"
+          setValue={setValue}
+          watch={watch}
+          error={errors?.gender}
+        />
+        <DatePickerInput
+          name="date"
+          label="Date"
+          setValue={setValue}
+          watch={watch}
+          error={errors?.date}
+        />
+        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
       </View>
     </KeyboardAwareScrollView>
   );
