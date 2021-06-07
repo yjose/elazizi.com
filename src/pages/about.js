@@ -7,6 +7,7 @@ import Container from "components/Container";
 import { Twitter, GitHub, LinkedIn } from "components/Social";
 import { bpMaxSM } from "../lib/breakpoints";
 import Subscribe from "../components/Subscribe";
+import HireMe from "../components/HireMe";
 
 export default ({ data: { site } }) => {
   return (
@@ -50,7 +51,6 @@ export default ({ data: { site } }) => {
             <LinkedIn height={30} width={30} />
             <GitHub height={30} width={30} />
           </div>
-
           <br />
           <br />
           <p>
@@ -99,25 +99,26 @@ export default ({ data: { site } }) => {
             partnerships, or if you have questions or comments feel free to
             email me at{" "}
             <a href="mailto:youssoufelazizi@gmail.com">
-              youssoufelazizi@gmail.com
+              youssoufelazizi @ gmail.com
             </a>{" "}
-            <b>
+            {/* <b>
               {" "}
               If you are interested in a 30min 1:1 discussion about Javascript,
               React or React Native,{" "}
               <a href="https://calendly.com/yjose/meet" target="_blank">
                 Make sure to reserve your seat.
               </a>
-            </b>
-            <br />
-            <br />
-            To get updates from me, Make sure to follow me on{" "}
-            <a href="https://twitter.com/ElaziziYoussouf" target="_blank">
-              Twitter
-            </a>{" "}
-            or by Subscribing to my Email list 👇
+            </b> */}
             <br />
           </p>
+          <HireMe />
+          <br />
+          To get updates from me, Make sure to follow me on{" "}
+          <a href="https://twitter.com/ElaziziYoussouf" target="_blank">
+            Twitter
+          </a>{" "}
+          or by Subscribing to my Email list 👇
+          <br />
           <Subscribe description={false} />
         </div>
       </Container>

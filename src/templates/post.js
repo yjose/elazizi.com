@@ -13,6 +13,7 @@ import config from "../../config/website";
 import { bpMaxSM } from "../lib/breakpoints";
 import Subscribe from "../components/Subscribe";
 import Meet from "../components/Meet";
+import HireMe from "../components/HireMe";
 
 export default function Post({
   data: { site, mdx },
@@ -125,7 +126,7 @@ export default function Post({
           title={title}
           twitterHandle={config.twitterHandle}
         />
-        <Meet />
+        <HireMe />
         <br />
         <Disqus config={disqusConfig} />
         <Subscribe />
