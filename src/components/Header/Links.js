@@ -39,6 +39,15 @@ export default ({ close }) => {
       >
         About
       </Link>
+
+      <Link
+        to="/uses"
+        activeClassName="active"
+        aria-label="View uses page"
+        onClick={close}
+      >
+        Uses
+      </Link>
       <ThemeToggler
         toggleTheme={theme.toggleTheme}
         themeName={theme.themeName}
