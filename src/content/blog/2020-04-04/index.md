@@ -1,0 +1,90 @@
+---
+pubDatetime: 2020-04-04
+title: "GraphQL: Front-End Superpower "
+tags: ["GraphQL", "front-end"]
+published: true
+keywords: ["GraphQL", "front-end", "react", "javascript"]
+ogImage: "./super-power.jpeg"
+---
+
+Back to 2013 when people start using Facebook Graph API to build their Apps. I remember reading some articles and comments on how people were surprised by the API interface and how it is easy-to-use.
+
+Without even seeing the API documentation, you can easily find the correct data you want with the autocomplete features, you just need to find how to describe the information you want and boom 💣 , here we go, the autocomplete feature is mind-blowing.
+
+More than that, the API can respond with a useful error message in case you are trying to request unavailable data.
+
+After that, people started wondering how this is even possible and how they can implement such a great experience in their own future applications.
+
+In 2015 Facebook [announced a new data query language](https://engineering.fb.com/core-data/GraphQL-a-data-query-language/) called GraphQL and guess what? This was the secret behind the great experience developers had when they started using the Facebook API 2 Years ago from this date.
+
+> This article is not a GraphQL tutorial. Instead, I want to highlight the benefits of using GraphQL and why you need to give it a try in your next project.
+
+> This article only focuses on the positive sides of using GraphQL and that's not mean GraphQL is the best choice for all use cases and doesn't have any concerns.
+
+# What is GraphQL?
+
+As described in the [official website](https://GraphQL.org/), GraphQL is a query language for API and runtime for fulfilling those queries with your existing data. In simple words, GraphQL is a syntax or a specification that describes how to request your data. A GraphQL query is simple as a string that is sent to a server to be interpreted and fulfilled, which then returns a JSON response to the client.
+
+In the first place, GraphQL is a Facebook solution for over/under fetching problems. As the announcement blog post describes the problem is when Facebook started building its mobile app using the same API that is already used for the Web platform, they're confused by the difference between the data they need on the mobile-side and the server API already exists. Using the same means loading more unneeded data. Also, the mobile platform has its own problems regarding the big number of API requests so the solution is theoretically very simple: instead of having multiple REST endpoints, why can't we have a simple one that can understand a query from the client (web or mobile) and return the correct data. No unneeded data, no extra API calls.
+
+I think GraphQL is one of the earliest adopted technologies I ever saw, after only 4 years we are seeing some big companies such as Github, Shopify, Twitter started using it. And this is huge because the API is one of the hardest parts in product development and migration like the following has a big risk. But all those companies are happy about their choice and they even encourage people to use it.
+
+# Why Front-end developer like using GraphQL
+
+Well, this is a fact, the majority of front-end developers I met recently who already use GraphQL assured me that they will use it in their next project. More than that, one of them I remember told me that he will fight for it In case the team wouldn't use it😁.
+
+The secret behind this is Due to multiple factors :
+
+# Great Developer experience
+
+GraphQL ecosystem offers a great user experience to front-end engineers, because no matter how large or small your application is, for sure you will have to deal with fetching data from a server and If you are using a REST API and trying to combine it with your state management library such as Redux you need some extra work as adding redux-saga to handle data fetching, maybe some transformations to normalize data if you are trying to cache it, and using an optimistic UI strategy needs a lot of work to be implemented. However, when you try Apollo-client - one of the most popular GraphQL client libraries - you have all those features for free so you can focus more on your application logic and reduce code boilerplate. Apollo-client also offers helpful tooling for TypeScript, Chrome DevTools, and VS Code.
+
+# API documentation
+
+Did you remember the Facebook API story, well, this is what front-end developers really want from the back-end - a smart tool to debug and read the API documentation - GraphQL comes with an integrated documentation system describing the schema that can be queried, a tool is shipped for free with almost every GraphQL implementation and it's called GraphiQl.
+
+GraphiQl is a query playground to run and debug your queries and interactively explore your schema Documentation, so you don't need to ask your back-end team about a property type, add or modify something, etc.
+
+![](https://lh4.googleusercontent.com/Q4tk34AZRr_EbyqP7DqbMzgPOZf2PFfl6Jiabedbbp4auoKa3uiG3nJx0O0P8otQ9cWqs8_sFprBRckUOCZ1tu3TkXBgz9wyQhsQjQxdvchFN_GVLRMjmAXVXi-wDtz8O49S3do) GraphiQl playground
+
+# Performance
+
+As we already described, QraphQl is a Facebook solution for under/over data fetching problems. Fetching data is one of the most matrices you need to improve if you aim to build a fast website and GraphQL specification will help you retrieve only what you need and has the ability to retrieve many resources in a single request which has a huge impact on the performance.
+
+Take as an example, we are building a posts feed page and we need to show users and comments as well. Using a REST API means that we would probably need at least three API calls: `/posts`, `/user?postId=X` to retrieve user data and `/comments?postId=X` for comments.
+
+With GraphQL we can simply retrieve all the data at once using a simple query:
+
+```gql
+{
+  allPosts {
+    content
+    user {
+      id
+      name
+    }
+    comments {
+      edges {
+        id
+        content
+      }
+    }
+  }
+}
+```
+
+# A front-end superpower
+
+At this moment, we agree that's GraphQL helps improve the developer experience by the great tooling ecosystem, and also improve web and Mobile performance by solving over/under data fetching, But in this particular section I want to highlight from my perspective how can GraphQL gives front-end a superpower over the rest of the team.
+
+The idea is that because GraphQL is very adaptable with Serverless Architecture and as I thought for a long time ago: I hardly believe that Serverless architecture came to the market to help front-end developers make their own products without depending on the backend or DevOps developers.
+
+Dealing with data is the hard part for me as a front-end engineer trying to build my own side project using Serverless Architecture, but with GraphQL I just need to describe my models and relationship between them, using service such [Prisma](https://www.prisma.io/), [Hasura](https://hasura.io/) or [Faunadb](https://fauna.com/) and a simple GraphQL schema and here we go. The experience is mind-blowing.
+
+# Warp up
+
+Finally, GraphQL is a data aggregator and abstraction layer that improves development velocity, performance and makes developers happier especially front-end ones. In this blog post, I try to open your eyes to how GraphQL can help and improve your daily work, I believe you only feel it when you try it. That’s why it's your turn to give it a try as soon as possible.
+
+I hope you found that interesting, informative, and entertaining. I would be more than happy to hear your remarks and thoughts.
+
+If you think other people should read this post. Tweet, share and [Follow me on twitter](https://twitter.com/ElaziziYoussouf) for the next articles.

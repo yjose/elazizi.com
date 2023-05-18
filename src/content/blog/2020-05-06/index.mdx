@@ -1,0 +1,173 @@
+---
+pubDatetime: 2020-05-06
+title: "Handling Errors in React Native: A Complete Guide"
+tags: ["react", "react-native"]
+published: true
+keywords: ["react", "react-native-erros", "error-boundry", "sentry"]
+ogImage: "./error.jpg"
+---
+
+One of the fundamental skills you need to learn in your development field is to learn how to deal with unthought errors. As a react native developer, shipping a new application with a high percentage bugs-free is a little bit challenging.
+
+Through my experience using react-native, I think using a cross-platform solution to build an Application always comes up with a stability price. And to be honest, having at least 3 different languages to build a framework is not easy to make it bugs-free.
+
+With all these facts, it does not mean that your app should quit or return a white screen whenever an error happened. It’s your responsibility to handle these errors and provide the best experience for the end-users. > I am here to help
+
+This article will guide you through some techniques and tools to catch these unhandled exceptions, perform tasks to provide the best experience for users, and report these errors to make sure you are going to fix them on the next release.
+
+> Note to mention that using static typing such as typescript will help you avoid all errors caused by typos and typing errors as you write the code which leads to fewer errors to deal with in the execution.
+
+> I also encourage writing higher coverage tests for your app as testing is the only way to ensure everything works as expected.
+
+As I already mentioned React Native has two sides, Javascript and Native, this fact will introduce two types of errors you need to deal with :
+
+- **JS Exceptions:** Errors produced by Javascript code including React.
+- **Native Exceptions:** Error produced by Native Modules
+
+![](https://media.giphy.com/media/3o7TKUM3IgJBX2as9O/giphy.gif)
+
+# JS Exception
+
+In general, javascript is not hard regarding error handling, and a try/catch is great but it only works for imperative code. However, React components are declarative (specify what should be rendered) which means you can't use a try-catch for react components errors.
+
+To solve this problem, React 16 introduced a new concept of an Error boundary.
+
+Error boundaries are React components that catch JavaScript errors anywhere in the child component tree.
+
+> Make sure to read about [Error boundaries from React official docs](https://reactjs.org/docs/error-boundaries.html)
+
+The error boundaries API only works with class Component, and a class component becomes an error boundary if you define one of these lifecycle methods `static getDerivedStateFromError()` or `componentDidCatch()`.
+
+[React-error-boundary](https://github.com/bvaughn/react-error-boundary) is a simple reusable component based on React error boundary API that provides a wrapper around your components and automatically catch-all error from the children’s components hierarchy, and also provides a great way to recover your component tree.
+
+My suggestion is to wrap every navigation screen in your Application with a react-error-boundary component and provide a `fallback component` to Make sure the user knows what’s happening, and maybe you can recover the screen with a rerender.
+
+The best way to do it is to create an `Errorhandler` component like the following.
+
+```jsx
+import * as React from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import { View, StyleSheet, Button } from "react-native";
+
+import { Text } from "components";
+
+const myErrorHandler = (error: Error) => {
+  // Do something with the error
+  // E.g. reporting errorr using sentry ( see part 3)
+};
+
+function ErrorFallback({ resetErrorBoundary }) {
+  return (
+    <View style={[styles.container]}>
+      <View>
+        <Text> Something went wrong: </Text>
+        <Button title="try Again" onPress={resetErrorBoundary} />
+      </View>
+    </View>
+  );
+}
+
+export const ErrorHandler = ({ children }: { children: React.ReactNode }) => (
+  <ErrorBoundary FallbackComponent={ErrorFallback} onError={myErrorHandler}>
+    {children}
+  </ErrorBoundary>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "stretch",
+    justifyContent: "center",
+    alignContent: "center",
+    paddingHorizontal: 12,
+  },
+});
+```
+
+As you can see I am using an error fallback component to provide more information to the user instead of a white screen.
+
+I also added a try again button to programmatically re-render the screen as a way to recover it and solve the issue. when the user clicks the `try again` button the error boundary will trigger a rerender for the Screen Component which can help to avoid error and show the correct components.
+
+> Read More about [Error Recovery](https://github.com/bvaughn/react-error-boundary#error-recovery)
+
+To mention, I am also wrapping the error boundary component for every component that may throw an error.
+
+## Is Error Boudry enough for JS Exceptions?
+
+Unfortunately, it’s not, Error boundaries do not catch errors for :
+
+- Event handlers
+- Asynchronous code (e.g. setTimeout or requestAnimationFrame callbacks)
+- Errors thrown in the error boundary itself (rather than its children)
+
+These limitations lead us to use a [react-native-exception-handler](https://github.com/master-atul/react-native-exception-handler) to create a global handler for the App that can catch all uncaught Js errors.
+
+[react-native-exception-handler](https://github.com/master-atul/react-native-exception-handler) is a react native module that lets you register a global error handler that captures fatal/non-fatal uncaught exceptions.
+
+To make it work you need to install and link the module then you register your global handler for Js exception like the following :
+
+```js
+import { setJSExceptionHandler } from "react-native-exception-handler";
+
+setJSExceptionHandler((error, isFatal) => {
+  // This is your custom global error handler
+  // You do stuff like show an error dialog
+  // or hit google analytics to track crashes
+  // or hit a custom api to inform the dev team.
+});
+```
+
+# Native Exception
+
+As I already mention Native Exceptions were produced from Native modules errors and Internal native react native code.
+
+From my experience, we usually face few uncaught Native exceptions compared to Js ones, the good news is that we are going to use the same library( react-native-exception-handler) to handle native exceptions too but you cannot show a JS alert box or do any UI stuff via JS code. The only solution was to show a native alert provided by the library but native code has to be written in case you want to customize the alert.
+
+To create a global handler for Native exception, you only need to register your handler using `setNativeExceptionHandler` function like the following :
+
+```js
+import { setNativeExceptionHandler } from "react-native-exception-handler";
+
+const exceptionhandler = exceptionString => {
+  // your exception handler code here
+};
+setNativeExceptionHandler(
+  exceptionhandler,
+  forceAppQuit,
+  executeDefaultHandler
+);
+```
+
+# Tracking Exceptions
+
+Handling exceptions without tracking them has no sense because all the solutions we discussed only improve the user experience and give more information to the user about the error instead of a white screen or an app crash.
+
+[Sentry](https://docs.sentry.io/platforms/react-native/) is a cloud-based error monitoring platform that helps us track all these errors in real-time. By creating a free account and installing react-native-sentry you can use it inside your handler (js and Native) to send the stack errors using `captureException` like the following:
+
+```js
+// ErrorHandler.js
+import * as Sentry from "@sentry/react-native";
+
+const myErrorHandler = (error: Error) => {
+  Sentry.captureException(error);
+};
+```
+
+Now, Make sure to fix your errors 😉
+
+# Wrap Up
+
+Libraries we use to handle errors in React Native :
+
+- [React-error-boundary](https://github.com/bvaughn/react-error-boundary)
+- [React-native-exception-handler](https://github.com/master-atul/react-native-exception-handler)
+- [Sentry](https://docs.sentry.io/platforms/react-native/)
+
+I hope you found that interesting, informative, and entertaining. I would be more than happy to hear your remarks and thoughts.
+
+If you think other people should read this post. Tweet, share and [Follow me on twitter](https://twitter.com/ElaziziYoussouf) for the next articles.
+
+> **Reac More 👉 [How to structure a react-native project](https://elazizi.com/how-to-structure-a-react-native-project)**
+
+> **Reac More 👉 [17 React Native libraries you should use in 2020](https://elazizi.com/17-react-native-libraries-you-should-use-in-2020)**
