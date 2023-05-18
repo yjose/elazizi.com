@@ -21,6 +21,9 @@ module.exports = {
     // if existing Tailwind color palette will be used
 
     // extend: {
+    animation: {
+      "spin-slow": "spin 5s linear infinite",
+    },
     textColor: {
       skin: {
         base: withOpacity("--color-text-base"),

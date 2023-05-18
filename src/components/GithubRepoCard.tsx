@@ -22,7 +22,7 @@ export default function GithubRepoCard({
   };
 
   return (
-    <div className="flex h-full flex-col rounded border border-opacity-50 p-4 hover:bg-skin-card-muted">
+    <div className="flex h-full flex-col rounded border-skin-fill/50 border-2 p-4 hover:bg-skin-card-muted/40 hover:scale-[1.01] transition-all">
       <a
         href={html_url}
         target="_blank"
@@ -44,10 +44,7 @@ export default function GithubRepoCard({
         <div className="mt-auto flex text-xs">
           {language && (
             <div className="mr-4 flex items-center">
-              <span
-                style={{ backgroundColor: "red" }}
-                className="relative h-3 w-3 rounded-full"
-              ></span>
+              <span className="relative h-3 w-3 rounded-full bg-skin-accent"></span>
               <span className="pl-2">{language}</span>
             </div>
           )}

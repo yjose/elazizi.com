@@ -10,9 +10,9 @@ import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
 import { SOCIALS } from "@config";
-import youssoufImage from "/assets/youssouf.jpg";
 import { getFeaturedRepos } from "@utils/getFeaturedRepos";
 import GithubRepoCard from "@components/GithubRepoCard";
+import { YoussoufImage } from "@components/YoussoufImage";
 
 const posts = await getCollection("blog");
 const featuredRepos = await getFeaturedRepos();
@@ -68,17 +68,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           )
         }
       </div>
-      <div
-        class="flex min-h-[200px] min-w-[200px] flex-col items-center justify-center"
-      >
-        <img
-          src={youssoufImage}
-          height="200"
-          width="300"
-          alt="Yousouuf's Image"
-          class="border-skin-base mb-4 h-[300px] w-[240px] rounded-md border-2"
-        />
-      </div>
+      <YoussoufImage />
     </section>
 
     <Hr />
@@ -117,8 +107,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       featuredRepos.length > 0 && (
         <>
           <section id="featured">
-            <h2>Open source contribution</h2>
-            <div class="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">
+            <h2>Open Source Contributions</h2>
+            <div class="mt-3 grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">
               {featuredRepos.map(repo => (
                 <GithubRepoCard {...repo} />
               ))}
@@ -145,7 +135,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply flex flex-row pb-6 pt-8;
+    @apply flex sm:flex-row sm:pb-12 sm:pt-12 flex-col-reverse items-end pb-12 pt-12;
   }
   #hero h1 {
     @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
