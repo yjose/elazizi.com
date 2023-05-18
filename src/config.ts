@@ -39,3 +39,13 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
 ];
+
+export const FEATURED_REPOS = [
+  "yjose/reactjs-popup",
+  "obytes/react-native-template-obytes",
+  "facebook/react-native",
+  "geeksblabla/awesome-morocco",
+  "yjose/awesome-new",
+  "geeksblabla/geeksblabla.com",
+  "geeksblabla/stateofdev.ma",
+];
