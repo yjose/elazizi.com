@@ -10,6 +10,7 @@ import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
 import { SOCIALS } from "@config";
+import youssoufImage from "/assets/youssouf.jpg";
 
 const posts = await getCollection("blog");
 
@@ -23,8 +24,9 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
-      <a
+    <div class='flex flex-col flex-1 pr-6'>
+      <h1>👋 Hello!</h1>
+      <!-- <a
         target="_blank"
         href="/rss.xml"
         class="rss-link"
@@ -38,22 +40,19 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
           ></path><circle cx="6" cy="18" r="2"></circle>
         </svg>
-      </a>
+      </a> -->
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        I am Youssouf, a human first 🙌, from Morocco 🇲🇦, a full stack web developer 👨🏻‍💻 and an OSS believer. I love working with React and React Native and I admire writing about my programming journey.
       </p>
       <p>
-        Read the blog posts or check
+        Read more about me on the
         <LinkButton
           className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="/about"
         >
-          README
-        </LinkButton> for more info.
+          About page
+        </LinkButton>
       </p>
       {
         // only display if at least one social link is enabled
@@ -64,6 +63,17 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           </div>
         )
       }
+    </div>
+    <div class='flex flex-col justify-center items-center min-w-[200px] min-h-[200px]'>
+    <img
+      src={youssoufImage}
+      height="200"
+      width="300"
+      alt="Yousouuf's Image"
+      class="rounded-md mb-4 border-2 border-skin-base w-[240px] h-[300px]"
+    />
+    </div>
+
     </section>
 
     <Hr />
@@ -123,7 +133,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pt-8 pb-6;
+    @apply pb-6 pt-8 flex flex-row;
   }
   #hero h1 {
     @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
@@ -141,13 +151,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply mt-4 flex flex-col sm:flex-row sm:items-center;
   }
   .social-links {
-    @apply mr-2 mb-1 whitespace-nowrap sm:mb-0;
+    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
   }
 
   /* ===== Featured & Recent Posts Sections ===== */
   #featured,
   #recent-posts {
-    @apply pt-12 pb-6;
+    @apply pb-6 pt-12;
   }
   #featured h2,
   #recent-posts h2 {
