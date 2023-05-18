@@ -4,8 +4,11 @@ pubDatetime: 2020-12-20
 published: true
 tags: ["react", "react-native", "typescript"]
 keywords: ["react", "react-native", "typescript"]
-ogImage: ./images/react-typescript.png
+ogImage: /images/react-typescript.png
+description: I will share my way of learning typescript for react developers.
 ---
+
+![react-typescript](/images/react-typescript.png)
 
 In the last couple of years, typescript gains a lot of popularity among the react community. We start seeing more and more people tweeting about using typescript as a default language for their react project. This fact convinces more people to use typescript and start asking about the best way to learn it.
 

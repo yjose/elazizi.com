@@ -3,7 +3,7 @@ title: How to build an image picker in React Native
 tags: ["react", "react-native"]
 keywords: ["react", "react-native", "libraries"]
 ogImage: ./images/react-native-image-picker.png
-pubDatetime: 2023-01-30
+pubDatetime: 2021-08-07
 description: In this tutorial, we'll demonstrate how to use React Native Image Crop Picker to enable your users to select images from their devices or use the device's camera to capture and upload live photos to your app.
 ---
 

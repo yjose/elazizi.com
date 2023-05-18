@@ -4,8 +4,11 @@ pubDatetime: 2020-08-25
 tags: ["react", "react-native"]
 keywords: ["react", "react-native", "react-auth"]
 published: true
-ogImage: ./images/react-native-auth.png
+ogImage: /images/react-native-auth.png
+description: We aim to build a generic solution that handles most of the authentication use cases and easy to copy-paste in your next project.
 ---
+
+![Authentication in React Native, Easy, Secure, and Reusable solution 💪.](/images/react-native-auth.png)
 
 Authentication for a React/React Native project is a task that you will see in your project backlog whatever you are working on a simple or complex application. And having a complete guide or a generic approach to do it will help maintain code and save time.
 

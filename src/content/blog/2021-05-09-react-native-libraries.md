@@ -4,10 +4,13 @@ pubDatetime: 2021-05-10
 published: true
 tags: ["react", "react-native"]
 keywords: ["react", "react-native", "libraries"]
-ogImage: ./images/react-native-libraries.png
+ogImage: /images/react-native-libraries.png
+description: "15 React Native libraries you should use in 2021"
 ---
 
 > Originally published on [Logrocket Blog](https://blog.logrocket.com/the-best-react-native-libraries-for-leveraging-native-features/)
+
+![React Native Libraries](/images/react-native-libraries.png)
 
 The React Native community is one of the more vibrant open source communities on the web. [According to GitHub](https://octoverse.github.com/2019/#top-and-trending-projects), the React Native repository is one of the top-rated repos based on the number of contributors. You can find modules and third-party libraries for almost anything you want to implement in your next mobile application.
 

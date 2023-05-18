@@ -4,8 +4,11 @@ pubDatetime: 2020-11-17
 published: true
 tags: ["react", "react-native"]
 keywords: ["react", "react-native"]
-ogImage: ./images/react-native-project-structure.png
+ogImage: /images/react-native-project-structure.png
+description: I will share an easy, clean, and scalable project structure ready to use for your next React Native project.
 ---
+
+![react-native-project-structure](/images/react-native-project-structure.png)
 
 As I have been writing tutorials about react native in the last couple of months, people usually ask me about the best way to structure a react native project to make it clean, scalable, and easy to follow for newcomers developers.
 
