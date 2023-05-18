@@ -16,10 +16,8 @@ import GithubRepoCard from "@components/GithubRepoCard";
 
 const posts = await getCollection("blog");
 const featuredRepos = await getFeaturedRepos();
-console.log(featuredRepos);
 
 const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -28,9 +26,9 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-    <div class='flex flex-col flex-1 pr-6'>
-      <h1>👋 Hello!</h1>
-      <!-- <a
+      <div class="flex flex-1 flex-col pr-6">
+        <h1>👋 Hello!</h1>
+        <!-- <a
         target="_blank"
         href="/rss.xml"
         class="rss-link"
@@ -46,61 +44,44 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
       </a> -->
 
-      <p>
-        I am Youssouf, a human first 🙌, from Morocco 🇲🇦, a full stack web developer 👨🏻‍💻 and an OSS believer. I love working with React and React Native and I admire writing about my programming journey.
-      </p>
-      <p>
-        Read more about me on the
-        <LinkButton
-          className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
-          href="/about"
-        >
-          About page
-        </LinkButton>
-      </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </div>
-    <div class='flex flex-col justify-center items-center min-w-[200px] min-h-[200px]'>
-    <img
-      src={youssoufImage}
-      height="200"
-      width="300"
-      alt="Yousouuf's Image"
-      class="rounded-md mb-4 border-2 border-skin-base w-[240px] h-[300px]"
-    />
-    </div>
-
+        <p>
+          I am Youssouf, a human first 🙌, from Morocco 🇲🇦, a full stack web
+          developer 👨🏻‍💻 and an OSS believer. I love working with React and React
+          Native and I admire writing about my programming journey.
+        </p>
+        <p>
+          Read more about me on the
+          <LinkButton
+            className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
+            href="/about"
+          >
+            About page
+          </LinkButton>
+        </p>
+        {
+          // only display if at least one social link is enabled
+          socialCount > 0 && (
+            <div class="social-wrapper">
+              <div class="social-links">Social Links:</div>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
+      <div
+        class="flex min-h-[200px] min-w-[200px] flex-col items-center justify-center"
+      >
+        <img
+          src={youssoufImage}
+          height="200"
+          width="300"
+          alt="Yousouuf's Image"
+          class="border-skin-base mb-4 h-[300px] w-[240px] rounded-md border-2"
+        />
+      </div>
     </section>
 
     <Hr />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data }) => (
-                <Card
-                  href={`/posts/${slugify(data)}`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          <Hr />
-        </>
-      )
-    }
 
     <section id="recent-posts">
       <h2>Recent Posts</h2>
@@ -130,7 +111,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </div>
     </section>
 
-
     <Hr />
 
     {
@@ -138,12 +118,19 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         <>
           <section id="featured">
             <h2>Open source contribution</h2>
-            <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-               {featuredRepos.map((repo) => (
-                  <GithubRepoCard
-                    {...repo}
-                  />
+            <div class="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">
+              {featuredRepos.map(repo => (
+                <GithubRepoCard {...repo} />
               ))}
+            </div>
+
+            <div class="all-posts-btn-wrapper">
+              <LinkButton href="https://github.com/yjose">
+                See More
+                <svg xmlns="http://www.w3.org/2000/svg">
+                  <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+                </svg>
+              </LinkButton>
             </div>
           </section>
           <Hr />
@@ -158,7 +145,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pb-6 pt-8 flex flex-row;
+    @apply flex flex-row pb-6 pt-8;
   }
   #hero h1 {
     @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;

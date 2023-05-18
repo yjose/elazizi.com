@@ -33,7 +33,7 @@ export const getFeaturedRepos = async (): Promise<Repository[]> => {
   const results = data.filter(repo => repo !== null) as Repository[];
   // we are using public api to get the data, so in case we reach the limit we will use fake data
   if (results.length === 0 && process.env.NODE_ENV === "development") {
-    return generateFakeData(6);
+    return generateFakeData(FEATURED_REPOS.length);
   }
   return results;
 };

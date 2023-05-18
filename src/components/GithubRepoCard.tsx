@@ -22,17 +22,17 @@ export default function GithubRepoCard({
   };
 
   return (
-    <div className="border border-opacity-50 h-full rounded p-4 flex flex-col hover:bg-skin-card-muted">
+    <div className="flex h-full flex-col rounded border border-opacity-50 p-4 hover:bg-skin-card-muted">
       <a
         href={html_url}
         target="_blank"
         rel="noreferrer"
-        className="font-medium text-purple-800 dark:text-purple-200 cursor-pointer"
+        className="text-purple-800 dark:text-purple-200 cursor-pointer font-medium"
       >
         <div className="flex items-center">
           <svg
             viewBox="0 0 16 16"
-            className="w-4 h-4 fill-current mr-2"
+            className="fill-current mr-2 h-4 w-4"
             aria-hidden="true"
           >
             <path fillRule="evenodd" d={icon.book}></path>
@@ -40,21 +40,21 @@ export default function GithubRepoCard({
 
           {name}
         </div>
-        <div className="text-xs mt-2 mb-4">{description}</div>
-        <div className="mt-auto text-xs flex">
+        <div className="mb-4 mt-2 text-xs">{description}</div>
+        <div className="mt-auto flex text-xs">
           {language && (
-            <div className="flex items-center mr-4">
+            <div className="mr-4 flex items-center">
               <span
                 style={{ backgroundColor: "red" }}
-                className="w-3 h-3 rounded-full relative"
+                className="relative h-3 w-3 rounded-full"
               ></span>
               <span className="pl-2">{language}</span>
             </div>
           )}
           {stargazers_count && (
-            <div className="flex items-center mr-4">
+            <div className="mr-4 flex items-center">
               <svg
-                className="w-4 h-4 fill-current mr-2"
+                className="fill-current mr-2 h-4 w-4"
                 aria-label="stars"
                 viewBox="0 0 16 16"
                 role="img"
@@ -67,7 +67,7 @@ export default function GithubRepoCard({
           {forks && (
             <div className="flex items-center">
               <svg
-                className="w-4 h-4 fill-current mr-2"
+                className="fill-current mr-2 h-4 w-4"
                 aria-label="fork"
                 viewBox="0 0 16 16"
                 role="img"
