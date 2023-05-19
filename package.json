@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "astro check --watch & astro dev",
     "start": "astro dev",
-    "build": "astro build && jampack ./dist",
+    "build": "astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
