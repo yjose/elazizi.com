@@ -1,13 +1,5 @@
 import { FEATURED_REPOS } from "@config";
-
-interface Repository {
-  name: string;
-  html_url: string;
-  description: string;
-  language?: string;
-  stargazers_count?: number;
-  forks?: number;
-}
+import type { Repository } from "types";
 
 const fetchRepoData = async (repo: string): Promise<Repository> => {
   const response = await fetch(`https://api.github.com/repos/${repo}`);

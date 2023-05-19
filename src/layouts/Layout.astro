@@ -4,6 +4,8 @@ import "@styles/base.css";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
+const ENEABLE_ANALYTICS =  !import.meta.env.DEV;
+
 export interface Props {
   title?: string;
   author?: string;
@@ -76,6 +78,29 @@ const socialImageURL = new URL(
     }
 
     <script is:inline src="/toggle-theme.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    {
+      ENEABLE_ANALYTICS && (
+        <script
+          async
+          type="text/partytown"
+          src="https://www.googletagmanager.com/gtag/js?id=G-N828YWTB5N"
+        />
+      )
+    }
+    {
+      ENEABLE_ANALYTICS && (
+        <script type="text/partytown">
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-N828YWTB5N");
+        </script>
+      )
+    }
   </head>
   <body>
     <slot />

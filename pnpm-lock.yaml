@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@astrojs/partytown':
+    specifier: ^1.2.2
+    version: 1.2.2
   '@astrojs/rss':
     specifier: ^2.4.1
     version: 2.4.1
@@ -143,6 +146,13 @@ packages:
       vfile: 5.3.7
     transitivePeerDependencies:
       - supports-color
+
+  /@astrojs/partytown@1.2.2:
+    resolution: {integrity: sha512-Df28kE+xExg+mc2jaPWgN3EYT9uvFmvWCHAuT3MUIxNBark9iVidOHFWNE5dy8+RfxpK3ryhvO5M18lK8OGvig==}
+    dependencies:
+      '@builder.io/partytown': 0.7.6
+      mrmime: 1.0.1
+    dev: false
 
   /@astrojs/prism@2.1.1:
     resolution: {integrity: sha512-Gnwnlb1lGJzCQEg89r4/WqgfCGPNFC7Kuh2D/k289Cbdi/2PD7Lrdstz86y1itDvcb2ijiRqjqWnJ5rsfu/QOA==}
@@ -424,6 +434,11 @@ packages:
       '@babel/helper-string-parser': 7.21.5
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+
+  /@builder.io/partytown@0.7.6:
+    resolution: {integrity: sha512-snXIGNiZpqjno3XYQN2lbBB+05hsQR/LSttbtIW1c0gmZ7Kh/DIo0YrxlDxCDulAMFPFM8J+4voLwvYepSj3sw==}
+    hasBin: true
+    dev: false
 
   /@commitlint/config-validator@17.4.4:
     resolution: {integrity: sha512-bi0+TstqMiqoBAQDvdEP4AFh0GaKyLFlPPEObgI29utoKEYoPQTvF0EYqIwYYLEoJYhj5GfMIhPHJkTJhagfeg==}
@@ -3950,6 +3965,11 @@ packages:
   /mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
+
+  /mrmime@1.0.1:
+    resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
+    engines: {node: '>=10'}
+    dev: false
 
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}

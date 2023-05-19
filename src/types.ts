@@ -15,6 +15,21 @@ export type SocialObjects = {
   linkTitle: string;
 }[];
 
+export type Talk = {
+  date: Date;
+  title: string;
+  place: string;
+  url: string;
+};
+export type Repository = {
+  name: string;
+  html_url: string;
+  description: string;
+  language?: string;
+  stargazers_count?: number;
+  forks?: number;
+};
+
 export type SocialIcons = {
   [social in SocialMedia]: string;
 };

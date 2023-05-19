@@ -16,6 +16,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@astrojs/partytown": "^1.2.2",
     "@astrojs/rss": "^2.4.1",
     "@resvg/resvg-js": "^2.4.1",
     "astro": "^2.4.5",
