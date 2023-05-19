@@ -46,7 +46,7 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
       {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
     </ul>
 
-    <section class="giscus mx-auto mt-10 w-full" />
+    <section class="giscus mx-auto mt-10 w-full"></section>
   </main>
   <Footer />
 </Layout>
@@ -61,23 +61,25 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
   .tags-container {
     @apply my-8;
   }
+  .astro-code {
+    white-space: nowrap !important;
+  }
 </style>
 
-
-
-<script src="https://giscus.app/client.js"
-    data-repo="yjose/elazizi.com"
-    data-repo-id="MDEwOlJlcG9zaXRvcnkxMjQ5NjM5OTk="
-    data-category="Blog posts"
-    data-category-id="DIC_kwDOB3LMn84CWls1"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="transparent_dark"
-    data-lang="en"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async>
-  </script>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="yjose/elazizi.com"
+  data-repo-id="MDEwOlJlcG9zaXRvcnkxMjQ5NjM5OTk="
+  data-category="Blog posts"
+  data-category-id="DIC_kwDOB3LMn84CWls1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="transparent_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
