@@ -19,6 +19,8 @@ const TalkCard = ({ talk }: { talk: Talk }) => (
   <div className="py-2 border-b border-b-skin-fill/40 border-solid">
     <a
       href={talk.url}
+      target="_blank"
+      rel="noopener noreferrer"
       className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
     >
       <h3 className="text-lg font-medium decoration-dashed hover:underline">
