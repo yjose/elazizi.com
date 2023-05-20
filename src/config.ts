@@ -3,9 +3,9 @@ import type { Site, SocialObjects, Talk } from "./types";
 export const SITE: Site = {
   website: "https://elazizi.com/",
   author: "El Azizi Youssouf",
-  desc: "A Human first 🙌, Full Stack Web Developer 👨🏻‍💻 and OSS believers. I love working with react and ReactNative and I admire writing about my programming journey 👇👇👇",
-  title: "Youssouf",
-  ogImage: "astropaper-og.jpg",
+  desc: "A human first 🙌, from Morocco 🇲🇦, a mobile tribe leader at Obytes and a core team member of the Geekblabla community. I am an open-source believer and a part-time blogger. I mainly enjoy working with React and React Native and sharing my knowledge and experience with others through blog posts and talks.  ",
+  title: "Youssouf El Azizi",
+  ogImage: "youssouf-elazizi-og.png",
   lightAndDarkMode: true,
   postPerPage: 10,
 };

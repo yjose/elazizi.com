@@ -30,14 +30,15 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <div class="flex flex-1 flex-col pr-6">
+      <div class="flex flex-1 flex-col sm:pr-6">
         <h1>👋 Hello!</h1>
         <p>
-          I am Youssouf, a human first 🙌, from Morocco 🇲🇦, a mobile tribe
-          leader at Obytes and a core team member of the Geekblabla community. I
-          am an open-source believer and a part-time blogger. I mainly enjoy
-          working with React and React Native and sharing my knowledge and
-          experience with others through blog posts and talks.
+          <span class="text-2xl">I am <strong>Youssouf</strong></span>, a human
+          first 🙌, from Morocco 🇲🇦, a mobile tribe leader at Obytes and a core
+          team member of the Geekblabla community. I am an open-source believer
+          and a part-time blogger. I mainly enjoy working with React and React
+          Native and sharing my knowledge and experience with others through
+          blog posts and talks.
         </p>
         <p>
           Read more about me on the
@@ -132,7 +133,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply flex sm:flex-row sm:pb-12 sm:pt-12 flex-col-reverse items-end pb-12 pt-12;
+    @apply flex sm:flex-row sm:pb-12 sm:pt-12 flex-col items-end pb-12 pt-12;
   }
   #hero h1 {
     @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
