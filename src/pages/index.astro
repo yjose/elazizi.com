@@ -1,0 +1,171 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import LinkButton from "@components/LinkButton.astro";
+import Hr from "@components/Hr.astro";
+import Card from "@components/Card";
+import Socials from "@components/Socials.astro";
+import getSortedPosts from "@utils/getSortedPosts";
+import slugify from "@utils/slugify";
+import { SOCIALS } from "@config";
+import { getFeaturedRepos } from "@utils/getFeaturedRepos";
+import GithubRepoCard from "@components/GithubRepoCard";
+import { YoussoufImage } from "@components/YoussoufImage";
+import TalkList from "@components/TalksList";
+import { getSortedTalks } from "@utils/getTalks";
+import CalendlyMeet from "@components/CalendlyMeet.astro";
+
+const posts = await getCollection("blog");
+const featuredRepos = await getFeaturedRepos();
+
+const sortedPosts = getSortedPosts(posts);
+const sortedTalks = getSortedTalks();
+
+const socialCount = SOCIALS.filter(social => social.active).length;
+---
+
+<Layout>
+  <Header />
+  <main id="main-content">
+    <section id="hero">
+      <div class="flex flex-1 flex-col sm:pr-6">
+        <h1>👋 Hello!</h1>
+        <p>
+          <span class="text-2xl">I am <strong>Youssouf</strong></span>, a human
+          first 🙌, from Morocco 🇲🇦, a mobile tribe leader at Obytes and a core
+          team member of the Geekblabla community. I am an open-source believer
+          and a part-time blogger. I mainly enjoy working with React and React
+          Native and sharing my knowledge and experience with others through
+          blog posts and talks.
+        </p>
+        <p>
+          Read more about me on the
+          <LinkButton
+            className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
+            href="/about"
+          >
+            About page
+          </LinkButton>
+        </p>
+        {
+          // only display if at least one social link is enabled
+          socialCount > 0 && (
+            <div class="social-wrapper">
+              <div class="social-links">Social Links:</div>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
+      <YoussoufImage />
+    </section>
+
+    <Hr />
+
+    <section id="recent-posts">
+      <h2>📜Recent Posts</h2>
+      <ul>
+        {
+          sortedPosts.map(
+            ({ data }, index) =>
+              index < 5 && (
+                <Card
+                  href={`/posts/${slugify(data)}`}
+                  frontmatter={data}
+                  secHeading={false}
+                />
+              )
+          )
+        }
+      </ul>
+      <div class="all-posts-btn-wrapper">
+        <LinkButton href="/posts">
+          All Posts
+          <svg xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+            ></path>
+          </svg>
+        </LinkButton>
+      </div>
+    </section>
+
+    <Hr />
+
+    {
+      featuredRepos.length > 0 && (
+        <>
+          <section id="featured">
+            <h2>👨‍💻Open Source Contributions</h2>
+            <div class="mt-3 grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">
+              {featuredRepos.map(repo => (
+                <GithubRepoCard {...repo} />
+              ))}
+            </div>
+
+            <div class="all-posts-btn-wrapper">
+              <LinkButton href="https://github.com/yjose">
+                See More
+                <svg xmlns="http://www.w3.org/2000/svg">
+                  <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+                </svg>
+              </LinkButton>
+            </div>
+          </section>
+        </>
+      )
+    }
+    <Hr />
+
+    <section id="talks">
+      <h2>🎙️Talks</h2>
+      <TalkList talks={sortedTalks} />
+    </section>
+  </main>
+
+  <CalendlyMeet />
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ===== Hero Section ===== */
+  #hero {
+    @apply flex sm:flex-row sm:pb-12 sm:pt-12 flex-col items-end pb-12 pt-12;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero .rss-link {
+    @apply mb-6;
+  }
+  #hero .rss-icon {
+    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .social-wrapper {
+    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+  }
+  .social-links {
+    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+  }
+
+  /* ===== Featured & Recent Posts Sections ===== */
+  #featured,
+  #talks,
+  #recent-posts {
+    @apply pb-6 pt-12;
+  }
+  #featured h2,
+  #talks h2,
+  #recent-posts h2 {
+    @apply text-3xl font-semibold tracking-wide;
+  }
+  .all-posts-btn-wrapper {
+    @apply my-8 text-center;
+  }
+</style>

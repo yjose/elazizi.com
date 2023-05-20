@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="35" fill="#000" font-family="sans-serif">Y</text>
+	<style>
+    @media (prefers-color-scheme:dark){:root{filter:invert(100%)}}
+  </style>
+</svg>
