@@ -5,6 +5,10 @@ title: "About"
 
 > TL;DR: I'm Youssouf, a human first 🙌, from Morocco 🇲🇦. I'm a mobile tribe leader at Obytes and a core team member of the Geekblabla community. I'm a believer in open-source and a part-time blogger. I mainly enjoy working with React and React Native. I like reading and listening to anything related to Software Development, Psychology and Human Behavior. I also enjoy playing soccer as well as walking and running.
 
+<br/>
+
+![](/about-images.png)
+
 ## 👶 How I got where we are now
 
 I was born in Rissani, a small town in the east-south of Morocco. I grew up in Errachidia and went to high school there. I studied Computer Science at the National School of Applied Sciences in El Hoceima in the north of Morocco and received my engineering degree in 2017.
