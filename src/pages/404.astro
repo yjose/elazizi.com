@@ -14,21 +14,30 @@ import LinkButton from "@components/LinkButton.astro";
       <h1 aria-label="404 Not Found">404</h1>
       <span aria-hidden="true">¯\_(ツ)_/¯</span>
       <p>Page Not Found</p>
-      <LinkButton
-        href="/"
-        className="my-6 underline decoration-dashed underline-offset-8 text-lg"
-      >
-        Go back home
-      </LinkButton>
+      <p class="text-center">
+        Sorry, we couldn't find the page you're looking for.
+        <br />
+        <br />
+        <span class="text-base">
+          We recently rebuilt the website, refactoring some of the links. You
+          can return to the homepage or search for your article on the website.
+        </span>
+      </p>
     </div>
+    <LinkButton
+      href="/"
+      className="my-6 underline decoration-dashed underline-offset-8 text-lg"
+    >
+      Go back home
+    </LinkButton>
   </main>
-
-  <Footer />
 </Layout>
+
+<Footer />
 
 <style>
   #main-content {
-    @apply mx-auto flex max-w-3xl flex-1 items-center justify-center;
+    @apply mx-auto flex flex-col max-w-3xl flex-1 items-center justify-center;
   }
   .not-found-wrapper {
     @apply mb-14 flex flex-col items-center justify-center;
