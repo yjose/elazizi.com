@@ -1,17 +1,25 @@
-# elazizi.com 📄
+## [elazizi.com 📄](https://elazizi.com)
 
 Source code for my personal website built with [Astro](https://astro.build/).
 
 ## 💻 Tech Stack
 
 **Main Framework** - [Astro](https://astro.build/)
+
 **Type Checking** - [TypeScript](https://www.typescriptlang.org/)
+
 **Component Framework** - [ReactJS](https://reactjs.org/)
+
 **Styling** - [TailwindCSS](https://tailwindcss.com/)
+
 **Fuzzy Search** - [FuseJS](https://fusejs.io/)
+
 **Icons** - [Boxicons](https://boxicons.com/) | [Tablers](https://tabler-icons.io/)
+
 **Code Formatting** - [Prettier](https://prettier.io/)
+
 **Deployment** - [Netlify](https://netlify.com/)
+
 **Linting** - [ESLint](https://eslint.org)
 
 ## 👨🏻‍💻 Running Locally
