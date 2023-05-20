@@ -38,7 +38,11 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
   <main id="main-content">
     <h1 class="post-title">{title}</h1>
     <Datetime datetime={pubDatetime} size="lg" className="my-2" />
-    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
+    <article
+      id="article"
+      role="article"
+      class="prose mx-auto mt-8 max-w-3xl prose-pre:border-[1px] prose-pre:border-skin-line prose-pre:border-solid"
+    >
       <Content />
     </article>
 
@@ -60,9 +64,6 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
   }
   .tags-container {
     @apply my-8;
-  }
-  .astro-code {
-    white-space: nowrap !important;
   }
 </style>
 
