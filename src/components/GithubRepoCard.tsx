@@ -27,18 +27,14 @@ export default function GithubRepoCard({
         href={html_url}
         target="_blank"
         rel="noreferrer"
-        className="text-purple-800 dark:text-purple-200 cursor-pointer font-medium"
+        className="cursor-pointer font-medium"
       >
-        <div className="flex items-center">
-          <svg
-            viewBox="0 0 16 16"
-            className="fill-current mr-2 h-4 w-4"
-            aria-hidden="true"
-          >
-            <path fillRule="evenodd" d={icon.book}></path>
+        <div className="flex items-center text-skin-accent">
+          <svg viewBox="0 0 16 16" className="mr-2 h-4 w-4" aria-hidden="true">
+            <path fill="currentColor" fillRule="evenodd" d={icon.book}></path>
           </svg>
 
-          {name}
+          <span className="text-skin-accent"> {name}</span>
         </div>
         <div className="mb-4 mt-2 text-xs">{description}</div>
         <div className="mt-auto flex text-xs">
