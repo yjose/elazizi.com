@@ -455,35 +455,6 @@ Our last step is to upload generated ipa to TestFlight using [upload-testflight-
 
 If you are interested to setup GitHub workflows with multiple app variants, please let me know in the comments section 👇
 
-## Bonus
-
-What if i told you that you could start your next project with All those workflows already ready for you,
-Well, you can use [Obytes react native template](https://github.com/obytes/react-native-template-obytes) based on our Mobile tribe best practices and come with the following features :
-
-- ✅ Last React Native version
-- 🎉 Type checking [TypeScript](https://www.typescriptlang.org/)
-- 💅 Minimal UI kit using [@shopify/restyle](https://github.com/Shopify/restyle) with theming
-- 🤖 Auto generate App Icon using [react-native-make](https://github.com/bamlab/react-native-make) and Splash screen using [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash/)
-- 🦊 Husky for Git Hooks
-- 💡 Clean project structure with Absolute Imports
-- 🚫 Lint-staged for running linters on Git staged files
-- 🗂 VSCode recommended extensions configuration
-- ☂️ [React Navigation](https://reactnavigation.org/) pre-installed with examples
-- 💫 Auth flow with [zustand](https://github.com/pmndrs/zustand) and [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) as a storage to save sensitive data.
-- 🛠 A simple workflow to build, release and distribute your application using [Github action](https://github.com/features/actions)
-- 🔥 [React Query](https://react-query.tanstack.com/) & [axios](https://github.com/axios/axios) to fetch Data
-- 🧵 A good approach with example to handle forms based on [react-hook-form](https://react-hook-form.com/) and [yup](https://github.com/jquense/yup) for validation
-- ⚙️ Handel environment variables with [react-native-env](https://github.com/goatandsheep/react-native-dotenv)
-- 🎯 Localization
-
-And you can use it as a template for react-native cli.
-
-```shell
-npx react-native init MyApp --template https://github.com/obytes/react-native-template-obytes
-```
-
-Make sure to give it a try and help us improve the template.
-
 I hope you found that interesting, informative, and entertaining. I would be more than happy to hear your remarks and thoughts about this solution in The comments.
 
 If you think other people should read this post. Tweet,share and [Follow me on Twitter](https://twitter.com/ElaziziYoussouf) for the next articles.
