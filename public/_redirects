@@ -1,0 +1,33 @@
+# redirect root pages
+
+/talks /#talks 301
+/oss /#oss 301
+
+# redirect old blog posts
+
+/blog /posts 301
+/handling-errors-in-react-native-a-complete-guide /posts/handling-errors-in-react-native-a-complete-guide 301
+
+/how-to-build-an-image-picker-in-react-native /posts/how-to-build-an-image-picker-in-react-native 301
+
+/how-to-structure-a-react-native-project /posts/how-to-structure-a-react-native-project 301
+
+/forms-in-react-native-the-right-way /posts/forms-in-react-native-the-right-way 301
+
+/17-react-native-libraries-you-should-use-in-2020 /posts/17-react-native-libraries-you-should-use-in-2020 301
+
+/authentication-in-react-native-easy-secure-and-reusable-solution-💪 /posts/authentication-in-react-native-easy-secure-and-reusable-solution-💪 301
+/how-to-learn-type-script-for-react-developers /posts/how-to-learn-type-script-for-react-developers 301
+
+/a-step-by-step-guide-to-making-pure-css-tooltips /posts/a-step-by-step-guide-to-making-pure-css-tooltips 301
+/spotify-login-animation-with-react-navigation-v-5 /posts/spotify-login-animation-with-react-navigation-v-5 301
+/15-react-native-libraries-you-should-use-in-2021#splash /posts/15-react-native-libraries-you-should-use-in-2021#splash 301
+/gatsby-js-showcase-contributors-list-for-open-source-project /posts/gatsby-js-showcase-contributors-list-for-open-source-project 301
+/list-atom-setup-for-your-next-react-project /posts/list-atom-setup-for-your-next-react-project 301
+/a-step-by-step-guide-to-making-pure-css-tooltips /posts/a-step-by-step-guide-to-making-pure-css-tooltips 301
+
+/create-a-fancy-burger-menu-using-reactjs-popup /posts/create-a-fancy-burger-menu-using-reactjs-popup 301
+
+/the-missing-piece-in-the-beginners-guides-react-native /posts/the-missing-piece-in-the-beginners-guides-react-native 301
+
+/frontend-performance-check-list-for-production /posts/frontend-performance-check-list-for-production 301
