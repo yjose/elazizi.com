@@ -11,7 +11,7 @@ title: "About"
 
 ## 👶 How I got where we are now
 
-I was born in Rissani, a small town in the east-south of Morocco. I grew up in Errachidia and went to high school there. I studied Computer Science at the National School of Applied Sciences in El Hoceima in the north of Morocco and received my engineering degree in 2017.
+I was born in Rissani, a small town in the south-east of Morocco. I grew up in Errachidia and went to high school there. I studied Computer Science at the National School of Applied Sciences in El Hoceima in the north of Morocco and received my engineering degree in 2017.
 
 I worked as a Software Engineer for one year at Sopra Banking Morocco in Casablanca, then moved to Obytes as a Software Engineer working remotely and mainly focusing on the frontend side.
 
