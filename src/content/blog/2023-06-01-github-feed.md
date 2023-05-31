@@ -14,7 +14,7 @@ I can relate to this question because I have been in this situation before, and 
 
 The answer is simple, **GitHub Feed**. and let me explain why.
 
-> Its not the only answer, but let me explain why I think its a good answer.
+> It's not the only answer, but let me explain why I think its a good answer.
 
 ## What is GitHub Feed?
 
@@ -40,13 +40,13 @@ If you're keen on React and React Native, [follow me on GitHub](https://github.c
 
 ## How to explore projects?
 
-Will the bad news is that there is no feat-all solution for this, you need to develop your own way of exploring projects and get the best out of them. But here are some tips that might help you:
+Will the bad news is that there is no fit-all solution for this, you need to develop your own way of exploring projects and get the best out of them. But here are some tips that might help you:
 
 - **Explore Project dependencies**: The first thing I do is to check the `package.json` file of the project and see what dependencies they are using. I ignore all dependencies I already know and only focus on the ones that are new to me. do a quick search to know what they are and what they do. Sometimes, when a new dependency is interesting enough, I find myself continuing to explore it and forgetting about the source project.
 
   This trick is one of the best ways to discover new libraries that you are not going to find in `X Libraries ... You should use` articles.
 
-- **Explore Project code**: Explore the code from the comfort of your home environment(vscode). GitHub has an amazing feature that allows you to open a repository in VS Code inside the browser. Just click the `.` button and you're ready to dive into the project.
+- **Explore Project code**: Explore the code from the comfort of your home environment(vscode). GitHub has an amazing feature that allows you to open a repository in VS Code inside the browser. Just click the `.` in your keyboard and you're ready to dive into the project.
 
   I mainly search for the following:
 
