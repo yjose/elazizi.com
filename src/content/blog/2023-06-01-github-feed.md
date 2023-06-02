@@ -40,7 +40,7 @@ If you're keen on React and React Native, [follow me on GitHub](https://github.c
 
 ## How to explore projects?
 
-Will the bad news is that there is no fit-all solution for this, you need to develop your own way of exploring projects and get the best out of them. But here are some tips that might help you:
+The bad news is that there is no fit-all solution for this, you need to develop your own way of exploring projects and get the best out of them. But here are some tips that might help you:
 
 - **Explore Project dependencies**: The first thing I do is to check the `package.json` file of the project and see what dependencies they are using. I ignore all dependencies I already know and only focus on the ones that are new to me. do a quick search to know what they are and what they do. Sometimes, when a new dependency is interesting enough, I find myself continuing to explore it and forgetting about the source project.
 
