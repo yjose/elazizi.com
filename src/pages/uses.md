@@ -54,3 +54,29 @@ I’ve been lucky enough to experience some incredible books through reading and
 - [The Almanack of Naval Ravikant](https://www.navalmanack.com/)
 
 - [The Psychology of Money](https://www.amazon.com/Psychology-Money-Timeless-lessons-happiness/dp/0857197681)
+
+## 🎥 Youtube Channels
+
+As I mentioned in my [About Page](/about), YouTube is one of my most-visited websites. I am subscribed to many channels, but here are some of my favorites:
+
+- [The Diary Of A CEO](https://www.youtube.com/@TheDiaryOfACEO) : One of the best podcasts I've been listening to lately.
+
+- [Patrick Boyle](https://www.youtube.com/@PBoyle) : Politic and finance videos.
+
+- [Na3raf](https://www.youtube.com/@Ne3rafChannel) [AR]: One of the best Arabic channels that talk about politics and explain the news in the right way.
+
+- [Ne3raf Ektesad](https://www.youtube.com/@Ne3rafEktesad) [AR] : Same as Na3raf but for finance.
+
+- [ALI MOHAMED ALI](https://www.youtube.com/@AliMuhammadAli) [AR] : If I am forced to subscribe to only one channel, it will be this one. His videos are timeless so make sure to check the old ones.
+
+- [Thmanyah Podcasts](https://www.youtube.com/@thmanyahPodcasts) [AR] : A podcast channel that talks about many topics.
+
+- [Lectorem TV](https://www.youtube.com/@lectorem) [AR] : A Moroccan podcast channel, I like the way the host approaches topics and the guests he invites.
+
+- [ColdFusion](https://www.youtube.com/@ColdFusion) : Very interesting videos about what is happening in the world.
+
+- [Theo](https://www.youtube.com/@t3dotgg): A great channel to keep up with programming news and best practices.
+
+- [Fireship](https://www.youtube.com/@Fireship): Best programming channel on YouTube.
+
+- [GeeksBlaBla](https://www.youtube.com/@GeeksBlaBla01) [AR]: Our Community Youtube Channel, if you understand Moroccan dialect and you are interested in tech, you will love it.

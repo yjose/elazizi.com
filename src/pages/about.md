@@ -37,7 +37,7 @@ While I am not working on Obytes tasks or community work or some side projects (
 
 - **🚶 Walking or Running**: Walking through the neighborhood or running while listening to an audio book/podcast or maybe music (depending on the mood 😀) is a daily habit for me.
 
-- **🎥 Watching YouTube**: I am somewhat addicted to YouTube and can't stop watching videos about tech, software development, psychology and human behavior.
+- **🎥 Watching YouTube**: I am somewhat addicted to YouTube and can't stop watching videos about tech, software development, psychology and human behavior. check [Youtube channels](/uses#-youtube-channels) for recommendations
 
 - **📚 Reading**: Not a lot, but I enjoy reading anything related to psychology and human behavior. You can check my top five books on the [Uses page](/uses#-books).
 
