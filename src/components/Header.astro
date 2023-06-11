@@ -239,12 +239,11 @@ console.log(activeNav);
 
   // active link on page load
   const selectActiveLink = () => {
-    const currentPath = window.location.pathname;
-    console.log({ currentPath });
+    const currentPath = window.location.pathname?.split("/")?.[1] || "";
     let avtiveLinkInNavItems = false;
 
     links.forEach((link, index) => {
-      if (link.getAttribute("href") === currentPath) {
+      if (link.getAttribute("href") === `/${currentPath}`) {
         avtiveLinkInNavItems = true;
         //@ts-ignore
         menuItems?.style.setProperty(
@@ -260,7 +259,6 @@ console.log(activeNav);
       }
     });
     if (!avtiveLinkInNavItems) {
-      console.log("no active link in nav items");
       //@ts-ignore
       menuItems?.style.setProperty("--border-translateX", `0px`);
       //@ts-ignore

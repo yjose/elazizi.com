@@ -1,5 +1,3 @@
-console.log("toggle-theme.js");
-
 function getPreferTheme() {
   const primaryColorScheme = "dark"; // "light" | "dark"
 
@@ -34,7 +32,6 @@ function reflectPreference() {
 reflectPreference();
 
 window.onload = () => {
-  console.log("window.onload");
   // set on load so screen readers can get the latest value on the button
   reflectPreference();
 
