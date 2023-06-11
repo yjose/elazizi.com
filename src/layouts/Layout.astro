@@ -80,7 +80,7 @@ const socialImageURL = new URL(
       )
     }
 
-    <script is:inline src="/toggle-theme.js"></script>
+    <script is:inline src="/toggle-theme.js" data-swup-ignore-script></script>
 
     <!-- Google tag (gtag.js) -->
     {
@@ -89,12 +89,13 @@ const socialImageURL = new URL(
           async
           type="text/partytown"
           src="https://www.googletagmanager.com/gtag/js?id=G-N828YWTB5N"
+          data-swup-ignore-script
         />
       )
     }
     {
       ENEABLE_ANALYTICS && (
-        <script type="text/partytown">
+        <script type="text/partytown" data-swup-ignore-script>
           window.dataLayer = window.dataLayer || [];
           function gtag() {
             dataLayer.push(arguments);
@@ -141,7 +142,9 @@ const swup = new Swup({
     new SwupProgressPlugin(),
     new SwupScrollPlugin(),
     new SwupScriptsPlugin(),
-    // new SwupGaPlugin(),
+    new SwupGaPlugin({
+      gaMeasurementId: "G-N828YWTB5N",
+    }),
   ],
 });
 </script>

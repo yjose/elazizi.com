@@ -1,3 +1,5 @@
+console.log("toggle-theme.js");
+
 function getPreferTheme() {
   const primaryColorScheme = "dark"; // "light" | "dark"
 
