@@ -1,9 +1,9 @@
-const primaryColorScheme = "dark"; // "light" | "dark"
-
-// Get theme data from local storage
-const currentTheme = localStorage.getItem("theme");
-
 function getPreferTheme() {
+  const primaryColorScheme = "dark"; // "light" | "dark"
+
+  // Get theme data from local storage
+  const currentTheme = localStorage.getItem("theme");
+
   // return theme value in local storage if it is set
   if (currentTheme) return currentTheme;
 
@@ -16,14 +16,13 @@ function getPreferTheme() {
     : "light";
 }
 
-let themeValue = getPreferTheme();
-
-function setPreference() {
-  localStorage.setItem("theme", themeValue);
+function setPreference(theme) {
+  localStorage.setItem("theme", theme);
   reflectPreference();
 }
 
 function reflectPreference() {
+  const themeValue = getPreferTheme();
   document.firstElementChild.setAttribute("data-theme", themeValue);
 
   document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
@@ -38,8 +37,9 @@ window.onload = () => {
 
   // now this script can find and listen for clicks on the control
   document.querySelector("#theme-btn")?.addEventListener("click", () => {
-    themeValue = themeValue === "light" ? "dark" : "light";
-    setPreference();
+    const themeValue = getPreferTheme();
+    const theme = themeValue === "light" ? "dark" : "light";
+    setPreference(theme);
   });
 };
 
@@ -47,6 +47,6 @@ window.onload = () => {
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", ({ matches: isDark }) => {
-    themeValue = isDark ? "dark" : "light";
-    setPreference();
+    const themeValue = isDark ? "dark" : "light";
+    setPreference(themeValue);
   });

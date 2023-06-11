@@ -1,6 +1,9 @@
 ---
+
 import { SITE } from "@config";
 import "@styles/base.css";
+
+import Header from "@components/Header.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -77,7 +80,7 @@ const socialImageURL = new URL(
       )
     }
 
-    <script is:inline src="/toggle-theme.js"></script>
+    <script is:inline src="/toggle-theme.js" data-swup-ignore-script></script>
 
     <!-- Google tag (gtag.js) -->
     {
@@ -86,12 +89,13 @@ const socialImageURL = new URL(
           async
           type="text/partytown"
           src="https://www.googletagmanager.com/gtag/js?id=G-N828YWTB5N"
+          data-swup-ignore-script
         />
       )
     }
     {
       ENEABLE_ANALYTICS && (
-        <script type="text/partytown">
+        <script type="text/partytown" data-swup-ignore-script>
           window.dataLayer = window.dataLayer || [];
           function gtag() {
             dataLayer.push(arguments);
@@ -103,6 +107,44 @@ const socialImageURL = new URL(
     }
   </head>
   <body>
-    <slot />
+    <Header activeNav="posts" />
+    <div id="swup" class="wrapper pt-16 w-full max-w-3xl mx-auto">
+      <slot />
+    </div>
   </body>
 </html>
+
+<script>
+import Swup from "swup";
+//@ts-ignore
+import SwupA11yPlugin from "@swup/a11y-plugin";
+//@ts-ignore
+import SwupHeadPlugin from "@swup/head-plugin";
+//@ts-ignore
+import SwupSlideTheme from "@swup/slide-theme";
+//@ts-ignore
+import SwupPreloadPlugin from "@swup/preload-plugin";
+//@ts-ignore
+import SwupProgressPlugin from "@swup/progress-plugin";
+//@ts-ignore
+import SwupScrollPlugin from "@swup/scroll-plugin";
+//@ts-ignore
+import SwupScriptsPlugin from '@swup/scripts-plugin';
+//@ts-ignore
+import SwupGaPlugin from '@swup/ga-plugin';
+
+const swup = new Swup({
+  plugins: [
+    new SwupA11yPlugin(),
+    new SwupHeadPlugin(),
+    new SwupSlideTheme(),
+    new SwupPreloadPlugin(),
+    new SwupProgressPlugin(),
+    new SwupScrollPlugin(),
+    new SwupScriptsPlugin(),
+    new SwupGaPlugin({
+      gaMeasurementId: "G-N828YWTB5N",
+    }),
+  ],
+});
+</script>

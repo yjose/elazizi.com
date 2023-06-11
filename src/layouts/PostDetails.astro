@@ -6,6 +6,7 @@ import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
+import PostComments from "@components/PostComments.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -22,11 +23,13 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
 ---
 
 <Layout title={title} author={author} description={description} ogImage={ogUrl}>
-  <Header />
+  <!-- <Header /> -->
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
-      onclick="history.back()"
+      onclick="
+      history.back()
+      "
     >
       <svg xmlns="http://www.w3.org/2000/svg"
         ><path
@@ -50,7 +53,7 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
       {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
     </ul>
 
-    <section class="giscus mx-auto mt-10 w-full"></section>
+    <PostComments />
   </main>
   <Footer />
 </Layout>
@@ -66,21 +69,3 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
     @apply my-8;
   }
 </style>
-<!--  TODO: only activate the script on production  -->
-<script
-  src="https://giscus.app/client.js"
-  data-repo="yjose/elazizi.com"
-  data-repo-id="MDEwOlJlcG9zaXRvcnkxMjQ5NjM5OTk="
-  data-category="Blog posts"
-  data-category-id="DIC_kwDOB3LMn84CWls1"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="transparent_dark"
-  data-lang="en"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
