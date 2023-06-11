@@ -60,24 +60,16 @@ console.log(activeNav);
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
-              Posts
-            </a>
+            <a href="/posts"> Posts</a>
           </li>
           <li>
-            <a href="/tags" class={activeNav === "tags" ? "active" : ""}>
-              Tags
-            </a>
+            <a href="/tags"> Tags</a>
           </li>
           <li>
-            <a href="/uses" class={activeNav === "uses" ? "active" : ""}>
-              Uses
-            </a>
+            <a href="/uses"> Uses</a>
           </li>
           <li>
-            <a href="/about" class={activeNav === "about" ? "active" : ""}>
-              About
-            </a>
+            <a href="/about"> About</a>
           </li>
           <li>
             <LinkButton
@@ -213,4 +205,23 @@ console.log(activeNav);
     );
     menuItems?.classList.toggle("display-none");
   });
+
+  // active link on page load
+  const selectActiveLink = () => {
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll("nav a");
+    links.forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+    // close menu on phone screen
+    // TODO: We can improve this more by using an animation
+    menuIcon?.classList.remove("is-active");
+    menuItems?.classList.add("display-none");
+  };
+  selectActiveLink();
+  document.addEventListener("swup:pageView", selectActiveLink);
 </script>
