@@ -225,6 +225,7 @@ console.log(activeNav);
       linksBounding.push({ width: linkBounding.width, translateX });
     }
   });
+  console.log({ linksBounding });
 
   menuBtn?.addEventListener("click", () => {
     const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
