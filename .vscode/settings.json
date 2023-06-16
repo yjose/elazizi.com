@@ -1,0 +1,5 @@
+{
+    "markdown.copyFiles.destination": {
+        "/src/content/**/*": "/public/images/"
+    }
+}
