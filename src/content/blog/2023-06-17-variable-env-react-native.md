@@ -1,6 +1,6 @@
 ---
 title: "Environment Variables in React Native: The Right Way!"
-tags: ["GitHub", "learning"]
+tags: ["react-native", "expo", "environment-variables", "typescript"]
 keywords: ["react-native", "expo", "environment-variables", "typescript"]
 pubDatetime: 2023-06-17
 description: In this article, I will show you how to use environment variables in React Native the correct way.
