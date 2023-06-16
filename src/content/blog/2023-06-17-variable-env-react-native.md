@@ -6,7 +6,7 @@ pubDatetime: 2023-06-17
 description: In this article, I will show you how to use environment variables in React Native the correct way.
 ---
 
-![Environment Variables in React Native](../../../public/images/env-vars-react-native.png)
+![Environment Variables in React Native](/images/env-vars-react-native.png)
 
 Managing environment variables in React Native is crucial for any project and can be sometimes tricky, and people tend to get lost with all the options available out there. Do I need to use native packages or just load them using a Babel plugin? What about security, and how can I handle different environments like staging and production?
 
