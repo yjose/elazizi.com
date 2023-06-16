@@ -22,6 +22,7 @@
     "astro": "^2.4.5",
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
+    "remark-code-title": "^0.2.5",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^8.0.1",
     "satori": "^0.8.1",

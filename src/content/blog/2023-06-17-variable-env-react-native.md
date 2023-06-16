@@ -53,8 +53,7 @@ Next, we need to create the `.env` files for each environment we have. For examp
 
 For the sake of simplicity, let's assume we have only two variables in our `.env` files: `API_URL`, `BUNDLE_ID` and `SENTRY_TOKEN` to upload the source maps to Sentry.
 
-```bash
-# .env.staging
+```bash title=".env.development"
 BUNDLE_ID=com.example.app.staging
 API_URL=https://qa-api.example.com
 SENTRY_TOKEN=https://sentry.io/123456
@@ -72,7 +71,7 @@ To handle all logic related to environment variables, we are going to create a f
 
 ### Part 1: Load the correct `.env` file
 
-```js
+```js title="env.js"
 const z = require("zod");
 
 const path = require("path");
@@ -88,7 +87,7 @@ To load the correct file, we use an inline variable environment called `APP_ENV`
 
 Normally, the `APP_ENV` variable should be passed to the app while running npm scripts, like the following:
 
-```json
+```json title="package.json"
 {
   "scripts": {
     "start": "APP_ENV=development expo start",
@@ -110,8 +109,7 @@ Zod helps you define a schema for your objects and validate them. If the object 
 
 Let's see how we can use it to validate our environment variables.
 
-```js
-// env.js
+```js title="env.js"
 const z = require("zod");
 
 // ... the code above
@@ -162,8 +160,7 @@ As you may notice, we are using the `z.infer` utility to get the type of the sch
 
 Now we have the schemas and the environment variables, we can validate them using the `safeParse` function from the `Zod` package.
 
-```js
-// env.js
+```js title="env.js"
 const z = require("zod");
 
 // ... the code above
@@ -208,7 +205,7 @@ If the validation was successful, we export the `Env` and `ClientEnv` objects. `
 
 Now that we have the `env.js` file ready, we can load it into the `app.config.ts`` file and use it to configure the app.
 
-```ts
+```ts title="app.config.ts"
 import type { ConfigContext, ExpoConfig } from "@expo/config";
 
 import { ClientEnv, Env } from "./env";
@@ -250,8 +247,7 @@ We know that we can access the environment variables in the `src` folder using t
 
 Go to the `src` folder and create a new file called `env.js` and add the following code.
 
-```js
-// src/env.js
+```js title="src/env.js"
 /*
  * This file should not be modified; use `env.js` in the project root to add your client environment variables.
  * If you import `Env` from `@env`, this is the file that will be loaded.
@@ -273,8 +269,7 @@ As you can see, this file only exports the `Constants.expoConfig.extra` object. 
 
 You can now import the `Env` object from `src/env.js` and use it to access environment variables. To make it easier, add a resolver for this file to `tsconfig.json` and babel configuration so you can import environment variables with `import { Env } from '@env'`.
 
-```json
-// tsconfig.json
+```json title="tsconfig.json"
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
@@ -289,8 +284,7 @@ You can now import the `Env` object from `src/env.js` and use it to access envir
 }
 ```
 
-```js
-// babel.config.js
+```js title="babel.config.js"
 module.exports = function (api) {
   api.cache(true);
   return {
@@ -324,8 +318,7 @@ module.exports = function (api) {
 Congratulations! You can now access environment variables in the `src` folder with TypeScript support.
 and here is a simple example:
 
-```tsx
-// src/api/client.ts
+```tsx title="src/api/client.ts"
 import { Env } from "@env";
 import axios from "axios";
 export const client = axios.create({
