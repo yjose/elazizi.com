@@ -2,11 +2,17 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import remarkToc from "remark-toc";
-import codeTitle from "remark-code-title";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
-
 import partytown from "@astrojs/partytown";
+
+import expressiveCode from "astro-expressive-code";
+
+/** @type {import('astro-expressive-code').AstroExpressiveCodeOptions} */
+const astroExpressiveCodeOptions = {
+  // Example: Change the theme to "dracula"
+  theme: "dracula",
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,13 +30,10 @@ export default defineConfig({
         forward: ["dataLayer.push"],
       },
     }),
+    expressiveCode(astroExpressiveCodeOptions),
   ],
   markdown: {
-    remarkPlugins: [remarkToc, codeTitle],
-    shikiConfig: {
-      theme: "dracula",
-      wrap: false,
-    },
+    remarkPlugins: [remarkToc],
     extendDefaultPlugins: true,
   },
   vite: {

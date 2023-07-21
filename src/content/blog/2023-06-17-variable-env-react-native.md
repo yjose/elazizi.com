@@ -286,6 +286,8 @@ You can now import the `Env` object from `src/env.js` and use it to access envir
 }
 ```
 
+<br/>
+
 ```js title="babel.config.js"
 module.exports = function (api) {
   api.cache(true);
