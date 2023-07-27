@@ -27,13 +27,13 @@ I first learned about this project at the [App.js Conf 2022](https://www.youtube
 
 Expensify is a complete re-imagination of financial collaboration, centered around chat. A production application(available on ios and Android) used by a large number of users.
 
-Same to the Showtime app, they share code between the web and mobile apps as well.
+similar to the Showtime app, they share code between the web and mobile apps as well.
 
 The project is based on React Native CLI and uses TypeScript. It is well-maintained and regularly updated. It has been heavily tested with unit tests and end-to-end (e2e) tests. This project offers valuable learning opportunities as well.
 
 ## 3. [React Native Testing](https://github.com/vanGalilea/react-native-testing/)
 
-This is not a real app, but rather a collection of examples demonstrating the correct way to test React Native apps. If are willing to test your React Native app using Jest and react-native-testing-library, this is the perfect place to start.
+This is not a real app, but rather a collection of examples demonstrating the correct way to test React Native apps. If you are willing to test your React Native app using Jest and react-native-testing-library, this is the perfect place to start.
 
 Believe me, what I learned about testing React Native apps from this project is priceless. How to mock native modules, API calls, and navigation. The right way to write your assertions, the correct setup, and much more are all covered in this project.
 
