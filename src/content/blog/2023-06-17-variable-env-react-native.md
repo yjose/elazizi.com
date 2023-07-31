@@ -350,7 +350,7 @@ I know it's a long article, but I hope you find it useful. Before ending this ar
 
 - Probably, we didn't talk that much about how secure this approach is? And the answer is that we did our best by accessing the environment variables through the `extra` property, but it is **not 100% secure**. Therefore, if you have critical keys, make sure to put them on the server side.
 
-- The next version of Expo (49) will automatically load the `.env` file, which probably means that we won't need to use the `dotenv` module to load the file anymore. However, I'm not sure how this will affect this approach. Please let me know in the comments if you have more details about this.
+- Expo 49 SDK automatically loads the `.env` file, which means we probably won't need to use the `dotenv` module to load the file anymore. However, based on my understanding, the solution may not be flexible enough and may not support loading custom environment files(staging for example). Please provide more details in the comments if you think I am missing something here.
 
 - This approach is inspired by [T3 Stack](https://create.t3.gg/) and i want to thank them for their great work.
 
