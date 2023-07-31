@@ -4,6 +4,7 @@ tags: ["react-native", "expo", "environment-variables", "typescript"]
 keywords: ["react-native", "expo", "environment-variables", "typescript"]
 pubDatetime: 2023-06-17
 description: In this article, I will show you how to use environment variables in React Native the correct way.
+ogImage: /images/env-vars-react-native.png
 ---
 
 ![Environment Variables in React Native](/images/env-vars-react-native.png)
@@ -40,6 +41,7 @@ First, we need to install those packages:
 
 ```bash
 yarn add dotenv zod
+# or pnpm add dotenv zod
 npx expo expo-constants
 ```
 
@@ -90,14 +92,16 @@ Normally, the `APP_ENV` variable should be passed to the app while running NPM s
 ```json title="package.json"
 {
   "scripts": {
-    "start": "APP_ENV=development expo start",
-    "start:staging": "APP_ENV=staging expo start",
-    "build:production": "APP_ENV=production expo start"
+    "start": "EXPO_NO_DOTENV=1 expo start",
+    "start:staging": "APP_ENV=staging pnpm run start",
+    "build:production": "APP_ENV=production pnpm run start"
   }
 }
 ```
 
-For example, running `yarn start:staging` will load the `.env.staging` file and we can access the variables using `process.env.VAR_NAME`.
+> 🚨 Starting from Expo SDK 49, we need to use the `EXPO_NO_DOTENV=1` environment variable to disable the automatic loading of environment files by Expo. Unfortunately, Expo is not extensible enough to enable us to load the correct `.env` file based on the `APP_ENV` variable.
+
+For example, running `pnpm start:staging` will load the `.env.staging` file and we can access the variables using `process.env.VAR_NAME`.
 
 ### Part 2: Create a `schema` to validate the environment variables.
 
