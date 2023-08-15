@@ -6,15 +6,9 @@ import LinkButton from "./LinkButton.astro";
 import logoPNG from "/assets/logo.png";
 import logoSVG from "/assets/logo.svg";
 
-export interface Props {
-  activeNav?: "posts" | "tags" | "about" | "search" | "uses";
-}
-
-const { activeNav } = Astro.props;
-console.log(activeNav);
 ---
 
-<header>
+<header transition:persist>
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
@@ -74,9 +68,7 @@ console.log(activeNav);
           <li>
             <LinkButton
               href="/search"
-              className={`focus-outline p-3 sm:p-1 ${
-                activeNav === "search" ? "active" : ""
-              }`}
+              className={`focus-outline p-3 sm:p-1`}
               ariaLabel="search"
               title="Search"
             >
@@ -270,5 +262,5 @@ console.log(activeNav);
     menuItems?.classList.add("display-none");
   };
   selectActiveLink();
-  document.addEventListener("swup:pageView", selectActiveLink);
+  document.addEventListener("astro:load", selectActiveLink);
 </script>
