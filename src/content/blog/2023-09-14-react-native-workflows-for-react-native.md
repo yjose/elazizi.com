@@ -11,17 +11,17 @@ ogImage: /images/github-action-checks.png
 
 <br/>
 
-If you are working with React Native and hosting your project on Github and not using Github Actions, you are missing out on a lot of benefits. Github Actions is a great tool that can help you automate your React Native workflow and save you a lot of time and effort.
+If you are working with React Native and hosting your project on GitHub but not using GitHub Actions, you are missing out on a lot of benefits. GitHub Actions is a great tool that can help you automate your React Native workflow and save you a lot of time and effort.
 
-I believe that having GitHub workflows is one of the best investments you can make in your project to enhance productivity and code quality. Writing these workflows can be done in just a few days or even hours. However, if you are lucky enough — `which is the case as you are reading this article 😀` — you can benefit from other people's work and make your setup ready in few minutes.
+I believe that having GitHub workflows is one of the best investments you can make in your project to enhance productivity and code quality. Writing these workflows can be done in just a few days or even hours. However, if you are lucky enough—which is the case as you are reading this article 😊—you can benefit from other people's work and make your setup ready in a few minutes.
 
-In this article, I will share with you few Github Actions Workflows we use for our React Native projects that you can use as well.
+In this article, I will share with you a few GitHub Actions workflows we use for our React Native projects that you can also use.
 
-Before we start listing the workflows, I would like to mention a small trick that we use in those workflows. Not many people know that this is possible with GitHub Actions.(Me few months ago 😅)
+Before we start listing the workflows, I would like to mention a small trick that we use in those workflows tha not many people know that this is possible with GitHub Actions. (Me, a few months ago 😅)
 
 ## Making a workflow reusable.
 
-Most of those workflows require some common steps, such as node setup, installing dependencies, and caching. Instead of repeating those steps in every workflow, we can create a reusable workflow that can be used in other workflows.
+Most of these workflows require common steps, such as node setup, installing dependencies, and caching. Instead of repeating those steps in every workflow, we can create a reusable workflow that can be used in other workflows.
 
 To make it work, GitHub requires using a composite action. A composite action is an action that can be used in other workflows. It's like a function that you can call from other workflows.
 
@@ -58,11 +58,11 @@ Now, we can use this action in other workflows by calling it using the `uses` ke
   uses: ./.github/actions/setup-node-pnpm-install
 ````
 
-Now as we have the setup ready, let's start listing the workflows.
+Now that we have the setup ready, let's begin listing the workflows.
 
 ## 1. Type Checking
 
-I assume that you are using TypeScript in your project. If not, you should think to give it a try, believe me, it's worth it.
+I assume that you are using TypeScript in your project. If not, you should consider giving it a try. Believe me, it's worth it.
 
 ```yml title=".github/workflows/type-check.yml"
 # 🔗 Links:
@@ -108,7 +108,7 @@ jobs:
         run: pnpm type-check
 ```
 
-This workflow will run the type-check on every push to the `main/master` branch and on every pull request to `main/master`. If it's a pull request, it will add the check to the PR as well as annotate the code with the errors using reviewdog.
+This workflow will run the type check on every push to the `main/master` branch and on every pull request to `main/master`. If it's a pull request, it will add the check to the PR as well as annotate the code with the errors using reviewdog.
 
 ## 2. Linting with ESLint
 
@@ -245,6 +245,10 @@ jobs:
 ```
 
 > ⚠️ To ensure proper functionality, you need to make sure that your Jest configuration is set up to generate coverage files in the specified format. You can refer to the [jest.config.js](https://github.com/obytes/react-native-template-obytes/blob/master/jest.config.js) file for more information.
+
+Here is an example of the comment that will be posted on the pull request.
+
+![Jest Coverage Comment](/images/jest-coverage-comment.png)
 
 ## 5. Image Optimization
 
