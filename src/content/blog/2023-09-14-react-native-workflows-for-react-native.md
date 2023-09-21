@@ -52,8 +52,6 @@ runs:
 Now, we can use this action in other workflows by calling it using the `uses` keyword and specifying the path to the action file. Note that you don't need to include the `action.yml`; only the folder name is required.
 
 ````yml
-
-```yml
 - name: 📦 Setup Node + PNPM + install deps
   uses: ./.github/actions/setup-node-pnpm-install
 ````
