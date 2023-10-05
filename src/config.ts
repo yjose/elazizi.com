@@ -52,6 +52,12 @@ export const FEATURED_REPOS = [
 
 export const TALKS: Talk[] = [
   {
+    date: new Date("2023-09-30"),
+    title: "React Native B'Darija with Youssouf El Azizi",
+    place: "JavaScript Morocco",
+    url: "https://www.youtube.com/watch?v=ZYWPRUs4zlc",
+  },
+  {
     date: new Date("2019-04-05"),
     title: "JS Frameworks - ReactJS w/ Youssouf Elazizi",
     place: "Pentium Podcast",
