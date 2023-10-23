@@ -19,6 +19,7 @@ export default defineConfig({
   site: SITE.website,
   experimental: {
     viewTransitions: true,
+    assets: true
   },
   integrations: [
     tailwind({
