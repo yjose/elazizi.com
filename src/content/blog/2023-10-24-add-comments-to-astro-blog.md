@@ -4,6 +4,7 @@ tags: ["astro", "blog"]
 keywords: ["astro", "blog", "comments"]
 pubDatetime: 2023-10-24
 description: A quick guide on how to add comments section to your astro blog
+ogImage: /images/giscuss-example.png
 ---
 
 ![Add comments Section to your Astro blog](../../assets/giscuss-example.png)
