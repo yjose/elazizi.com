@@ -4,7 +4,7 @@ tags: ["react", "react-query", "auth"]
 keywords: ["react", "react-query", "auth"]
 pubDatetime: 2023-11-28
 description: A complete guide on how to refresh auth token while using react-query
-ogImage: /images/giscuss-example.png
+ogImage: /images/react-query-refresh-token.png
 ---
 
 ![React Query token refresh](../../assets/react-query-refresh-token.png)
