@@ -9,13 +9,13 @@ ogImage: /images/react-query-refresh-token.png
 
 ![React Query token refresh](../../assets/react-query-refresh-token.png)
 
-Imagine you're using React Query in your application to fetch data from an API and you want to refresh your authentication token when it expires. If your initial instinct was to search on Google for "How to refresh auth token with React Query?" then you've come to the right place. you have something to learn here.
-
 One common misunderstanding I've noticed is that people often view React Query primarily as a data-fetching library. I understand this perspective, as it is indeed the most common use case for the library. However, if you take a look at the [React Query home page](https://tanstack.com/query/v5/), you will notice that the main description for React Query from its maintainers is "Powerful asynchronous state management" and the library doesn't care about asynchronous implementation details as long as you return a promise.
 
 With that in mind, we can easily see that the title of this article is somehow incorrect. So instead of trying to find a way to refresh your auth token with React Query, you should focus on the data fetching implementation. In most cases, people tend to use `axios`, simple `fetch`, or any other library to fetch data from their API. So we should focus on how to refresh our auth token with those libraries instead of React Query.
 
 For this article, we will use `axios` as our data-fetching library with React Query. However, the same concept applies to any other library. Even though using `axios` is highly recommended as it has built-in support for interceptors, which we will use to refresh our authentication token.
+
+As part of this article, we will also cover how to write unit tests for our implementation. Make sure to read the whole article to get the most out of it.
 
 ## Table of Content
 
