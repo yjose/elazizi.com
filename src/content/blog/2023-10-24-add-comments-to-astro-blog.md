@@ -50,8 +50,8 @@ At the end, you will get a snippet that you can add to your website.
 ```html
 <script
   src="https://giscus.app/client.js"
-  data-repo="yjose/elazizi.com"
-  data-repo-id="MDEwOlJlcG9zaXRvcnkxMjQ5NjM5OTk="
+  data-repo="username/repo"
+  data-repo-id="repo-id"
   data-category="Blog Posts Comments"
   data-category-id="DIC_kwDOB3LMn84CaXpn"
   data-mapping="url"
@@ -77,8 +77,8 @@ Now that you have your Giscus configuration ready, let's create a component call
 
 <script
   src="https://giscus.app/client.js"
-  data-repo="yjose/elazizi.com"
-  data-repo-id="MDEwOlJlcG9zaXRvcnkxMjQ5NjM5OTk="
+  data-repo="username/repo"
+  data-repo-id="repo-id"
   data-category="Blog Posts Comments"
   data-category-id="DIC_kwDOB3LMn84CaXpn"
   data-mapping="url"
