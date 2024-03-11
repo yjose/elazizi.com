@@ -3,7 +3,7 @@ title: "Add comments Section to your Astro blog"
 tags: ["astro", "blog"]
 keywords: ["astro", "blog", "comments"]
 pubDatetime: 2023-10-24
-description: A quick guide on how to add comments section to your astro blog
+description: A quick guide on how to add a comments section to your Astro blog
 ogImage: /images/giscuss-example.png
 ---
 
@@ -37,7 +37,7 @@ After enabling the bot, add your repository to the website. If all criteria are 
 
 Make sure to select the `Discussion title contains page URL` option for mapping the embedding page and the embedded discussion.
 
-The last options is to configure the discussion category, the appearance and loading approach:
+The last options is to configure the discussion category, the appearance, and the loading approach:
 
 - For the category, select the category you created earlier: `Blog Post Comments.`
 - For the appearance, choose the `Transparent Dark` theme. (You can explore other options that match your website theme, but I personally found this one to be the best as I use a dark theme for my blog.)
@@ -67,12 +67,12 @@ At the end, you will get a snippet that you can add to your website.
 ></script>
 ```
 
-## 🔥 Add Giscus your Astro blog
+## 🔥 Add Giscus to your Astro blog
 
-Now that you have your Giscus configuration ready, let's create a component called `Comments` and add the snippet to it.
+Now that you have your Giscus configuration ready, let's create a component called `PostComments` and add the snippet to it.
 
 ```js
-//Path: src/components/Comments.astro
+//Path: src/components/PostComments.astro
 <section class="giscus mx-auto mt-10 w-full"></section>
 
 <script
@@ -102,7 +102,7 @@ Now, let's import the component into our blog post layout and add it to the bott
 ---
 import Layout from "@layouts/Layout.astro";
 import Footer from "@components/Footer.astro";
-import Comments from "@components/Comments.astro";
+import PostComments from "@components/PostComments.astro";
 
 ---
 
