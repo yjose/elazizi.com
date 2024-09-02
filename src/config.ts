@@ -52,6 +52,12 @@ export const FEATURED_REPOS = [
 
 export const TALKS: Talk[] = [
   {
+    date: new Date("2024-05-24"),
+    title: "React Native Best Practices Template with Youssouf El Azizi",
+    place: " Rocket Ship 043",
+    url: "https://www.youtube.com/watch?v=8NASzva27k0",
+  },
+  {
     date: new Date("2023-09-30"),
     title: "React Native B'Darija with Youssouf El Azizi",
     place: "JavaScript Morocco",
