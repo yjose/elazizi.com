@@ -344,6 +344,8 @@ Check out our [react-native-obytes-template](https://github.com/obytes/react-nat
 - [📄 babel.config.js](https://github.com/obytes/react-native-template-obytes/blob/master/babel.config.js)
 - [📄 src/api/client.ts](https://github.com/obytes/react-native-template-obytes/blob/master/src/api/common/client.tsx)
 
+> 🚨 `Unable to resolve module path` means you are trying to import the `path` Node.js module into your app, which will not work because the runtime is different. This issue arises because you are importing the `./env.js` file into a file located in the `./src` folder, which Metro is attempting to bundle. To resolve this, ensure you import your environment variables from `@env`, which should be an [alias](https://github.com/obytes/react-native-template-obytes/blob/a46693e6ddad22bd42e8c03fec623120d9d376d4/babel.config.js#L15) for `./src/core/env.js`, instead of `./env.js`.
+
 ## Last words
 
 I know it's a long article, but I hope you find it useful. Before ending this article, I want to add some notes.
