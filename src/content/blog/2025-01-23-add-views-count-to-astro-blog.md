@@ -2,7 +2,7 @@
 title: "Add Views Counter to your Astro Blog Posts"
 tags: ["astro", "blog"]
 keywords: ["astro", "blog", "views counter", "analytics"]
-pubDatetime: 2024-03-21
+pubDatetime: 2025-01-23
 description: A guide on how to add a beautiful views counter to your Astro blog posts using a free hit counter service
 ogImage: /images/views-count.gif
 ---
