@@ -42,9 +42,9 @@ const pageUrl = new URL(Astro.url.pathname, Astro.url.origin).href;
     <div class="flex flex-row flex-wrap items-end my-3">
       <Datetime datetime={pubDatetime} size="lg" className="mr-2" />
       <span class="sm:inline display-none"> | </span>
-      <!-- <PageViews url={pageUrl} /> -->
       <PageViews url={pageUrl} />
     </div>
+
 
     <article
       id="article"
