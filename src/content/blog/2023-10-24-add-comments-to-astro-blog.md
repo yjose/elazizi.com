@@ -15,6 +15,8 @@ However, adding a comments system can be a little challenging if you are using a
 
 If you use Astro for your blog and want to add comments to your posts, this guide will demonstrate how you can use the Giscus app to make it ready in a few minutes.
 
+> **Note**: If you're interested in adding more interactive features to your blog, check out my article on [how to add a views counter to your Astro blog posts](/posts/add-views-counter-to-your-astro-blog-posts)!
+
 ## Table of Content
 
 ## 👀 What is Giscus

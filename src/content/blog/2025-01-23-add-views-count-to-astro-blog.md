@@ -142,9 +142,15 @@ Let's break down and explain the code.
 
 The component is very simple, it accepts a `url` prop that will be used to track views for specific pages. We create a simple eye icon for the visual appeal of the counter and we use a three dots loading animation to make it more appealing.
 
-In the script section, we have a function called `updateViewCount` that fetches the view count from the hit counter service and as the service returns svg content, we extract the view count from the svg using some regex( thanks AI for that one 😀).
+In the script section, we have a function called `updateViewCount` that handles fetching and displaying the view count. Here's how it works:
 
-As we have the view count, We use a function called `animateNumber` to animate the number from 0 to the actual view count over 1 second, that function uses native animation frame to make the easing animation smooth and more natural.
+1. It first fetches the SVG content from the hit counter service using the `fetchWithProxy` function to handle CORS
+2. Since the service returns an SVG containing the view count, we use a regular expression to extract the numeric value
+3. The regex pattern `/<text[^>]*fill="#fff"[^>]*>([\d\s/]+)<\/text>/` matches text elements in the SVG and captures the view count
+4. Once we have the count, we initialize the display at 0 and animate up to the actual value
+5. If there are any errors in fetching or parsing, we gracefully fall back to showing "N/A"
+
+Once we have the view count, we use the `animateNumber` function to create a smooth animation effect. This function animates the counter from 0 to the actual view count over a 1 second duration. Under the hood, it leverages the browser's `requestAnimationFrame` API to create a fluid easing animation with optimal performance. The easing effect makes the counting animation feel more polished and natural compared to an instant update or linear transition.
 
 ## 📝 Using the Page Views Component in Your Blog
 
