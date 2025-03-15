@@ -29,7 +29,7 @@ It all began with an invitation to join a Facebook group, and I eventually becam
 
 I am part of the Geekblabla Community (formerly Facebook Developer Circle Morocco), a community for developers in Morocco 🇲🇦 that aims to help people learn and grow in the tech field with a Moroccan touch 😎
 
-Over the past 5 years, I have had the opportunity to help build some incredible projects with the community, such as [GeeksBlabla.io](https://GeeksBlabla.io), [BlablaConf.com](https://BlablaConf.com), [StateofDev.ma](https://StateofDev.ma), [Awesome-Morocco](Awesome-Morocco.dev), as well as organizing meetups and workshops. Most importantly, I have been able to meet a bunch of amazing friends and help people grow in the tech field and the journey is still going on.
+Over the past 5 years, I have had the opportunity to help build some incredible projects with the community, such as [GeeksBlabla.community](https://GeeksBlabla.community), [BlablaConf.com](https://BlablaConf.com), [StateofDev.ma](https://StateofDev.ma), [Awesome-Morocco](Awesome-Morocco.dev), as well as organizing meetups and workshops. Most importantly, I have been able to meet a bunch of amazing friends and help people grow in the tech field and the journey is still going on.
 
 ## 👀 Interests
 
