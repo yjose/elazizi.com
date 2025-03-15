@@ -10,22 +10,24 @@ title: "Uses"
 - TypeScript/JavaScript
 - React.js/React Native
 - iOS/Android
-- Node.js
+- Node.js/hono
 - Next.js/Gatsby.js/Astro.js
 - PNPM
 
 ## 🔨 Editor & Console
 
-- My favorite editor is [VS Code](https://code.visualstudio.com/) with the [Cobalt 2 theme](https://github.com/wesbos/cobalt2-vscode).
+- My favorite editor is [Cursor](https://www.cursor.com/) with the [Cobalt 2 theme](https://github.com/wesbos/cobalt2-vscode).
 - My terminal is [Warp](https://www.warp.dev/) and my font is [Fira Code](https://github.com/tonsky/FiraCode) with ligatures enabled.
 
 ## 📊 Apps & Productivity
 
 - [Raycast](https://www.raycast.com/) is my favorite tool and I can't live without it anymore 😀.
-- [TickTick](https://ticktick.com/) to keep track of my tasks and daily habits.
+- [superwhisper](https://superwhisper.com/) Now i am talking to my computer more that writing 🎙️.
+- [Perplexity](https://www.perplexity.ai/) My go to tool for searching the web. (using the free plan) + A raycast extension.
 - [Arc Browser](https://arc.net/) as my default browser.
 - [Slack](https://slack.com/) to communicate with my colleagues at work and community members.
 - [Notion](https://notion.so/) for note-taking and journaling.
+- [TickTick](https://ticktick.com/) to keep track of my tasks and daily habits.
 - [Storytel](https://www.storytel.com/) to listen to audiobooks.
 - [Spotify](https://www.spotify.com/) to listen to music and podcasts.
 - [YouTube](https://www.youtube.com/), My most visited website among GitHub, Google, and localhost.
