@@ -3,7 +3,7 @@ import type { Site, SocialObjects, Talk } from "./types";
 export const SITE: Site = {
   website: "https://elazizi.com/",
   author: "El Azizi Youssouf",
-  desc: "A human first 🙌, from Morocco 🇲🇦, a mobile tribe leader at Obytes and a core team member of the Geekblabla community. I am an open-source believer and a part-time blogger. I mainly enjoy working with React and React Native and sharing my knowledge and experience with others through blog posts and talks.  ",
+  desc: "A human first 🙌, from Morocco 🇲🇦, a Team leader at Obytes and a core team member of the Geekblabla community. I am an open-source believer and a part-time blogger. I mainly enjoy working with React and React Native and sharing my knowledge and experience with others through blog posts and talks.  ",
   title: "Youssouf El Azizi",
   ogImage: "youssouf-elazizi-og.png",
   lightAndDarkMode: true,
@@ -42,12 +42,13 @@ export const SOCIALS: SocialObjects = [
 
 export const FEATURED_REPOS = [
   "yjose/reactjs-popup",
+  "geeksblabla/geeksblabla.com",
+  "geeksblabla/stateofdev.ma",
+  "yjose/input-otp-native",
   "obytes/react-native-template-obytes",
   "facebook/react-native",
   "geeksblabla/awesome-morocco",
   "yjose/awesome-new",
-  "geeksblabla/geeksblabla.com",
-  "geeksblabla/stateofdev.ma",
 ];
 
 export const TALKS: Talk[] = [
