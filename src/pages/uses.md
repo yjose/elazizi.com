@@ -10,9 +10,10 @@ title: "Uses"
 - TypeScript/JavaScript
 - React.js/React Native
 - iOS/Android
-- Node.js/hono
+- Node.js/hono/Drizzle/Better Auth
 - Next.js/Gatsby.js/Astro.js
 - PNPM
+- Cloudflare
 
 ## 🔨 Editor & Console
 

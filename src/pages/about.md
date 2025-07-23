@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-> TL;DR: I'm Youssouf, a human first 🙌, from Morocco 🇲🇦. I'm a mobile tribe leader at Obytes and a core team member of the Geekblabla community. I'm a believer in open-source and a part-time blogger. I mainly enjoy working with React and React Native. I like reading and listening to anything related to Software Development, Psychology and Human Behavior. I also enjoy playing soccer as well as walking and running.
+> TL;DR: I'm Youssouf, a human first 🙌, from Morocco 🇲🇦. I'm a team leader at Obytes and a core team member of the Geekblabla community. I'm a believer in open-source and a part-time blogger. I mainly enjoy working with React and React Native. I like reading and listening to anything related to Software Development, Psychology and Human Behavior. I also enjoy playing soccer as well as walking and running.
 
 <br/>
 
@@ -17,11 +17,11 @@ I worked as a Software Engineer for one year at Sopra Banking Morocco in Casabla
 
 ## 🍊 What I Do at Obytes
 
-I started my career with the Obytes team as a Frontend Developer and had the chance to work on React Native and ReactJS projects from day one. I ended up being a Mobile Tribe Leader in the last two years 🚀.
+I started my career with the Obytes team as a Frontend Developer and had the chance to work on multiple web project and mobile projects using React, Next.js, Astro, React Native, Node.js, and more. I ended up being a team lead starting from 2021 🚀.
 
-Right now, I am mainly focusing on React Native and helping a team of nine people to build mobile apps for our clients. I do this by setting best practices, reviewing code, writing docs, interviewing people, and helping the team solve issues. I also manage the team and help them grow as developers.
+Right now, I am mainly focusing on leading a team of 8 people to build both web and mobile apps for our clients using React and React Native. My role involves setting best practices, reviewing code, writing documentation, interviewing candidates, and supporting the team in solving challenges. I also manage the team, help them grow as developers, and contribute to technical decisions and project architecture.
 
-At Obytes, we believe in open source, which is why last year we had the opportunity to start open-sourcing our internal resources and best practices we use at Obytes to build mobile apps. You can check them out here: [Starter Kit](https://github.com/obytes/react-native-template-obytes).
+At Obytes, we believe in open source, which is why last year we had the opportunity to start open-sourcing some of our internal resources and best practices we use at Obytes to build mobile apps. You can check them out here: [Starter Kit](https://github.com/obytes/react-native-template-obytes).
 
 ## 👨‍👨‍👧‍👦 Community Work
 
@@ -29,7 +29,7 @@ It all began with an invitation to join a Facebook group, and I eventually becam
 
 I am part of the Geekblabla Community (formerly Facebook Developer Circle Morocco), a community for developers in Morocco 🇲🇦 that aims to help people learn and grow in the tech field with a Moroccan touch 😎
 
-Over the past 5 years, I have had the opportunity to help build some incredible projects with the community, such as [GeeksBlabla.io](https://GeeksBlabla.io), [BlablaConf.com](https://BlablaConf.com), [StateofDev.ma](https://StateofDev.ma), [Awesome-Morocco](Awesome-Morocco.dev), as well as organizing meetups and workshops. Most importantly, I have been able to meet a bunch of amazing friends and help people grow in the tech field and the journey is still going on.
+Over the past 5 years, I have had the opportunity to help build some incredible projects with the community, such as [GeeksBlabla.community](https://GeeksBlabla.community), [BlablaConf.com](https://BlablaConf.com), [StateofDev.ma](https://StateofDev.ma), [Awesome-Morocco](Awesome-Morocco.dev), as well as organizing meetups and workshops. Most importantly, I have been able to meet a bunch of amazing friends and help people grow in the tech field and the journey is still going on.
 
 ## 👀 Interests
 
