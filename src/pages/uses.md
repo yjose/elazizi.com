@@ -12,12 +12,14 @@ title: "Uses"
 - iOS/Android
 - Node.js/hono/Drizzle/Better Auth
 - Next.js/Gatsby.js/Astro.js
+- tRPC
 - PNPM
 - Cloudflare
 
 ## 🔨 Editor & Console
 
 - My favorite editor is [Cursor](https://www.cursor.com/) with the [Cobalt 2 theme](https://github.com/wesbos/cobalt2-vscode).
+- [Claude Code](https://claude.ai/code) and [Codex](https://openai.com/index/openai-codex/) are my go-to AI coding assistants.
 - My terminal is [Warp](https://www.warp.dev/) and my font is [Fira Code](https://github.com/tonsky/FiraCode) with ligatures enabled.
 
 ## 📊 Apps & Productivity
