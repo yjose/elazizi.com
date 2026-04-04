@@ -58,61 +58,48 @@ Signal only, no noise.
 
 ## The Implementation
 
-Create a `vitest-ai-reporter.ts` at your project root:
+Create a `vitest-ai-reporter.js` at your project root:
 
-```typescript
-import type { File, Reporter, Task } from "vitest/node";
-
-interface FailedTest {
-  name: string;
-  file: string;
-  error: string;
+```js
+function collectTests(tasks, ancestry, filePath, stats) {
+    for (const task of tasks) {
+        if (task.type === "test") {
+            if (task.result?.state === "fail") {
+                stats.failed++;
+                const msg = task.result.errors?.[0]?.message ?? "Unknown error";
+                stats.failures.push({
+                    name: [...ancestry, task.name].join(" > "),
+                    file: filePath,
+                    error: msg,
+                });
+            }
+            else if (task.result?.state === "pass") {
+                stats.passed++;
+            }
+        }
+        else if ("tasks" in task && task.tasks?.length) {
+            collectTests(task.tasks, [...ancestry, task.name], filePath, stats);
+        }
+    }
 }
-
-function collectTests(
-  tasks: Task[],
-  ancestry: string[],
-  filePath: string,
-  stats: { passed: number; failed: number; failures: FailedTest[] }
-) {
-  for (const task of tasks) {
-    if (task.type === "test") {
-      if (task.result?.state === "fail") {
-        stats.failed++;
-        const msg = task.result.errors?.[0]?.message ?? "Unknown error";
-        stats.failures.push({
-          name: [...ancestry, task.name].join(" > "),
-          file: filePath,
-          error: msg,
-        });
-      } else if (task.result?.state === "pass") {
-        stats.passed++;
-      }
-    } else if ("tasks" in task && task.tasks?.length) {
-      collectTests(task.tasks, [...ancestry, task.name], filePath, stats);
+export default class AIReporter {
+    onFinished(files = []) {
+        const stats = { passed: 0, failed: 0, failures: [] };
+        for (const file of files) {
+            const relPath = file.filepath.replace(process.cwd() + "/", "");
+            collectTests(file.tasks, [], relPath, stats);
+        }
+        if (stats.failed === 0) {
+            process.stdout.write(`PASS (${stats.passed}) FAIL (0)\n`);
+        }
+        else {
+            process.stdout.write(`PASS (${stats.passed}) FAIL (${stats.failed})\n\n`);
+            for (const f of stats.failures) {
+                const indented = f.error.split("\n").join("\n  ");
+                process.stdout.write(`● ${f.file} > ${f.name}\n  ${indented}\n\n`);
+            }
+        }
     }
-  }
-}
-
-export default class AIReporter implements Reporter {
-  onFinished(files: File[] = []) {
-    const stats = { passed: 0, failed: 0, failures: [] as FailedTest[] };
-
-    for (const file of files) {
-      const relPath = file.filepath.replace(process.cwd() + "/", "");
-      collectTests(file.tasks, [], relPath, stats);
-    }
-
-    if (stats.failed === 0) {
-      process.stdout.write(`PASS (${stats.passed}) FAIL (0)\n`);
-    } else {
-      process.stdout.write(`PASS (${stats.passed}) FAIL (${stats.failed})\n\n`);
-      for (const f of stats.failures) {
-        const indented = f.error.split("\n").join("\n  ");
-        process.stdout.write(`● ${f.file} > ${f.name}\n  ${indented}\n\n`);
-      }
-    }
-  }
 }
 ```
 
@@ -120,7 +107,7 @@ Then wire it into your `vitest.config.ts`:
 
 ```typescript
 import { defineConfig } from "vitest/config";
-import AIReporter from "./vitest-ai-reporter";
+import AIReporter from "./vitest-ai-reporter.js";
 
 export default defineConfig({
   test: {
