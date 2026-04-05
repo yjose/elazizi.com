@@ -58,63 +58,28 @@ Signal only, no noise.
 
 ## The Implementation
 
-Create a `vitest-ai-reporter.js` at your project root:
+I packaged this up and published it to npm as [`vitest-ai-reporter`](https://www.npmjs.com/package/vitest-ai-reporter). Install it with:
 
-```js
-function collectTests(tasks, ancestry, filePath, stats) {
-    for (const task of tasks) {
-        if (task.type === "test") {
-            if (task.result?.state === "fail") {
-                stats.failed++;
-                const msg = task.result.errors?.[0]?.message ?? "Unknown error";
-                stats.failures.push({
-                    name: [...ancestry, task.name].join(" > "),
-                    file: filePath,
-                    error: msg,
-                });
-            }
-            else if (task.result?.state === "pass") {
-                stats.passed++;
-            }
-        }
-        else if ("tasks" in task && task.tasks?.length) {
-            collectTests(task.tasks, [...ancestry, task.name], filePath, stats);
-        }
-    }
-}
-export default class AIReporter {
-    onFinished(files = []) {
-        const stats = { passed: 0, failed: 0, failures: [] };
-        for (const file of files) {
-            const relPath = file.filepath.replace(process.cwd() + "/", "");
-            collectTests(file.tasks, [], relPath, stats);
-        }
-        if (stats.failed === 0) {
-            process.stdout.write(`PASS (${stats.passed}) FAIL (0)\n`);
-        }
-        else {
-            process.stdout.write(`PASS (${stats.passed}) FAIL (${stats.failed})\n\n`);
-            for (const f of stats.failures) {
-                const indented = f.error.split("\n").join("\n  ");
-                process.stdout.write(`● ${f.file} > ${f.name}\n  ${indented}\n\n`);
-            }
-        }
-    }
-}
+```bash
+npm install -D vitest-ai-reporter
+# or
+pnpm add -D vitest-ai-reporter
 ```
 
 Then wire it into your `vitest.config.ts`:
 
 ```typescript
-import { defineConfig } from "vitest/config";
-import AIReporter from "./vitest-ai-reporter.js";
+import { defineConfig } from 'vitest/config'
+import AIReporter from 'vitest-ai-reporter'
 
 export default defineConfig({
   test: {
     reporters: [new AIReporter()],
   },
-});
+})
 ```
+
+The whole thing is [92 lines of TypeScript](https://github.com/yjose/vitest-ai-reporter/blob/main/src/index.ts) if you want to see exactly what's happening under the hood.
 
 ---
 
@@ -140,11 +105,17 @@ PASS (477) FAIL (0)
 ```
 PASS (473) FAIL (4)
 
-● src/routers/__tests__/auth.test.ts > login > invalid credentials
-  expected 400 to equal 200
+FAIL  src/routers/__tests__/auth.test.ts:45:19
+      login > invalid credentials
+      expected 400 to equal 200
+      45|     expect(res.status).toBe(200)
+                                 ^
 
-● src/routers/__tests__/user.test.ts > getFriends > returns empty list
-  expected [] to deeply equal null
+FAIL  src/routers/__tests__/user.test.ts:112:23
+      getFriends > returns empty list
+      expected [] to deeply equal null
+      112|     expect(result).toEqual(null)
+                              ^
 ```
 
 The AI gets exactly what it needs — no more, no less.
