@@ -2,7 +2,7 @@
 title: "I Taught My Test Suite to Speak AI's Language"
 tags: ["vitest", "ai", "testing", "developer-tools"]
 keywords: ["vitest", "custom reporter", "ai coding assistant", "token optimization", "llm", "context window"]
-pubDatetime: 2026-04-06
+pubDatetime: 2026-04-07
 description: How I built a custom Vitest reporter that compresses test output for AI coding assistants — from 40+ lines to 1 line when all tests pass.
 ---
 
@@ -133,4 +133,3 @@ Default CLI tools were designed for humans who skim. AI reads everything. A pass
 Tokens compound. Every `pnpm test` in a session, every CI log, every linter output. Start treating your tooling output as part of your prompt engineering.
 
 For broader CLI output compression across `git`, `docker`, and more, **[RTK](https://www.rtk-ai.app/#install)** is worth a look.
-
