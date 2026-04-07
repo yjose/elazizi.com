@@ -1,24 +1,40 @@
 import { FEATURED_REPOS } from "@config";
 import type { Repository } from "types";
 
-const fetchRepoData = async (repo: string): Promise<Repository> => {
-  const response = await fetch(`https://api.github.com/repos/${repo}`);
-  const repository: Repository = await response.json();
-  return {
-    name: repository.name,
-    html_url: repository.html_url,
-    description: repository.description || "",
-    language: repository.language,
-    stargazers_count: repository.stargazers_count,
-    forks: repository.forks,
-  };
+const fetchRepoData = async (repo: string): Promise<Repository | null> => {
+  try {
+    const response = await fetch(`https://api.github.com/repos/${repo}`);
+
+    if (!response.ok) {
+      console.warn(
+        `Skipping featured repo "${repo}" because GitHub returned ${response.status}.`
+      );
+      return null;
+    }
+
+    const repository: Repository = await response.json();
+    return {
+      name: repository.name,
+      html_url: repository.html_url,
+      description: repository.description || "",
+      language: repository.language,
+      stargazers_count: repository.stargazers_count,
+      forks: repository.forks,
+    };
+  } catch (error) {
+    console.warn(
+      `Skipping featured repo "${repo}" because GitHub fetch failed.`,
+      error
+    );
+    return null;
+  }
 };
 
 export const getFeaturedRepos = async (): Promise<Repository[]> => {
   const data = await Promise.all(
     FEATURED_REPOS.map(async repo => {
       const repository = await fetchRepoData(repo);
-      if (repository.name === undefined) return null;
+      if (!repository?.name) return null;
       return repository;
     })
   );

@@ -1,15 +1,21 @@
 ---
-
 import { SITE } from "@config";
 import "@styles/base.css";
 
 import Header from "@components/Header.astro";
-import { ViewTransitions } from 'astro:transitions';
-
+import { ViewTransitions } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
-const ENEABLE_ANALYTICS =  !import.meta.env.DEV;
+const ENEABLE_ANALYTICS = !import.meta.env.DEV;
+const analyticsScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-N828YWTB5N");
+`;
 
 export interface Props {
   title?: string;
@@ -97,20 +103,17 @@ const socialImageURL = new URL(
     }
     {
       ENEABLE_ANALYTICS && (
-        <script type="text/partytown" data-swup-ignore-script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag("js", new Date());
-          gtag("config", "G-N828YWTB5N");
-        </script>
+        <script
+          type="text/partytown"
+          data-swup-ignore-script
+          set:html={analyticsScript}
+        />
       )
     }
   </head>
   <body>
-    <Header  />
-    <div class="wrapper pt-16 w-full max-w-3xl mx-auto">
+    <Header />
+    <div class="wrapper mx-auto w-full max-w-3xl pt-16">
       <slot />
     </div>
   </body>

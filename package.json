@@ -54,6 +54,11 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "pnpm": {
+    "overrides": {
+      "sitemap": "7.1.2"
+    }
+  },
   "lint-staged": {
     "!(*.{png,jpg,jpeg,webp})": [
       "prettier --plugin-search-dir=. --write"

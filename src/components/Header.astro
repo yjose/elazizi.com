@@ -1,9 +1,7 @@
 ---
-import { LOGO_IMAGE, SITE } from "@config";
+import { SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
-
-
 ---
 
 <header transition:persist>
@@ -11,7 +9,7 @@ import LinkButton from "./LinkButton.astro";
   <div class="nav-container">
     <div class="top-nav-wrap">
       <a href="/" class="logo">
-            <>Youssouf </>
+        <>Youssouf</>
       </a>
       <nav id="nav-menu">
         <button
@@ -100,7 +98,7 @@ import LinkButton from "./LinkButton.astro";
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
   .nav-container {
-    @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row bg-skin-fill/5;
+    @apply mx-auto flex max-w-3xl flex-col items-center justify-between bg-skin-fill/5 sm:flex-row;
     position: fixed;
     top: 0;
     left: 0;
@@ -125,7 +123,7 @@ import LinkButton from "./LinkButton.astro";
     @apply flex w-full flex-col items-center  sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0 relative;
+    @apply relative mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
   }
   #menu-items {
     --border-witdh: 0px;
@@ -195,14 +193,14 @@ import LinkButton from "./LinkButton.astro";
   // calculate links boundries, width as well as translatX for evey link based on nav width
   const links = document.querySelectorAll("#menu-items a");
   const menuItemsBounding = menuItems?.getBoundingClientRect();
-  let linksBounding: { width: number; translateX: number }[] = [];
-  links?.forEach(link => {
+  const linksBounding = Array.from(links, link => {
     const linkBounding = link.getBoundingClientRect();
     // calculate translateX for each link based on nav width
     if (menuItemsBounding) {
       const translateX = linkBounding.x - menuItemsBounding.x;
-      linksBounding.push({ width: linkBounding.width, translateX });
+      return { width: linkBounding.width, translateX };
     }
+    return null;
   });
 
   menuBtn?.addEventListener("click", () => {
@@ -224,16 +222,15 @@ import LinkButton from "./LinkButton.astro";
     links.forEach((link, index) => {
       if (link.getAttribute("href") === `/${currentPath}`) {
         avtiveLinkInNavItems = true;
+        const linkBounds = linksBounding[index];
+        if (!linkBounds) return;
         //@ts-ignore
         menuItems?.style.setProperty(
           "--border-translateX",
-          `${linksBounding[index].translateX}px`
+          `${linkBounds.translateX}px`
         );
         //@ts-ignore
-        menuItems?.style.setProperty(
-          "--border-witdh",
-          `${linksBounding[index].width}px`
-        );
+        menuItems?.style.setProperty("--border-witdh", `${linkBounds.width}px`);
         // link.classList.add("active");
       }
     });
